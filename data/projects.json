@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "id": "la-pate",
+      "name": "LA´PATE",
+      "slug": "la-pate",
+      "cover": "projects/la-pate/cover.png",
+      "categories": ["gastronomia", "culinaria"],
+      "is_featured": true,
+      "order": 1
+    },
+    {
+      "id": "cetyn",
+      "name": "CETYN",
+      "slug": "cetyn",
+      "cover": "projects/cetyn/cover.png",
+      "categories": ["moda", "estilo"],
+      "is_featured": false,
+      "order": 2
+    },
+    {
+      "id": "dona",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona/images/1.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": true,
+      "order": 3
+    }
+  ]
+}

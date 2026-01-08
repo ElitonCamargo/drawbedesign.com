@@ -1,0 +1,60 @@
+{
+  "name": "LA´PATE",
+  "slogan": "Massas Frescas Artesanais",
+  "description": "Massas artesanais frescas, feitas com ingredientes selecionados para garantir sabor e qualidade excepcionais.",
+  "tags": ["massas", "italiana", "artesanal"],
+  "year": 2024,
+  "client": "LA´PATE",
+  "links": {
+    "website": "https://lapate.com.br",
+    "instagram": "https://www.instagram.com/lapate.oficial/",
+    "facebook": "https://www.facebook.com/lapate.oficial"
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Massas LA´PATE",
+      "alt": "Prato delicioso de massas artesanais LA´PATE"
+    },
+    {
+      "file": "2.png",
+      "title": "Produtos LA´PATE",
+      "alt": "Caixa com diferentes tipos de massas frescas LA´PATE"
+    },
+    {
+      "file": "3.png",
+      "title": "Produtos LA´PATE",
+      "alt": "Caixa com diferentes tipos de massas frescas LA´PATE"
+    },
+    {
+      "file": "4.png",
+      "title": "LA´PATE",
+      "alt": "Exemplo da marca bordada em um avental vermelho LA´PATE"
+    },
+    {
+      "file": "5.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "6.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "7.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "8.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "9.png",
+      "title": "",
+      "alt": ""
+    }
+  ]
+}

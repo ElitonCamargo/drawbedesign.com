@@ -1,0 +1,139 @@
+:root {
+	--bg: #ffffff;
+	--fg: #0b0b0b;
+	--muted: #6a6a6a;
+	--border: #eaeaea;
+	--brand: #0b0b0b;
+	--spacing-1: clamp(8px, 1vw, 12px);
+	--spacing-2: clamp(12px, 1.5vw, 18px);
+	--spacing-3: clamp(16px, 2vw, 24px);
+	--radius: 1px;
+	--shadow: 0 2px 24px rgba(0,0,0,0.06);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+	margin: 0;
+	font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	color: var(--fg);
+	background: var(--bg);
+}
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 var(--spacing-2); }
+
+.site-header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--border); z-index: 50; }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { font-weight: 600; text-decoration: none; color: var(--brand); letter-spacing: 0.5px; }
+.site-nav a { color: var(--fg); text-decoration: none; margin-left: var(--spacing-2); }
+.site-nav a:hover { opacity: 0.7; }
+
+.site-main { padding: var(--spacing-3) 0; }
+
+/* Masonry usando colunas para efeito fluido */
+.masonry {
+	column-gap: var(--spacing-2);
+}
+@media (min-width: 640px) { .masonry { column-count: 2; } }
+@media (min-width: 900px) { .masonry { column-count: 3; } }
+@media (min-width: 1200px) { .masonry { column-count: 4; } }
+
+.project-card { display: inline-block; width: 100%; margin: 0 0 var(--spacing-2); break-inside: avoid; }
+.project-card a { display: block; text-decoration: none; color: inherit; }
+.project-card .cover {
+	width: 100%;
+	display: block;
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	background: #f6f6f6;
+	/* aspect-ratio: 4 / 3; */
+	object-fit: cover;
+	transition: transform 240ms ease, opacity 240ms ease;
+}
+.project-card:hover .cover { transform: scale(1.01); }
+.project-card .title { font-size: clamp(14px, 2.2vw, 18px); margin-top: var(--spacing-1); }
+.project-card .meta { font-size: clamp(12px, 2vw, 14px); color: var(--muted); margin-top: 4px; }
+
+/* Página do projeto */
+.project-hero { padding-bottom: var(--spacing-3); border-bottom: 1px solid var(--border); margin-bottom: var(--spacing-3); }
+.project-hero h1 { font-size: clamp(24px, 4vw, 40px); margin: 0 0 var(--spacing-1); }
+.project-hero .slogan { color: var(--muted); font-size: clamp(14px, 2.2vw, 18px); }
+.project-hero .desc { margin-top: var(--spacing-2); max-width: 72ch; line-height: 1.6; }
+
+.gallery { display: grid; grid-template-columns: 1fr; gap: var(--spacing-2); }
+@media (min-width: 700px) { .gallery { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .gallery { grid-template-columns: 1fr 1fr 1fr; } }
+.gallery figure { margin: 0; }
+.gallery img {
+	width: 100%;
+	display: block;
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	background: #f6f6f6;
+	object-fit: cover;
+}
+.gallery figcaption { font-size: clamp(12px, 2vw, 14px); color: var(--muted); margin-top: 6px; }
+
+.site-footer { border-top: 1px solid var(--border); padding: var(--spacing-3) 0; color: var(--muted); }
+
+/* Lightbox */
+.lightbox {
+	position: fixed;
+	inset: 0;
+	display: none;
+	place-items: center;
+	z-index: 1000;
+}
+.lightbox.open { display: grid; }
+.lightbox-backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(0,0,0,0.7);
+}
+.lightbox-content {
+	position: relative;
+	max-width: 92vw;
+	max-height: 92vh;
+	display: grid;
+	grid-template-areas:
+		'prev img next'
+		'cap cap cap';
+	grid-template-columns: auto 1fr auto;
+	gap: var(--spacing-2);
+	align-items: center;
+}
+.lightbox-img {
+	grid-area: img;
+	max-width: 82vw;
+	max-height: 82vh;
+	width: auto;
+	height: auto;
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+}
+.lightbox-caption {
+	grid-area: cap;
+	color: #e8e8e8;
+	text-align: center;
+	margin-top: var(--spacing-1);
+}
+.lightbox-btn,
+.lightbox-close {
+	appearance: none;
+	border: 0;
+	background: rgba(255,255,255,0.1);
+	color: white;
+	width: 40px;
+	height: 40px;
+	border-radius: 999px;
+	display: grid;
+	place-items: center;
+	cursor: pointer;
+}
+.lightbox-prev { grid-area: prev; }
+.lightbox-next { grid-area: next; }
+.lightbox-close {
+	position: absolute;
+	top: -16px;
+	right: -16px;
+}
