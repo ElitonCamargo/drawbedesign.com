@@ -1,0 +1,60 @@
+{
+  "name": "DONA",
+  "slogan": "Roupa Feminina sensual e Confortável",
+  "description": "Roupas femininas que combinam sensualidade e conforto, feitas com tecidos de alta qualidade para valorizar a beleza feminina.",
+  "tags": ["roupa", "feminina", "sensual", "confortável"],
+  "year": 2024,
+  "client": "DONA",
+  "links": {
+    "website": "https://cetyn.com.br",
+    "instagram": "https://www.instagram.com/cetynoficial/",
+    "facebook": "https://www.facebook.com/cetynoficial"
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "2.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "3.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "4.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "5.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "6.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "7.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "8.png",
+      "title": "",
+      "alt": ""
+    },
+    {
+      "file": "9.png",
+      "title": "",
+      "alt": ""
+    }
+  ]
+}

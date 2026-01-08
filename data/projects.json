@@ -26,6 +26,159 @@
       "categories":  ["moda", "estilo", "beleza"],
       "is_featured": true,
       "order": 3
+    },
+    {
+      "id": "la-pate2",
+      "name": "LA´PATE",
+      "slug": "la-pate",
+      "cover": "projects/la-pate2/images/1.png",
+      "categories": ["gastronomia", "culinaria"],
+      "is_featured": true,
+      "order": 4
+    },
+    {
+      "id": "cetyn2",
+      "name": "CETYN",
+      "slug": "cetyn",
+      "cover": "projects/cetyn2/images/1.png",
+      "categories": ["moda", "estilo"],
+      "is_featured": false,
+      "order": 5
+    },
+    {
+      "id": "dona2",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona2/images/8.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": true,
+      "order": 6
+    },
+    {
+      "id": "dona2",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona2/images/5.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": true,
+      "order": 7
+    },
+    {
+      "id": "la-pate",
+      "name": "LA´PATE",
+      "slug": "la-pate",
+      "cover": "projects/la-pate/cover.png",
+      "categories": ["gastronomia", "culinaria"],
+      "is_featured": true,
+      "order": 8
+    },
+    {
+      "id": "cetyn",
+      "name": "CETYN",
+      "slug": "cetyn",
+      "cover": "projects/cetyn/cover.png",
+      "categories": ["moda", "estilo"],
+      "is_featured": false,
+      "order": 9
+    },
+    {
+      "id": "dona",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona/images/1.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": true,
+      "order": 10
+    },
+    {
+      "id": "la-pate",
+      "name": "LA´PATE",
+      "slug": "la-pate",
+      "cover": "projects/la-pate/images/1.png",
+      "categories": ["gastronomia", "culinaria"],
+      "is_featured": true,
+      "order": 1
+    },
+    {
+      "id": "cetyn",
+      "name": "CETYN",
+      "slug": "cetyn",
+      "cover": "projects/cetyn/images/1.png",
+      "categories": ["moda", "estilo"],
+      "is_featured": false,
+      "order": 2
+    },
+    {
+      "id": "dona",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona/images/1.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": true,
+      "order": 3
+    },
+    {
+      "id": "la-pate2",
+      "name": "LA´PATE",
+      "slug": "la-pate",
+      "cover": "projects/la-pate2/images/2.png",
+      "categories": ["gastronomia", "culinaria"],
+      "is_featured": true,
+      "order": 4
+    },
+    {
+      "id": "cetyn2",
+      "name": "CETYN",
+      "slug": "cetyn",
+      "cover": "projects/cetyn2/images/3.png",
+      "categories": ["moda", "estilo"],
+      "is_featured": false,
+      "order": 5
+    },
+    {
+      "id": "dona2",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona2/images/2.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": true,
+      "order": 6
+    },
+    {
+      "id": "dona2",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona2/images/5.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": true,
+      "order": 7
+    },
+    {
+      "id": "la-pate",
+      "name": "LA´PATE",
+      "slug": "la-pate",
+      "cover": "projects/la-pate/images/3.png",
+      "categories": ["gastronomia", "culinaria"],
+      "is_featured": true,
+      "order": 8
+    },
+    {
+      "id": "cetyn",
+      "name": "CETYN",
+      "slug": "cetyn",
+      "cover": "projects/cetyn/cover.png",
+      "categories": ["moda", "estilo"],
+      "is_featured": false,
+      "order": 9
+    },
+    {
+      "id": "dona",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona/images/1.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": true,
+      "order": 10
     }
   ]
 }

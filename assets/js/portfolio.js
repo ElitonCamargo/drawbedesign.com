@@ -12,9 +12,10 @@
 
 		projects.forEach(p => {
 			const alt = p.name ? `Capa do projeto ${p.name}` : 'Capa do projeto';
+			const coverSrc = p.cover && !p.cover.startsWith('/') ? `/${p.cover}` : p.cover;
 			const card = UI.el('article', { class: 'project-card' }, [
-				UI.el('a', { href: `project.html?slug=${encodeURIComponent(p.slug)}`, 'aria-label': p.name || p.slug }, [
-					UI.el('img', { class: 'cover', src: p.cover, loading: 'lazy', alt })
+				UI.el('a', { href: `/project/${encodeURIComponent(p.slug)}`, 'aria-label': p.name || p.slug }, [
+					UI.el('img', { class: 'cover', src: coverSrc, loading: 'lazy', alt })
 					// UI.el('div', { class: 'title' }, [document.createTextNode(p.name || p.slug)]),
 					// UI.el('div', { class: 'meta' }, [document.createTextNode((p.categories || []).join(' · '))])
 				])
