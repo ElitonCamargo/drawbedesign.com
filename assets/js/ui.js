@@ -15,7 +15,6 @@
 
 	async function fetchJSON(url) {
 		const absUrl = new URL(url, location.origin).toString();
-		console.log('Fetching JSON from:', absUrl);
 		const res = await fetch(absUrl, { headers: { 'Accept': 'application/json' } });
 		if (!res.ok) throw new Error(`Falha ao carregar: ${url}`);
 		return res.json();

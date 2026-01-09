@@ -81,12 +81,14 @@
 			]);
 			main.append(section);
 			await Portfolio.initPortfolio();
+			markActiveNav();
 			return;
 		}
 
 		if (path.startsWith('/project/')) {
 			main.innerHTML = '';
 			await renderProjectDetail();
+			markActiveNav();
 			return;
 		}
 		// Rotas estáticas (about/services/contact) continuam via navegação normal.
@@ -122,6 +124,19 @@
 
 	window.addEventListener('DOMContentLoaded', boot);
 	window.App = { boot, route };
+
+	function markActiveNav() {
+		const path = location.pathname.replace(/\/+$/, '') || '/';
+		document.querySelectorAll('.site-nav a').forEach(a => {
+			const href = new URL(a.getAttribute('href'), location.origin).pathname.replace(/\/+$/, '') || '/';
+			a.classList.toggle('active', href === path);
+		});
+		const brand = document.querySelector('.brand');
+		if (brand) {
+			const href = new URL(brand.getAttribute('href'), location.origin).pathname.replace(/\/+$/, '') || '/';
+			brand.classList.toggle('active', href === path);
+		}
+	}
 
 	window.addEventListener('DOMContentLoaded', boot);
 
