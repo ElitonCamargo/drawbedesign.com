@@ -149,48 +149,171 @@
 			return { src: img.getAttribute('src'), alt: img.getAttribute('alt') || '', caption: cap ? cap.textContent : '' };
 		});
 
+		setupSlider(items);
+		figures.forEach((fig, idx) => {
+			const img = fig.querySelector('img');
+			img.style.cursor = 'zoom-in';
+			img.addEventListener('click', () => window.Slider.open(idx));
+		});
+	}
+
+	function setupSlider(items) {
 		let current = 0;
-		let lb = document.querySelector('.lightbox');
-		if (!lb) {
-			lb = UI.el('div', { class: 'lightbox', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Visualização de imagem' }, [
-				UI.el('div', { class: 'lightbox-backdrop', onclick: () => close() }),
-				UI.el('div', { class: 'lightbox-content' }, [
-					UI.el('button', { class: 'lightbox-close', 'aria-label': 'Fechar', onclick: () => close() }, [document.createTextNode('×')]),
-					UI.el('button', { class: 'lightbox-btn lightbox-prev', 'aria-label': 'Anterior', onclick: () => prev() }, [document.createTextNode('‹')]),
-					UI.el('img', { class: 'lightbox-img', alt: '' }),
-					UI.el('button', { class: 'lightbox-btn lightbox-next', 'aria-label': 'Próxima', onclick: () => next() }, [document.createTextNode('›')]),
-					UI.el('div', { class: 'lightbox-caption' })
+		let slider = document.querySelector('.slider');
+		if (!slider) {
+			slider = UI.el('div', { class: 'slider', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Visualização de imagens' }, [
+				UI.el('div', { class: 'slider-backdrop', onclick: () => close() }),
+				UI.el('div', { class: 'slider-stage' }, [
+					UI.el('div', { class: 'slider-track' }),
+					UI.el('div', { class: 'slider-caption' }),
+					UI.el('button', { class: 'slider-close', 'aria-label': 'Fechar', onclick: () => close() }, [document.createTextNode('×')]),
+					UI.el('button', { class: 'slider-prev', 'aria-label': 'Anterior', onclick: () => prev() }, [document.createTextNode('‹')]),
+					UI.el('button', { class: 'slider-next', 'aria-label': 'Próxima', onclick: () => next() }, [document.createTextNode('›')])
 				])
 			]);
-			document.body.append(lb);
+			document.body.append(slider);
 
 			window.addEventListener('keydown', (e) => {
-				if (!lb.classList.contains('open')) return;
+				if (!slider.classList.contains('open')) return;
 				if (e.key === 'Escape') close();
 				if (e.key === 'ArrowRight') next();
 				if (e.key === 'ArrowLeft') prev();
 			});
 		}
 
-		const imgEl = lb.querySelector('.lightbox-img');
-		const capEl = lb.querySelector('.lightbox-caption');
+		const track = slider.querySelector('.slider-track');
+		const stage = slider.querySelector('.slider-stage');
+		const captionEl = slider.querySelector('.slider-caption');
 
-		function update() {
-			const it = items[current];
-			imgEl.src = it.src;
-			imgEl.alt = it.alt;
-			capEl.textContent = it.caption || '';
+		if (!track.hasChildNodes()) {
+			items.forEach(it => {
+				const itemEl = UI.el('div', { class: 'slider-item' }, [
+					UI.el('img', { src: it.src, alt: it.alt })
+				]);
+				track.append(itemEl);
+			});
 		}
-		function open(index) { current = index; update(); lb.classList.add('open'); }
-		function close() { lb.classList.remove('open'); }
-		function next() { current = (current + 1) % items.length; update(); }
-		function prev() { current = (current - 1 + items.length) % items.length; update(); }
 
-		figures.forEach((fig, idx) => {
-			const img = fig.querySelector('img');
-			img.style.cursor = 'zoom-in';
-			img.addEventListener('click', () => open(idx));
-		});
+		const itemEls = Array.from(track.querySelectorAll('.slider-item'));
+
+		function layout() {
+			const isTablet = window.innerWidth >= 768;
+			const isDesktop = window.innerWidth >= 1100;
+			const centerScale = isDesktop ? 1.12 : isTablet ? 1.08 : 1.02;
+			const positions = {
+				'0':  { tx: '0vw',   tz: '50px',   ry: '0deg',   sc: centerScale, op: 1 },
+				'-1': { tx: '-32vw', tz: '-300px', ry: '35deg',  sc: 0.88, op: 1 },
+				'1':  { tx: '32vw',  tz: '-300px', ry: '-35deg', sc: 0.88, op: 1 },
+				'-2': { tx: '-52vw', tz: '-600px', ry: '50deg',  sc: 0.78, op: 0.9 },
+				'2':  { tx: '52vw',  tz: '-600px', ry: '-50deg', sc: 0.78, op: 0.9 },
+				'-3': { tx: '-68vw', tz: '-800px', ry: '60deg',  sc: 0.68, op: 0.75 },
+				'3':  { tx: '68vw',  tz: '-800px', ry: '-60deg', sc: 0.68, op: 0.75 }
+			};
+			itemEls.forEach((el, idx) => {
+				const d = distance(idx);
+				const pos = positions[d !== null ? String(d) : 'x'];
+				if (!pos) {
+					el.style.opacity = '0';
+					el.style.pointerEvents = 'none';
+					el.style.transform = 'translate(-50%, -50%) translateX(0) translateZ(-600px) scale(0.6)';
+				} else {
+					el.style.opacity = String(pos.op);
+					el.style.pointerEvents = 'auto';
+					el.style.transform = `translate(-50%, -50%) translateX(${pos.tx}) translateZ(${pos.tz}) rotateY(${pos.ry}) scale(${pos.sc})`;
+				}
+			});
+			const it = items[current];
+			captionEl.textContent = it.caption || '';
+		}
+		function distance(idx) {
+			const n = itemEls.length;
+			let d = idx - current;
+			if (d > n/2) d -= n; if (d < -n/2) d += n;
+			if (d < -3 || d > 3) return null;
+			return d;
+		}
+		function open(index) { current = index; layout(); slider.classList.add('open'); }
+		function close() { slider.classList.remove('open'); }
+		function next() { current = (current + 1) % itemEls.length; layout(); }
+		function prev() { current = (current - 1 + itemEls.length) % itemEls.length; layout(); }
+
+		window.Slider = { open, close, next, prev };
+
+		// Gestos: arrastar para navegar
+		let pointerId = null;
+		let startX = 0;
+		let dx = 0;
+		let lastX = 0;
+		let lastT = 0;
+		let velocity = 0; // px/ms
+		let dragging = false;
+		function onDown(e) {
+			// Evita iniciar gesto ao clicar nos controles
+			if (e.target && e.target.closest && e.target.closest('.slider-prev, .slider-next, .slider-close')) return;
+			if (pointerId !== null) return;
+			pointerId = e.pointerId || 'mouse';
+			stage.setPointerCapture && stage.setPointerCapture(pointerId);
+			startX = e.clientX;
+			dx = 0;
+			lastX = startX;
+			lastT = performance.now();
+			velocity = 0;
+			dragging = true;
+			slider.classList.add('dragging');
+			track.style.transition = 'none';
+		}
+		function onMove(e) {
+			if (!dragging) return;
+			if (pointerId !== (e.pointerId || 'mouse')) return;
+			dx = e.clientX - startX;
+			const now = performance.now();
+			const dt = Math.max(1, now - lastT);
+			velocity = (e.clientX - lastX) / dt; // px/ms
+			lastX = e.clientX;
+			lastT = now;
+			track.style.transform = `translateX(${dx}px)`;
+		}
+		function onUp(e) {
+			if (!dragging) return;
+			dragging = false;
+			slider.classList.remove('dragging');
+			const threshold = Math.max(60, window.innerWidth * 0.08);
+			const vThresh = 0.5 / 1.0; // ~0.5 px/ms (500 px/s)
+			const dir = dx !== 0 ? Math.sign(dx) : Math.sign(velocity);
+			const isFlick = Math.abs(velocity) > vThresh;
+			const shouldPrev = (dx > threshold) || (isFlick && dir > 0);
+			const shouldNext = (dx < -threshold) || (isFlick && dir < 0);
+			// pequena animação de inércia (overshoot) para feedback visual
+			const overshoot = Math.min(220, Math.abs(velocity) * 140);
+			if (shouldPrev || shouldNext) {
+				track.style.transition = 'transform 220ms cubic-bezier(0.2, 0.8, 0, 1)';
+				track.style.transform = `translateX(${(shouldPrev ? 1 : -1) * (overshoot || 140)}px)`;
+				setTimeout(() => {
+					track.style.transition = 'transform 180ms ease-out';
+					track.style.transform = 'translateX(0)';
+				}, 180);
+				if (shouldPrev) prev(); else next();
+			} else {
+				track.style.transition = 'transform 200ms ease';
+				track.style.transform = 'translateX(0)';
+			}
+			pointerId = null;
+		}
+		if (!stage.dataset.gesturesAdded) {
+			stage.addEventListener('pointerdown', onDown);
+			stage.addEventListener('pointermove', onMove);
+			stage.addEventListener('pointerup', onUp);
+			stage.addEventListener('pointerleave', onUp);
+			stage.addEventListener('pointercancel', onUp);
+			// evita propagação dos eventos dos botões para o palco
+			stage.querySelectorAll('.slider-prev, .slider-next, .slider-close').forEach(btn => {
+				btn.addEventListener('pointerdown', (ev) => ev.stopPropagation());
+				btn.addEventListener('click', (ev) => ev.stopPropagation());
+			});
+			stage.dataset.gesturesAdded = '1';
+		}
+		// evita arrastar a imagem nativa
+		track.addEventListener('dragstart', (e) => e.preventDefault());
 	}
 
 	window.App = { boot };
