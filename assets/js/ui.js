@@ -1,7 +1,15 @@
 // Utilitários de UI e helpers gerais
+// Funções auxiliares expostas em `window.UI` para facilitar:
+// - Seleção de elementos (`qs`, `qsa`)
+// - Criação de elementos com atributos e filhos (`el`)
+// - Fetch de JSON com cabeçalho adequado (`fetchJSON`)
+// - Atualização de título e meta descrição (`setTitleAndMeta`)
 (function () {
+	// Seleciona o primeiro elemento que bate com o seletor
 	function qs(sel, root = document) { return root.querySelector(sel); }
+	// Seleciona todos os elementos que batem com o seletor (array)
 	function qsa(sel, root = document) { return Array.from(root.querySelectorAll(sel)); }
+	// Cria um elemento com atributos e filhos, tratando `class`, `dataset` e handlers `on*`
 	function el(tag, attrs = {}, children = []) {
 		const node = document.createElement(tag);
 		for (const [k, v] of Object.entries(attrs)) {
@@ -13,6 +21,7 @@
 		return node;
 	}
 
+	// Faz fetch de JSON garantindo cabeçalhos e erro amigável
 	async function fetchJSON(url) {
 		const absUrl = new URL(url, location.origin).toString();
 		const res = await fetch(absUrl, { headers: { 'Accept': 'application/json' } });
@@ -20,6 +29,7 @@
 		return res.json();
 	}
 
+	// Atualiza título e meta descrição da página
 	function setTitleAndMeta(title, description) {
 		if (title) document.title = title;
 		if (description) {

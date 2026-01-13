@@ -23,7 +23,7 @@ body {
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 var(--spacing-2); }
 
-.site-header { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--border); z-index: 50; }
+.site-header { position: sticky; top: 0; background: var(--bg); z-index: 50; }
 .site-header .container { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--spacing-1); padding: var(--spacing-2) 0; }
 .brand { font-weight: 600; text-decoration: none; color: var(--brand); letter-spacing: 0.5px; position: relative; padding-bottom: 6px; }
 .site-nav { display: flex; align-items: center; justify-content: center; gap: var(--spacing-2); }
@@ -69,9 +69,9 @@ body {
 .project-card .meta { font-size: clamp(12px, 2vw, 14px); color: var(--muted); margin-top: 4px; }
 
 /* Página do projeto */
-.project-hero { padding-bottom: var(--spacing-3); border-bottom: 1px solid var(--border); margin-bottom: var(--spacing-3); }
-.project-hero h1 { font-size: clamp(24px, 4vw, 40px); margin: 0 0 var(--spacing-1); }
-.project-hero .slogan { color: var(--muted); font-size: clamp(14px, 2.2vw, 18px); }
+.project-hero { padding-bottom: var(--spacing-3); margin-bottom: var(--spacing-3); }
+.project-hero h1 { font-size: clamp(24px, 4vw, 30px); margin: 0 0 var(--spacing-1); font-weight: 400; text-align: center; color: #393939;}
+.project-hero .slogan { color: var(--muted); font-size: clamp(14px, 2.2vw, 18px); text-align: center; }
 .project-hero .desc { margin-top: var(--spacing-2); max-width: 72ch; line-height: 1.6; display: none; }
 
 .gallery { column-gap: var(--spacing-0); }
@@ -146,111 +146,149 @@ body {
 	right: -16px;
 }
 
-/* Slider 3D */
-.slider {
-	position: fixed;
-	inset: 0;
-	display: none;
-	place-items: center;
-	z-index: 1100;
+
+/* Project inline carousel */
+.project-carousel {
+	padding: 24px 0 48px;
 }
-.slider.open { display: grid; }
-.slider-backdrop {
-	position: absolute;
-	inset: 0;
-	background: rgba(0,0,0,0.8);
-}
-.slider-stage {
-	position: relative;
-	width: 92vw;
-	height: 82vh;
-	max-width: 1200px;
-	perspective: 900px;
-	touch-action: pan-y;
-	cursor: grab;
-}
-.slider-track {
-	position: absolute;
-	inset: 0;
-	transform-style: preserve-3d;
-	will-change: transform;
-}
-.slider-item {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	transition: transform 400ms ease, opacity 300ms ease;
-	will-change: transform, opacity;
-}
-.slider-item img {
-	max-width: 80vw;
-	max-height: 72vh;
-	width: auto;
-	height: auto;
-	border-radius: var(--radius);
-	box-shadow: var(--shadow);
-	background: #101010;
-	object-fit: contain;
-}
-@media (min-width: 768px) {
-	.slider-item img {
-		max-width: 88vw;
-		max-height: 78vh;
+.project-carousel .container {
+	max-width: none;
+	width: 100%;
+	height: 85vh;
+	.swiper-mount {
+		width: 100%;
+		height: 100%;
 	}
 }
-@media (min-width: 1100px) {
-	.slider-item img {
-		max-width: 92vw;
-		max-height: 82vh;
-	}
+
+/* Estilos antigos (.pc-*) removidos — Swiper cuida do layout do slider */
+
+
+/* Ajustes slide swiper */
+
+.project-carousel {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  align-items: center;
 }
-.slider-caption {
-	position: absolute;
-	left: 50%;
-	bottom: 12px;
-	transform: translateX(-50%);
-	color: #e8e8e8;
-	text-align: center;
+
+.swiper {
+  width: 100%;
+  height: 100%;
 }
-.slider-prev,
-.slider-next,
-.slider-close {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	appearance: none;
-	border: 0;
-	background: rgba(20,20,20,0.55);
+
+.swiper-slide {
+  height: 70vh;              /* controla o destaque vertical */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.swiper-slide img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+
+.swiper-slide {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.swiper-slide-active {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  transform: scale(0.88);
+  opacity: 0.6;
+}
+
+
+/* Fim dos ajustes slide swiper */
+.swiper-button-next, .swiper-button-prev{
 	color: #ffffff;
-	width: 48px;
-	height: 48px;
-	border-radius: 999px;
-	display: grid;
-	place-items: center;
-	cursor: pointer;
-	border: 1px solid rgba(255,255,255,0.25);
-	box-shadow: 0 6px 24px rgba(0,0,0,0.35);
-	backdrop-filter: blur(6px) saturate(1.1);
-	-webkit-backdrop-filter: blur(6px) saturate(1.1);
-	transition: background 160ms ease, box-shadow 160ms ease, transform 120ms ease;
-}
-.slider-prev { left: 16px; }
-.slider-next { right: 16px; }
-.slider-close {
-	top: 16px;
-	right: 16px;
-	transform: none;
+    background-color: #14141430;
+    padding: 10px;
+    border-radius: 50%;
+    border-color: #ffffff78;
+    border-width: 0.1px;
+    border-style: solid;
 }
 
-.slider-prev, .slider-next, .slider-close { text-shadow: 0 1px 2px rgba(0,0,0,0.6); }
-.slider-prev:hover, .slider-next:hover, .slider-close:hover { background: rgba(20,20,20,0.40); box-shadow: 0 8px 28px rgba(0,0,0,0.45); }
-.slider-prev:active, .slider-next:active { transform: translateY(-50%) scale(0.98); }
-.slider-close:active { transform: scale(0.98); }
-.slider-prev:focus-visible, .slider-next:focus-visible, .slider-close:focus-visible {
-	outline: none;
-	box-shadow: 0 8px 28px rgba(0,0,0,0.45), 0 0 0 3px rgba(255,255,255,0.45);
+.swiper-slide img{
+	border-radius: 0px;
 }
 
-.slider.dragging .slider-stage { cursor: grabbing; }
-.slider img { -webkit-user-drag: none; user-select: none; }
+.swiper-pagination-bullet-active {
+    background: #fdfdfd;
+}
+
+.swiper-caption{
+	display: none;
+}
+
+
+.project-carousel {
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-wrapper {
+  align-items: center;
+}
+
+.swiper-slide {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.4;
+  transform: scale(0.85);
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  opacity: 0.7;
+  transform: scale(0.92);
+}
+
+/* Exibição de zoom na imagem */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 95vh;
+  object-fit: contain;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 32px;
+  background: none;
+  color: white;
+  border: 0;
+  cursor: pointer;
+}

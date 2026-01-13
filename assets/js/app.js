@@ -5,9 +5,11 @@
 		return params.get('slug') || '';
 	}
 
+	// Renderiza a página de detalhe de um projeto: hero + galeria (Swiper)
 	async function renderProjectDetail() {
 		const main = UI.qs('#main');
 		if (!main) return;
+
 		const slug = getSlugFromPath() || getSlugFromQuery();
 		if (!slug) { UI.setTitleAndMeta('Projeto — drawbe', 'Detalhes do projeto.'); return; }
 
@@ -31,36 +33,182 @@
 			])
 		]);
 
-		const gallery = UI.el('section', {}, [
+		// Seção de galeria: onde o Swiper será montado
+		const carouselSection = UI.el('section', { class: 'project-carousel' }, [
 			UI.el('div', { class: 'container' }, [
-				UI.el('div', { class: 'gallery' }, [])
+				UI.el('div', { class: 'swiper-mount' })
 			])
 		]);
 
 		main.append(hero);
-		main.append(gallery);
+		main.append(carouselSection);
 
-		const list = UI.qs('.gallery', gallery);
 		const basePath = `/projects/${slug}/images/`;
-		(info.images || []).forEach(img => {
-			const alt = img.alt && img.alt.trim() ? img.alt : `${title}`;
-			const fig = UI.el('figure', {}, [
-				UI.el('img', { src: basePath + img.file, loading: 'lazy', alt }),
-			]);
-			if (img.title && img.title.trim()) fig.append(UI.el('figcaption', {}, [document.createTextNode(img.title)]));
-			list.append(fig);
-		});
+		const items = (info.images || []).map(img => ({
+			src: basePath + img.file,
+			alt: (img.alt && img.alt.trim()) ? img.alt : title,
+			caption: img.title || ''
+		}));
 
-		setupLightboxForGallery(list);
+		// Garante que o CSS/JS do Swiper estejam carregados (via CDN)
+		await ensureSwiperAssets();
+
+		// Monta o Swiper na seção de galeria
+		const mount = UI.qs('.swiper-mount', carouselSection);
+		if (mount && items.length) {
+			const swiperId = 'projectSwiper';
+			const slides = items.map((item) => UI.el('div', { class: 'swiper-slide' }, [
+				UI.el('img', {onclick: () => openFullscreen(item.src), src: item.src, alt: item.alt || '', class: 'project-image' }),
+				item.caption ? UI.el('div', { class: 'swiper-caption' }, [
+					UI.el('span', {}, [document.createTextNode(item.caption)])
+				]) : document.createTextNode('')
+			]));
+
+			const swiperEl = UI.el('div', { id: swiperId, class: 'swiper' }, [
+				UI.el('div', { class: 'swiper-wrapper' }, slides),
+				UI.el('div', { class: 'swiper-button-prev' }),
+				UI.el('div', { class: 'swiper-button-next' }),
+				UI.el('div', { class: 'swiper-pagination' })
+			]);
+
+			mount.append(swiperEl);
+
+			// Inicializa o Swiper
+			if (window.Swiper) {		
+				
+				
+				requestAnimationFrame(() => {
+					const swiper = new window.Swiper('#' + swiperId, {
+						loop: true,
+						
+						centeredSlides: true,
+						spaceBetween: 4,
+						grabCursor: true,
+						slidesPerView: 'auto',
+						breakpoints: {
+							0: {
+								slidesPerView: 1,
+								centeredSlides: true
+							},
+
+							640: {
+								slidesPerView: 1.2,
+								centeredSlides: true
+							},
+
+							768: {
+								slidesPerView: 2.2,
+								centeredSlides: true
+							},
+
+							1024: {
+								slidesPerView: 2.2,
+								centeredSlides: true
+							},
+
+							1280: {
+								slidesPerView: 3.2,
+								centeredSlides: true
+							}
+						},
+
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev'
+						},
+
+						pagination: {
+							el: '.swiper-pagination',
+							clickable: true
+						},
+
+						keyboard: {
+							enabled: true
+						},
+
+						observer: true,
+						observeParents: true,
+
+						on: {
+							init(sw) {
+							// segurança extra para forçar o cálculo
+							requestAnimationFrame(() => sw.update());
+							}
+						}
+					});
+				});
+
+			}
+		}
 	}
 
+
+	function openFullscreen(src) {
+		const overlay = document.createElement('div');
+		overlay.className = 'lightbox';
+
+		overlay.innerHTML = `
+			<img src="${src}" />
+			<button class="close">×</button>
+		`;
+
+		overlay.querySelector('.close').onclick = () => overlay.remove();
+		overlay.onclick = e => {
+			if (e.target === overlay) overlay.remove();
+		};
+
+		document.body.appendChild(overlay);
+	}
+
+	// Carrega (se necessário) os assets do Swiper via CDN
+	async function ensureSwiperAssets() {
+		const swiperCssHref = 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css';
+
+		const hasSwiperCss = Array.from(document.styleSheets).some(
+			ss => ss.href && ss.href.includes('swiper-bundle.min.css')
+		);
+
+		if (!hasSwiperCss) {
+			const link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.href = swiperCssHref;
+
+			// encontra o main.css
+			const mainCssLink = Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+				.find(l => l.href && l.href.includes('/assets/css/main.css'));
+
+			if (mainCssLink) {
+				document.head.insertBefore(link, mainCssLink);
+			} else {
+				// fallback: adiciona no final se não achar
+				document.head.appendChild(link);
+			}
+		}
+
+		if (!window.Swiper) {
+			await new Promise((resolve, reject) => {
+				const s = document.createElement('script');
+				s.src = 'https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js';
+				s.onload = resolve;
+				s.onerror = reject;
+				document.head.appendChild(s);
+			});
+		}
+	}
+
+
 	async function boot() {
-		const page = document.body.dataset.page || '';
-		if (page === 'home') {
+		// Detecta a página pela URL, não pelo data-page (que é sempre 'home' no index.html)
+		const path = location.pathname.replace(/\/+$/, '') || '/';
+		console.log('Página (by URL):', path);
+		
+		if (path === '/' || path === '') {
 			await Portfolio.initPortfolio();
-		} else if (page === 'project') {
+		} else if (path.startsWith('/project/')) {
 			await renderProjectDetail();
 		}
+		// Marca o link ativo em todas as páginas
+		markActiveNav();
 	}
 	
 	function getSlugFromPath() {
@@ -71,6 +219,7 @@
 
 	async function route() {
 		const path = location.pathname.replace(/\/+$/, '') || '/';
+		console.log('Roteando para:', path);
 		const main = UI.qs('#main');
 		if (!main) return;
 
@@ -91,46 +240,20 @@
 			markActiveNav();
 			return;
 		}
-		// Rotas estáticas (about/services/contact) continuam via navegação normal.
+		
+		// Rotas estáticas (about/services/contact): marca apenas o link ativo
+		markActiveNav();
 	}
-
-	function enableSpaNavigation() {
-		window.addEventListener('popstate', route);
-		document.addEventListener('click', (e) => {
-			const a = e.target.closest('a');
-			if (!a) return;
-			const url = new URL(a.href, location.origin);
-			const sameOrigin = url.origin === location.origin;
-			const modified = e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || (a.target && a.target !== '_self');
-			if (!sameOrigin || modified) return;
-			if (url.pathname.startsWith('/project/')) {
-				e.preventDefault();
-				history.pushState({}, '', url.pathname + url.search + url.hash);
-				route();
-			}
-		});
-	}
-
-	async function boot() {
-		// Compatibilidade: se for `project.html`, renderiza detalhe via query.
-		const page = document.body.dataset.page || '';
-		if (page === 'project') {
-			await renderProjectDetail();
-			return;
-		}
-		enableSpaNavigation();
-		await route();
-	}
-
-	window.addEventListener('DOMContentLoaded', boot);
-	window.App = { boot, route };
 
 	function markActiveNav() {
 		const path = location.pathname.replace(/\/+$/, '') || '/';
+		// Marca o link ativo do menu principal conforme a rota atual
 		document.querySelectorAll('.site-nav a').forEach(a => {
 			const href = new URL(a.getAttribute('href'), location.origin).pathname.replace(/\/+$/, '') || '/';
+			console.log('Comparando nav link:', href, 'com path:', path);
 			a.classList.toggle('active', href === path);
 		});
+		// Marca o estado ativo também na marca (logo) quando aplicável
 		const brand = document.querySelector('.brand');
 		if (brand) {
 			const href = new URL(brand.getAttribute('href'), location.origin).pathname.replace(/\/+$/, '') || '/';
@@ -138,183 +261,15 @@
 		}
 	}
 
-	window.addEventListener('DOMContentLoaded', boot);
 
-	function setupLightboxForGallery(listEl) {
-		if (!listEl) return;
-		const figures = Array.from(listEl.querySelectorAll('figure'));
-		const items = figures.map(fig => {
-			const img = fig.querySelector('img');
-			const cap = fig.querySelector('figcaption');
-			return { src: img.getAttribute('src'), alt: img.getAttribute('alt') || '', caption: cap ? cap.textContent : '' };
-		});
-
-		setupSlider(items);
-		figures.forEach((fig, idx) => {
-			const img = fig.querySelector('img');
-			img.style.cursor = 'zoom-in';
-			img.addEventListener('click', () => window.Slider.open(idx));
-		});
+	window.App = { boot, route };
+	
+	// Inicializa automaticamente quando DOM estiver pronto
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', boot);
+		console.log('App will boot on DOMContentLoaded');
+	} else {
+		boot();
+		console.log('App booted immediately');
 	}
-
-	function setupSlider(items) {
-		let current = 0;
-		let slider = document.querySelector('.slider');
-		if (!slider) {
-			slider = UI.el('div', { class: 'slider', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Visualização de imagens' }, [
-				UI.el('div', { class: 'slider-backdrop', onclick: () => close() }),
-				UI.el('div', { class: 'slider-stage' }, [
-					UI.el('div', { class: 'slider-track' }),
-					UI.el('div', { class: 'slider-caption' }),
-					UI.el('button', { class: 'slider-close', 'aria-label': 'Fechar', onclick: () => close() }, [document.createTextNode('×')]),
-					UI.el('button', { class: 'slider-prev', 'aria-label': 'Anterior', onclick: () => prev() }, [document.createTextNode('‹')]),
-					UI.el('button', { class: 'slider-next', 'aria-label': 'Próxima', onclick: () => next() }, [document.createTextNode('›')])
-				])
-			]);
-			document.body.append(slider);
-
-			window.addEventListener('keydown', (e) => {
-				if (!slider.classList.contains('open')) return;
-				if (e.key === 'Escape') close();
-				if (e.key === 'ArrowRight') next();
-				if (e.key === 'ArrowLeft') prev();
-			});
-		}
-
-		const track = slider.querySelector('.slider-track');
-		const stage = slider.querySelector('.slider-stage');
-		const captionEl = slider.querySelector('.slider-caption');
-
-		if (!track.hasChildNodes()) {
-			items.forEach(it => {
-				const itemEl = UI.el('div', { class: 'slider-item' }, [
-					UI.el('img', { src: it.src, alt: it.alt })
-				]);
-				track.append(itemEl);
-			});
-		}
-
-		const itemEls = Array.from(track.querySelectorAll('.slider-item'));
-
-		function layout() {
-			const isTablet = window.innerWidth >= 768;
-			const isDesktop = window.innerWidth >= 1100;
-			const centerScale = isDesktop ? 1.12 : isTablet ? 1.08 : 1.02;
-			const positions = {
-				'0':  { tx: '0vw',   tz: '50px',   ry: '0deg',   sc: centerScale, op: 1 },
-				'-1': { tx: '-32vw', tz: '-300px', ry: '35deg',  sc: 0.88, op: 1 },
-				'1':  { tx: '32vw',  tz: '-300px', ry: '-35deg', sc: 0.88, op: 1 },
-				'-2': { tx: '-52vw', tz: '-600px', ry: '50deg',  sc: 0.78, op: 0.9 },
-				'2':  { tx: '52vw',  tz: '-600px', ry: '-50deg', sc: 0.78, op: 0.9 },
-				'-3': { tx: '-68vw', tz: '-800px', ry: '60deg',  sc: 0.68, op: 0.75 },
-				'3':  { tx: '68vw',  tz: '-800px', ry: '-60deg', sc: 0.68, op: 0.75 }
-			};
-			itemEls.forEach((el, idx) => {
-				const d = distance(idx);
-				const pos = positions[d !== null ? String(d) : 'x'];
-				if (!pos) {
-					el.style.opacity = '0';
-					el.style.pointerEvents = 'none';
-					el.style.transform = 'translate(-50%, -50%) translateX(0) translateZ(-600px) scale(0.6)';
-				} else {
-					el.style.opacity = String(pos.op);
-					el.style.pointerEvents = 'auto';
-					el.style.transform = `translate(-50%, -50%) translateX(${pos.tx}) translateZ(${pos.tz}) rotateY(${pos.ry}) scale(${pos.sc})`;
-				}
-			});
-			const it = items[current];
-			captionEl.textContent = it.caption || '';
-		}
-		function distance(idx) {
-			const n = itemEls.length;
-			let d = idx - current;
-			if (d > n/2) d -= n; if (d < -n/2) d += n;
-			if (d < -3 || d > 3) return null;
-			return d;
-		}
-		function open(index) { current = index; layout(); slider.classList.add('open'); }
-		function close() { slider.classList.remove('open'); }
-		function next() { current = (current + 1) % itemEls.length; layout(); }
-		function prev() { current = (current - 1 + itemEls.length) % itemEls.length; layout(); }
-
-		window.Slider = { open, close, next, prev };
-
-		// Gestos: arrastar para navegar
-		let pointerId = null;
-		let startX = 0;
-		let dx = 0;
-		let lastX = 0;
-		let lastT = 0;
-		let velocity = 0; // px/ms
-		let dragging = false;
-		function onDown(e) {
-			// Evita iniciar gesto ao clicar nos controles
-			if (e.target && e.target.closest && e.target.closest('.slider-prev, .slider-next, .slider-close')) return;
-			if (pointerId !== null) return;
-			pointerId = e.pointerId || 'mouse';
-			stage.setPointerCapture && stage.setPointerCapture(pointerId);
-			startX = e.clientX;
-			dx = 0;
-			lastX = startX;
-			lastT = performance.now();
-			velocity = 0;
-			dragging = true;
-			slider.classList.add('dragging');
-			track.style.transition = 'none';
-		}
-		function onMove(e) {
-			if (!dragging) return;
-			if (pointerId !== (e.pointerId || 'mouse')) return;
-			dx = e.clientX - startX;
-			const now = performance.now();
-			const dt = Math.max(1, now - lastT);
-			velocity = (e.clientX - lastX) / dt; // px/ms
-			lastX = e.clientX;
-			lastT = now;
-			track.style.transform = `translateX(${dx}px)`;
-		}
-		function onUp(e) {
-			if (!dragging) return;
-			dragging = false;
-			slider.classList.remove('dragging');
-			const threshold = Math.max(60, window.innerWidth * 0.08);
-			const vThresh = 0.5 / 1.0; // ~0.5 px/ms (500 px/s)
-			const dir = dx !== 0 ? Math.sign(dx) : Math.sign(velocity);
-			const isFlick = Math.abs(velocity) > vThresh;
-			const shouldPrev = (dx > threshold) || (isFlick && dir > 0);
-			const shouldNext = (dx < -threshold) || (isFlick && dir < 0);
-			// pequena animação de inércia (overshoot) para feedback visual
-			const overshoot = Math.min(220, Math.abs(velocity) * 140);
-			if (shouldPrev || shouldNext) {
-				track.style.transition = 'transform 220ms cubic-bezier(0.2, 0.8, 0, 1)';
-				track.style.transform = `translateX(${(shouldPrev ? 1 : -1) * (overshoot || 140)}px)`;
-				setTimeout(() => {
-					track.style.transition = 'transform 180ms ease-out';
-					track.style.transform = 'translateX(0)';
-				}, 180);
-				if (shouldPrev) prev(); else next();
-			} else {
-				track.style.transition = 'transform 200ms ease';
-				track.style.transform = 'translateX(0)';
-			}
-			pointerId = null;
-		}
-		if (!stage.dataset.gesturesAdded) {
-			stage.addEventListener('pointerdown', onDown);
-			stage.addEventListener('pointermove', onMove);
-			stage.addEventListener('pointerup', onUp);
-			stage.addEventListener('pointerleave', onUp);
-			stage.addEventListener('pointercancel', onUp);
-			// evita propagação dos eventos dos botões para o palco
-			stage.querySelectorAll('.slider-prev, .slider-next, .slider-close').forEach(btn => {
-				btn.addEventListener('pointerdown', (ev) => ev.stopPropagation());
-				btn.addEventListener('click', (ev) => ev.stopPropagation());
-			});
-			stage.dataset.gesturesAdded = '1';
-		}
-		// evita arrastar a imagem nativa
-		track.addEventListener('dragstart', (e) => e.preventDefault());
-	}
-
-	window.App = { boot };
 })();
