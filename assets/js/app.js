@@ -99,58 +99,29 @@
 
 						observer: true,
 						observeParents: true
-						// loop: true,
-						
-						// centeredSlides: true,
-						// spaceBetween: 0,
-						// grabCursor: true,
-						// // slidesPerView: 'auto',
-						// breakpoints: {
-						// 	0: {
-						// 		slidesPerView: 1,
-						// 		spaceBetween: 0
-						// 	},
-						// 	640: {
-						// 		slidesPerView: 1.4,
-						// 		spaceBetween: 4
-						// 	},
-						// 	768: {
-						// 		slidesPerView: 2.2,
-						// 		spaceBetween: 6
-						// 	},
-						// 	1024: {
-						// 		slidesPerView: 2.6,
-						// 		spaceBetween: 8
-						// 	},
-						// 	1280: {
-						// 		slidesPerView: 3,
-						// 		spaceBetween: 12
-						// 	}
-						// },
-
-						// navigation: {
-						// 	nextEl: '.swiper-button-next',
-						// 	prevEl: '.swiper-button-prev'
-						// },
-
-						// pagination: {
-						// 	el: '.swiper-pagination',
-						// 	clickable: true
-						// },
-
-						// keyboard: {
-						// 	enabled: true
-						// },
-
-						// observer: true,
-						// observeParents: true,
-
-						// on: {
-						// 	init(sw) {
-						// 	requestAnimationFrame(() => sw.update());
-						// 	}
-						// }
 					});
+					// 🔥 AJUSTE DEFINITIVO
+					const images = swiperEl.querySelectorAll('img');
+					let loaded = 0;
+
+					images.forEach(img => {
+						if (img.complete) {
+						loaded++;
+						} else {
+						img.addEventListener('load', () => {
+							loaded++;
+							if (loaded === images.length) fixSwiper();
+						});
+						}
+					});
+
+					if (loaded === images.length) fixSwiper();
+
+					function fixSwiper() {
+						swiper.update();
+						swiper.slideNext(0); // força cálculo
+						swiper.slidePrev(0);
+					}
 				});
 
 			}
@@ -216,13 +187,11 @@
             
             // Se voltou ao topo (antes da altura do logo)
             if (currentScrollY < logoHeight) {
-				console.log('removendo fixo');
                 header.classList.remove('fixo');
             }
             // Se está descendo (scroll para baixo)
             else if (currentScrollY > lastScrollY && currentScrollY > logoHeight) {
                 // Remove a classe fixo quando descendo
-				console.log('removendo fixo');
                 header.classList.remove('fixo');
             }
             // Se está voltando para cima (scroll para cima) E passou do logo
