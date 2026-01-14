@@ -80,37 +80,10 @@
 				requestAnimationFrame(() => {
 					const swiper = new window.Swiper('#' + swiperId, {
 						loop: true,
-						
 						centeredSlides: true,
+						slidesPerView: 'auto',
 						spaceBetween: 4,
 						grabCursor: true,
-						slidesPerView: 'auto',
-						breakpoints: {
-							0: {
-								slidesPerView: 1,
-								centeredSlides: true
-							},
-
-							640: {
-								slidesPerView: 1.2,
-								centeredSlides: true
-							},
-
-							768: {
-								slidesPerView: 2.2,
-								centeredSlides: true
-							},
-
-							1024: {
-								slidesPerView: 2.2,
-								centeredSlides: true
-							},
-
-							1280: {
-								slidesPerView: 3.2,
-								centeredSlides: true
-							}
-						},
 
 						navigation: {
 							nextEl: '.swiper-button-next',
@@ -122,19 +95,61 @@
 							clickable: true
 						},
 
-						keyboard: {
-							enabled: true
-						},
+						keyboard: { enabled: true },
 
 						observer: true,
-						observeParents: true,
+						observeParents: true
+						// loop: true,
+						
+						// centeredSlides: true,
+						// spaceBetween: 0,
+						// grabCursor: true,
+						// // slidesPerView: 'auto',
+						// breakpoints: {
+						// 	0: {
+						// 		slidesPerView: 1,
+						// 		spaceBetween: 0
+						// 	},
+						// 	640: {
+						// 		slidesPerView: 1.4,
+						// 		spaceBetween: 4
+						// 	},
+						// 	768: {
+						// 		slidesPerView: 2.2,
+						// 		spaceBetween: 6
+						// 	},
+						// 	1024: {
+						// 		slidesPerView: 2.6,
+						// 		spaceBetween: 8
+						// 	},
+						// 	1280: {
+						// 		slidesPerView: 3,
+						// 		spaceBetween: 12
+						// 	}
+						// },
 
-						on: {
-							init(sw) {
-							// segurança extra para forçar o cálculo
-							requestAnimationFrame(() => sw.update());
-							}
-						}
+						// navigation: {
+						// 	nextEl: '.swiper-button-next',
+						// 	prevEl: '.swiper-button-prev'
+						// },
+
+						// pagination: {
+						// 	el: '.swiper-pagination',
+						// 	clickable: true
+						// },
+
+						// keyboard: {
+						// 	enabled: true
+						// },
+
+						// observer: true,
+						// observeParents: true,
+
+						// on: {
+						// 	init(sw) {
+						// 	requestAnimationFrame(() => sw.update());
+						// 	}
+						// }
 					});
 				});
 
@@ -142,6 +157,31 @@
 		}
 	}
 
+	async function renderAbout(){
+		const main = UI.qs('#main');
+		if (!main) return;
+
+		UI.setTitleAndMeta('Sobre — drawbe', 'Conheça a drawbe, especializada em design de marcas e identidade visual.');
+
+		const aboutSection = UI.el('section', { class: 'about' }, [
+			UI.el('div', { class: 'container' }, [
+				UI.el('h1', {}, [document.createTextNode('Sobre a Drawbe')]),
+				UI.el('div', { class: 'about-content' }, [
+					UI.el('div', { class: 'about-text' }, [
+						UI.el('p', {}, [document.createTextNode('A Drawbe é uma empresa especializada em design de marcas e criação de identidade visual personalizada, fundada por Beatriz Monteiro.')]),
+						UI.el('p', {}, [document.createTextNode('Possui uma característica de design moderno e minimalista, elevando o visual da marca e agregando valor a ela.')])
+					]),
+					UI.el('div', { class: 'about-values' }, [
+						UI.el('h2', {}, [document.createTextNode('Nossa Estética')]),
+						UI.el('p', {}, [document.createTextNode('Com uma estética leve, geométrica e contemporânea, criamos soluções visuais que valorizam o essencial: forma, função e significado.')])
+					])
+				])
+			])
+		]);
+
+		main.innerHTML = '';
+		main.append(aboutSection);
+	}
 
 	function openFullscreen(src) {
 		const overlay = document.createElement('div');
@@ -159,6 +199,42 @@
 
 		document.body.appendChild(overlay);
 	}
+
+	// Controla visibilidade do header ao rolar a página
+    function setupHeaderScroll() {
+        let lastScrollY = 0;
+        const header = UI.qs('.site-header');
+        const logoContainer = UI.qs('.logo-container');
+        
+        if (!header || !logoContainer) return;
+
+        // Obtém a altura do logo-container (posição de referência)
+        const logoHeight = logoContainer.offsetHeight;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Se voltou ao topo (antes da altura do logo)
+            if (currentScrollY < logoHeight) {
+				console.log('removendo fixo');
+                header.classList.remove('fixo');
+            }
+            // Se está descendo (scroll para baixo)
+            else if (currentScrollY > lastScrollY && currentScrollY > logoHeight) {
+                // Remove a classe fixo quando descendo
+				console.log('removendo fixo');
+                header.classList.remove('fixo');
+            }
+            // Se está voltando para cima (scroll para cima) E passou do logo
+            else if (currentScrollY < lastScrollY && currentScrollY > logoHeight) {
+                // Aplica a classe fixo quando voltando para cima
+				console.log('adicionando fixo');
+                header.classList.add('fixo');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+    }
 
 	// Carrega (se necessário) os assets do Swiper via CDN
 	async function ensureSwiperAssets() {
@@ -196,61 +272,37 @@
 		}
 	}
 
-
-	async function boot() {
-		// Detecta a página pela URL, não pelo data-page (que é sempre 'home' no index.html)
-		const path = location.pathname.replace(/\/+$/, '') || '/';
-		console.log('Página (by URL):', path);
-		
-		if (path === '/' || path === '') {
-			await Portfolio.initPortfolio();
-		} else if (path.startsWith('/project/')) {
-			await renderProjectDetail();
-		}
-		// Marca o link ativo em todas as páginas
-		markActiveNav();
-	}
-	
 	function getSlugFromPath() {
 		const parts = location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
 		if (parts[0] === 'project' && parts[1]) return decodeURIComponent(parts[1]);
 		return '';
 	}
 
-	async function route() {
+	// Roteador simples baseado na URL
+	async function boot() {
+		// Detecta a página pela URL, não pelo data-page (que é sempre 'home' no index.html)
 		const path = location.pathname.replace(/\/+$/, '') || '/';
-		console.log('Roteando para:', path);
-		const main = UI.qs('#main');
-		if (!main) return;
-
-		if (path === '/' || path === '') {
-			main.innerHTML = '';
-			const section = UI.el('section', { class: 'portfolio', 'aria-label': 'Portfólio' }, [
-				UI.el('div', { id: 'portfolio-grid', class: 'masonry' }, [])
-			]);
-			main.append(section);
-			await Portfolio.initPortfolio();
-			markActiveNav();
-			return;
-		}
-
-		if (path.startsWith('/project/')) {
-			main.innerHTML = '';
-			await renderProjectDetail();
-			markActiveNav();
-			return;
-		}
 		
-		// Rotas estáticas (about/services/contact): marca apenas o link ativo
+		if (path === '/' || path === '') {
+			await Portfolio.initPortfolio();
+		} else if (path.startsWith('/project/')) {
+			await renderProjectDetail();
+		} else if (path === '/about' || path === '/about.html') {
+			// Chama renderAbout para a página Sobre
+			await renderAbout();
+		}
+		// Marca o link ativo em todas as páginas
 		markActiveNav();
+		setupHeaderScroll();
 	}
+
 
 	function markActiveNav() {
 		const path = location.pathname.replace(/\/+$/, '') || '/';
 		// Marca o link ativo do menu principal conforme a rota atual
-		document.querySelectorAll('.site-nav a').forEach(a => {
+		UI.qsa('.site-nav a').forEach(a => {
 			const href = new URL(a.getAttribute('href'), location.origin).pathname.replace(/\/+$/, '') || '/';
-			console.log('Comparando nav link:', href, 'com path:', path);
+			
 			a.classList.toggle('active', href === path);
 		});
 		// Marca o estado ativo também na marca (logo) quando aplicável
@@ -262,14 +314,12 @@
 	}
 
 
-	window.App = { boot, route };
+	window.App = { boot };
 	
 	// Inicializa automaticamente quando DOM estiver pronto
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', boot);
-		console.log('App will boot on DOMContentLoaded');
 	} else {
 		boot();
-		console.log('App booted immediately');
 	}
 })();
