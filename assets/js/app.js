@@ -128,30 +128,35 @@
 		}
 	}
 
-	async function renderAbout(){
+	async function renderAbout() {
 		const main = UI.qs('#main');
 		if (!main) return;
 
-		UI.setTitleAndMeta('Sobre — drawbe', 'Conheça a drawbe, especializada em design de marcas e identidade visual.');
-
-		const aboutSection = UI.el('section', { class: 'about' }, [
-			UI.el('div', { class: 'container' }, [
-				UI.el('h1', {}, [document.createTextNode('Sobre a Drawbe')]),
-				UI.el('div', { class: 'about-content' }, [
-					UI.el('div', { class: 'about-text' }, [
-						UI.el('p', {}, [document.createTextNode('A Drawbe é uma empresa especializada em design de marcas e criação de identidade visual personalizada, fundada por Beatriz Monteiro.')]),
-						UI.el('p', {}, [document.createTextNode('Possui uma característica de design moderno e minimalista, elevando o visual da marca e agregando valor a ela.')])
-					]),
-					UI.el('div', { class: 'about-values' }, [
-						UI.el('h2', {}, [document.createTextNode('Nossa Estética')]),
-						UI.el('p', {}, [document.createTextNode('Com uma estética leve, geométrica e contemporânea, criamos soluções visuais que valorizam o essencial: forma, função e significado.')])
-					])
-				])
-			])
-		]);
-
+		const aboutHtml = UI.qs('#about-template').content.cloneNode(true);
 		main.innerHTML = '';
-		main.append(aboutSection);
+		main.appendChild(aboutHtml);
+		UI.setTitleAndMeta('Sobre — drawbe', 'Saiba mais sobre a drawbe e nosso trabalho de design.');
+	}
+
+	async function renderServices(params) {
+		const main = UI.qs('#main');
+		if (!main) return;
+
+		const servicesHtml = UI.qs('#services-template').content.cloneNode(true);
+		main.innerHTML = '';
+		main.appendChild(servicesHtml);
+		UI.setTitleAndMeta('Serviços — drawbe', 'Conheça os serviços oferecidos pela drawbe em design e branding.');
+	}
+
+
+	async function renderContact(params) {
+		const main = UI.qs('#main');
+		if (!main) return;
+
+		const contactHtml = UI.qs('#contact-template').content.cloneNode(true);
+		main.innerHTML = '';
+		main.appendChild(contactHtml);
+		UI.setTitleAndMeta('Contato — drawbe', 'Entre em contato conosco para discutir seu projeto ou solicitar um orçamento.');
 	}
 
 	function openFullscreen(src) {
@@ -259,6 +264,18 @@
 		} else if (path === '/about' || path === '/about.html') {
 			// Chama renderAbout para a página Sobre
 			await renderAbout();
+		}
+		else if (path === '/services' || path === '/services.html') {
+		// Chama renderServices para a página Serviços
+			await renderServices();
+		} 
+		else if (path === '/contact' || path === '/contact.html') {
+			// Chama renderContact para a página Contato
+			await renderContact();
+		}
+		else {
+			// Página não encontrada ou outra página estática
+			UI.setTitleAndMeta('drawbe', 'Agência de design e branding.');
 		}
 		// Marca o link ativo em todas as páginas
 		markActiveNav();

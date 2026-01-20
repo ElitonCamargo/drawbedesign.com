@@ -31,6 +31,17 @@
 		return res.json();
 	}
 
+	// Faz fetch de texto (HTML) e retorna como string
+	async function fetchText(url) {
+		const absUrl = new URL(url, location.origin).toString();
+		const res = await fetch(absUrl);		
+		if (!res.ok) 
+			throw new Error(`Falha ao carregar: ${url}`);
+		return res.text();
+	}
+
+	
+
 	// Atualiza título e meta descrição da página
 	function setTitleAndMeta(title, description) {
 		if (title) document.title = title;
@@ -41,5 +52,5 @@
 		}
 	}
 
-	window.UI = { qs, qsa, el, fetchJSON, setTitleAndMeta };
+	window.UI = { qs, qsa, el, fetchJSON, fetchText, setTitleAndMeta };
 })();
