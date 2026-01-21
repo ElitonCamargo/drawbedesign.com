@@ -154,15 +154,15 @@
 	}
 
 
-	async function renderContact(params) {
-		const main = UI.qs('#main');
-		if (!main) return;
+	// async function renderContact(params) {
+	// 	const main = UI.qs('#main');
+	// 	if (!main) return;
 
-		const contactHtml = UI.qs('#contact-template').content.cloneNode(true);
-		main.innerHTML = '';
-		main.appendChild(contactHtml);
-		UI.setTitleAndMeta('Contato — drawbe', 'Entre em contato conosco para discutir seu projeto ou solicitar um orçamento.');
-	}
+	// 	const contactHtml = UI.qs('#contact-template').content.cloneNode(true);
+	// 	main.innerHTML = '';
+	// 	main.appendChild(contactHtml);
+	// 	UI.setTitleAndMeta('Contato — drawbe', 'Entre em contato conosco para discutir seu projeto ou solicitar um orçamento.');
+	// }
 
 	function openFullscreen(src) {
 		const overlay = document.createElement('div');
@@ -274,10 +274,6 @@
 		// Chama renderServices para a página Serviços
 			await renderServices();
 		} 
-		else if (path === '/contact' || path === '/contact.html') {
-			// Chama renderContact para a página Contato
-			await renderContact();
-		}
 		else {
 			// Página não encontrada ou outra página estática
 			UI.setTitleAndMeta('drawbe', 'Agência de design e branding.');
