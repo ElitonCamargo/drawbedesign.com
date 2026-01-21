@@ -6,6 +6,7 @@
     { "id": 4, "slug": "beleza", "name": "Beleza" },
     { "id": 5, "slug": "gastronomia", "name": "Gastronomia" },
     { "id": 6, "slug": "culinaria", "name": "Culinária" },
-    { "id": 7, "slug": "estilo", "name": "Estilo" }
+    { "id": 7, "slug": "estilo", "name": "Estilo" },
+    { "id": 8, "slug": "estética", "name": "Estética" }
   ]
 }

@@ -1,60 +1,57 @@
 {
-  "name": "LA´PATE",
-  "slogan": "Massas Frescas Artesanais",
-  "description": "Massas artesanais frescas, feitas com ingredientes selecionados para garantir sabor e qualidade excepcionais.",
-  "tags": ["massas", "italiana", "artesanal"],
-  "year": 2024,
-  "client": "LA´PATE",
+  "name": "LA PATÊ",
+  "slogan": "Massas Artesanais",
+  "description": "Identidade visual desenvolvida para a La Patê, marca de alta gastronomia que traz a experiência de um restaurante de chef para o lar. O projeto de branding e design de embalagens premium reflete o cuidado artesanal e a sofisticação de seus produtos exclusivos.",
+  "tags": ["identidade visual gastronomia", "branding gourmet", "design de embalagem premium", "massas artesanais luxo", "logotipo restaurante", "design gráfico premium"],
   "links": {
-    "website": "https://lapate.com.br",
-    "instagram": "https://www.instagram.com/lapate.oficial/",
-    "facebook": "https://www.facebook.com/lapate.oficial"
+    "website": "",
+    "instagram": ""
   },
   "images": [
     {
       "file": "1.png",
-      "title": "Massas LA´PATE",
-      "alt": "Prato delicioso de massas artesanais LA´PATE"
+      "title": "Design de Embalagem para Molhos Gourmet",
+      "alt": "Trio de potes de vidro com molhos artesanais e rótulos premium da marca La Patê em tons de vermelho e verde."
     },
     {
       "file": "2.png",
-      "title": "Produtos LA´PATE",
-      "alt": "Caixa com diferentes tipos de massas frescas LA´PATE"
+      "title": "Packaging Design para Massas Artesanais",
+      "alt": "Caixas de massa Fusilli e Linguine com design minimalista e visor circular sobre tábua de madeira rústica."
     },
     {
       "file": "3.png",
-      "title": "Produtos LA´PATE",
-      "alt": "Caixa com diferentes tipos de massas frescas LA´PATE"
+      "title": "Apresentação Conceitual de Marca Gastronômica",
+      "alt": "Embalagem de massa Rigatoni La Patê posicionada verticalmente com iluminação editorial e elementos terrosos."
     },
     {
       "file": "4.png",
-      "title": "LA´PATE",
-      "alt": "Exemplo da marca bordada em um avental vermelho LA´PATE"
+      "title": "Logotipo Principal La Patê",
+      "alt": "Logotipo minimalista da La Patê em branco aplicado sobre fundo vermelho bordô sofisticado com o slogan Massas Artesanais."
     },
     {
       "file": "5.png",
-      "title": "",
-      "alt": ""
+      "title": "Branding e Materiais de Apoio",
+      "alt": "Embalagem de Talharim premium La Patê em cenário com elementos naturais e galhos secos, reforçando o conceito artesanal."
     },
     {
       "file": "6.png",
-      "title": "",
-      "alt": ""
+      "title": "Uniforme e Identidade Corporativa",
+      "alt": "Logotipo La Patê aplicado em bordado branco sobre avental de chef cor vinho, demonstrando a presença da marca no ambiente culinário."
     },
     {
       "file": "7.png",
-      "title": "",
-      "alt": ""
+      "title": "Fotografia de Produto Estilo Lifestyle",
+      "alt": "Caixa de massa artesanal em mesa de madeira com tomate cereja e pimentas, focando no frescor dos ingredientes."
     },
     {
       "file": "8.png",
-      "title": "",
-      "alt": ""
+      "title": "Experiência de Delivery de Luxo",
+      "alt": "Massa artesanal fresca dentro de caixa de papelão kraft com papel de seda personalizado com o padrão da marca La Patê."
     },
     {
       "file": "9.png",
-      "title": "",
-      "alt": ""
+      "title": "Ícone da Identidade Visual",
+      "alt": "Ícone minimalista em formato de garfo estilizado com massa, símbolo gráfico da marca La Patê em fundo vermelho."
     }
   ]
 }

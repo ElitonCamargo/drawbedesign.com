@@ -1,107 +1,212 @@
 <!doctype html>
 <html lang="pt-br">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>drawbe — Portfólio</title>
-		<meta name="description" content="Portfólio minimalista da drawbe: identidade visual e design.">
-		<link rel="preload" href="/assets/css/main.css" as="style">
-		<link rel="stylesheet" href="/assets/css/main.css">
-		<link rel="icon" href="/assets/icons/favicon.png" type="image/png">
-	</head>
-	<body data-page="home">
-		<div class="logo-container">
-			<img src="https://lh3.googleusercontent.com/a-/ALV-UjVoSG78t0dtKv1LucfvlluLDlKzGtV8UxTOFqteYSQdYdLGvevm=s265-w265-h265" alt="drawbe logo" class="logo">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>drawbe — Portfólio</title>
+	<meta name="description" content="Portfólio minimalista da drawbe: identidade visual e design.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Italiana:wght@400;500;600;700&display=swap&family=Montserrat:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
+	<link rel="preload" href="/assets/css/main.css" as="style">
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<link rel="stylesheet" href="/assets/css/motion.css">
+	<link rel="icon" href="/assets/icons/favicon.png" type="image/png">
+</head>
+
+<body data-page="home">
+	<div class="brand-area">
+		<div class="brand-logo">
+			<a href="/">
+				<img src="/assets/icons/logo.png" alt="Drawbe — identidade visual" />
+			</a>
 		</div>
-		<header class="site-header" role="banner">
-			<div class="container">
-                <nav aria-label="Principal" class="site-nav">
-                    <a class="brand" href="/" >Início</a>
-					<a href="/about">Sobre</a>
-					<a href="/services">Serviços</a>
-					<a href="/contact">Contato</a>
-				</nav>
+
+		<div class="brand-social">
+			<a href="https://wa.me/55159965305201?text=Ol%C3%A1%21%20encontrei%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+				target="_blank" rel="noopener" aria-label="WhatsApp Drawbe">
+				<img src="/assets/icons/whatsapp.png" alt="" />
+			</a>
+
+			<a href="https://www.instagram.com/drawbebrand/" target="_blank" rel="noopener"
+				aria-label="Instagram Drawbe">
+				<img src="/assets/icons/instagram.png" alt="" />
+			</a>
+
+			<a href="mailto:contatodrawdesign@gmail.com" aria-label="E-mail Drawbe">
+				<img src="/assets/icons/mail.png" alt="" />
+			</a>
+		</div>
+	</div>
+
+	<header class="site-header" role="banner">
+		<div class="container">
+			<nav aria-label="Principal" class="site-nav">
+				<a class="brand" href="/">Portfólio</a>
+				<a href="/about">Sobre</a>
+				<a href="/services">Serviços</a>
+				<a href="/contact">Contato</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main" class="site-main" role="main">
+		<section class="portfolio" aria-label="Portfólio">
+			<div id="portfolio-grid" class="masonry"></div>
+		</section>
+	</main>
+
+	<!-- Template para a página "Sobre" -->
+	<template id="about-template">
+		<section class="page-section">
+			<div class="page-grid">
+
+				<!-- BLOCO VISUAL -->
+				<div class="page-visual fx-left mb-4" style="overflow: inherit;">
+					<div class="page-bg" style="width: 50%;"></div>
+					<img src="assets/images/about-1.png" alt="Drawbe — identidade visual" class="page-image"
+						style="height: 100%;margin-bottom: -50px;margin-left: 30%;" />
+				</div>
+
+				<!-- TEXTO 1 -->
+				<div class="page-text-main fx-up fx-delay-1">
+					<h1 class="page-heading">SOBRE</h1>
+					<p class="page-text">
+						Sou Bia Monteiro, designer e fundadora da Drawbe. Minha missão é transformar marcas
+						por meio de um design minimalista, elegante e de alto padrão.
+					</p>
+
+					<p class="page-text">
+						Acredito que a sofisticação está nos detalhes. Na Drawbe, não entrego apenas estética;
+						entrego valor percebido. Especializada em identidade visual, criação de sites,
+						catálogos e apresentações corporativas, meu trabalho é focado em elevar o
+						posicionamento de empresas que não abrem mão do bom gosto e da exclusividade.
+					</p>
+				</div>
+
+				<!-- TEXTO 2 -->
+				<div class="page-text-secondary fx-up fx-delay-2 pt-4">
+					<p class="page-text">
+						Diferente de processos genéricos, minha metodologia é fundamentada no conceito da marca.
+						Meu processo é colaborativo: trago você para o centro da criação por meio de reuniões
+						de alinhamento estratégico, garantindo que o resultado final seja o reflexo fiel da
+						essência do seu negócio.
+					</p>
+
+					<p class="page-text">
+						Se você busca uma presença visual que transmita autoridade e refinamento, vamos conversar.
+					</p>
+				</div>
+
+				<!-- TEXTO 3 / FRASE -->
+				<div class="page-quote fx-up fx-delay-3">
+					<p class="page-quote-text">O design estratégico tem o poder de elevar sua marca ao próximo nível.
+					</p>
+				</div>
+
 			</div>
-		</header>
 
-		<main id="main" class="site-main" role="main">
-			<section class="portfolio" aria-label="Portfólio">
-				<div id="portfolio-grid" class="masonry"></div>
-			</section>
-		</main>
-
-		<!-- Template para a página "Sobre" -->
-		<template id="about-template">
-			<section class="about">
+			<div class="page-section">
 				<div class="container">
-					<h1>Sobre a Drawbe</h1>
-					<div class="about-content">
-						<div class="about-text">
-							<p>A Drawbe é uma empresa especializada em design de marcas e criação de identidade visual personalizada, fundada por Beatriz Monteiro.</p>
-							<p>Possui uma característica de design moderno e minimalista, elevando o visual da marca e agregando valor a ela.</p>
-						</div>
-						<div class="about-values">
-							<h2>Nossa Estética</h2>
-							<p>Com uma estética leve, geométrica e contemporânea, criamos soluções visuais que valorizam o essencial: forma, função e significado.</p>
-						</div>
+					<h2 class="page-heading" style="display: none;">Projetos em Destaque</h2>
+					<div class="featured-projects">
+						<article class="project-card fx-up fx-delay-1">
+							<a href="/project/cetyn" aria-label="CETYN">
+								<img class="cover" src="/projects/cetyn/images/5.png" loading="lazy" alt="Capa do projeto CETYN">
+								<div class="title">CETYN</div>
+							</a>
+						</article>
+						<article class="project-card fx-up fx-delay-2">
+							<a href="/project/dona" aria-label="DONA">
+								<img class="cover" src="/projects/dona/images/1.png" loading="lazy" alt="Capa do projeto DONA">
+								<div class="title">DONA</div>
+							</a>
+						</article>
+						<article class="project-card fx-up fx-delay-3">
+							<a href="/project/amanda-castro" aria-label="AMANDA CASTRO">
+								<img class="cover" src="/projects/amanda-castro/images/1.png" loading="lazy" alt="Capa do projeto AMANDA CASTRO">
+								<div class="title">AMANDA CASTRO</div>
+							</a>
+						</article>
 					</div>
 				</div>
-			</section>
-		</template>
+			</div>
 
-
-		<!-- Template para a página "Serviços" -->
-		<template id="services-template">
-			<section class="services">
+			<div class="page-section cta-section">
 				<div class="container">
-					<h1>Nossos Serviços</h1>
-					<ul class="services-list">
-						<li>
-							<h2>Design de Identidade Visual</h2>
-							<p>Criamos identidades visuais únicas que refletem a essência da sua marca, incluindo logotipos, paletas de cores e tipografia.</p>
-						</li>
-						<li>
-							<h2>Branding</h2>
-							<p>Desenvolvemos estratégias de branding que fortalecem a presença da sua marca no mercado e criam conexões duradouras com seu público.</p>
-						</li>
-						<li>
-							<h2>Design Gráfico</h2>
-							<p>Oferecemos serviços de design gráfico para materiais promocionais, embalagens e mídias digitais, garantindo uma comunicação visual eficaz.</p>
-						</li>
-					</ul>
+					<a href="https://wa.me/55159965305201?text=Ol%C3%A1%21%20encontrei%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" 
+						target="_blank" rel="noopener" class="btn-cta fx-up fx-delay-1" aria-label="Fale conosco via WhatsApp">
+						Fale Conosco
+					</a>
 				</div>
-			</section>
-		</template>
+			</div>
+
+			
+		</section>
+	</template>
 
 
-		<!-- Template para a página "Contato" -->
-		<template id="contact-template">
-			<section class="contact">
-				<div class="container">
-					<h1>Contato</h1>
-					<p>Entre em contato conosco para discutir seu projeto ou solicitar um orçamento.</p>
-					<form>
-						<label for="name">Nome:</label>
-						<input type="text" id="name" name="name" required>
 
-						<label for="email">Email:</label>
-						<input type="email" id="email" name="email" required>
+	<!-- Template para a página "Serviços" -->
+	<template id="services-template">
+		<section class="services">
+			<div class="container">
+				<h1>Nossos Serviços</h1>
+				<ul class="services-list">
+					<li>
+						<h2>Design de Identidade Visual</h2>
+						<p>Criamos identidades visuais únicas que refletem a essência da sua marca, incluindo logotipos,
+							paletas de cores e tipografia.</p>
+					</li>
+					<li>
+						<h2>Branding</h2>
+						<p>Desenvolvemos estratégias de branding que fortalecem a presença da sua marca no mercado e
+							criam conexões duradouras com seu público.</p>
+					</li>
+					<li>
+						<h2>Design Gráfico</h2>
+						<p>Oferecemos serviços de design gráfico para materiais promocionais, embalagens e mídias
+							digitais, garantindo uma comunicação visual eficaz.</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</template>
 
-						<label for="message">Mensagem:</label>
-						<textarea id="message" name="message" required></textarea>
 
-						<button type="submit">Enviar</button>
-					</form>
-				</div>
-			</section>
-		</template>
+	<!-- Template para a página "Contato" -->
+	<template id="contact-template">
+		<section class="contact">
+			<div class="container">
+				<h1>Contato</h1>
+				<p>Entre em contato conosco para discutir seu projeto ou solicitar um orçamento.</p>
+				<form>
+					<label for="name">Nome:</label>
+					<input type="text" id="name" name="name" required>
 
-		<footer class="site-footer" role="contentinfo">
-			<div class="container">© drawbe</div>
-		</footer>
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" required>
 
-		<script src="/assets/js/ui.js" defer></script>
-		<script src="/assets/js/portfolio.js" defer></script>
-		<script src="/assets/js/app.js" defer></script>
-	</body>
-	</html>
+					<label for="message">Mensagem:</label>
+					<textarea id="message" name="message" required></textarea>
+
+					<button type="submit">Enviar</button>
+				</form>
+			</div>
+		</section>
+	</template>
+
+	<footer class="site-footer" role="contentinfo">
+		<div class="container">© drawbe</div>
+	</footer>
+
+	<script src="/assets/js/ui.js" defer></script>
+	<script src="/assets/js/portfolio.js" defer></script>
+	<script src="/assets/js/motion.js" defer></script>
+	<script src="/assets/js/app.js" defer></script>
+</body>
+
+</html>

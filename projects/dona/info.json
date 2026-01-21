@@ -1,60 +1,57 @@
 {
   "name": "DONA",
-  "slogan": "Roupa Feminina sensual e Confortável",
-  "description": "Roupas femininas que combinam sensualidade e conforto, feitas com tecidos de alta qualidade para valorizar a beleza feminina.",
-  "tags": ["roupa", "feminina", "sensual", "confortável"],
-  "year": 2024,
-  "client": "DONA",
+  "slogan": "Lingerie",
+  "description": "Especialista em lingerie premium, a Dona une design sofisticado e materiais de alta qualidade para mulheres de extremo bom gosto. Uma marca que celebra a elegância feminina através de peças exclusivas e acabamento impecável.",
+  "tags": ["lingerie premium", "moda íntima de luxo", "renda de alta qualidade", "lingerie elegante", "identidade visual de luxo", "marca feminina premium"],
   "links": {
-    "website": "https://cetyn.com.br",
-    "instagram": "https://www.instagram.com/cetynoficial/",
-    "facebook": "https://www.facebook.com/cetynoficial"
+    "website": "",
+    "instagram": ""
   },
   "images": [
     {
       "file": "1.png",
-      "title": "",
-      "alt": ""
+      "title": "Experiência de Compra Dona",
+      "alt": "Mulher elegante caminhando com sacola personalizada da marca de lingerie de luxo Dona."
     },
     {
       "file": "2.png",
-      "title": "",
-      "alt": ""
+      "title": "Sutiã de Renda Premium",
+      "alt": "Lingerie em renda preta de alta qualidade posicionada sobre bloco minimalista branco."
     },
     {
       "file": "3.png",
-      "title": "",
-      "alt": ""
+      "title": "Detalhe da Etiqueta e Renda",
+      "alt": "Close-up focado na etiqueta da marca Dona e na textura delicada da renda francesa."
     },
     {
       "file": "4.png",
-      "title": "",
-      "alt": ""
+      "title": "Editorial de Moda Dona",
+      "alt": "Conjunto de lingerie preta em seda e renda ao lado de uma revista Vogue sobre lençóis de cetim."
     },
     {
       "file": "5.png",
-      "title": "",
-      "alt": ""
+      "title": "Slip Dress em Cetim Chocolate",
+      "alt": "Camisola slip dress de seda marrom sobre fundo de tecido texturizado, foco em caimento e brilho."
     },
     {
       "file": "6.png",
-      "title": "",
-      "alt": ""
+      "title": "Embalagem para Presente",
+      "alt": "Pacote de presente minimalista da marca Dona com papel de seda e adesivo logotipado."
     },
     {
       "file": "7.png",
-      "title": "",
-      "alt": ""
+      "title": "Apresentação de Produto Premium",
+      "alt": "Caixa de presente aberta revelando conjunto de lingerie de luxo sobre fundo acetinado."
     },
     {
       "file": "8.png",
-      "title": "",
-      "alt": ""
+      "title": "Ícone da Identidade Visual Dona",
+      "alt": "Ícone minimalista com a letra D estilizada em curvas elegantes, representando a marca Dona."
     },
     {
       "file": "9.png",
-      "title": "",
-      "alt": ""
+      "title": "Logotipo Principal Dona",
+      "alt": "Logotipo Dona aplicado sobre fotografia de modelo vestindo body de renda preta com design exclusivo."
     }
   ]
 }

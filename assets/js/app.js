@@ -136,6 +136,11 @@
 		main.innerHTML = '';
 		main.appendChild(aboutHtml);
 		UI.setTitleAndMeta('Sobre — drawbe', 'Saiba mais sobre a drawbe e nosso trabalho de design.');
+		
+		// Reinicializa o sistema de motion para os novos elementos
+		if (window.Motion && window.Motion.initMotion) {
+			window.Motion.initMotion();
+		}
 	}
 
 	async function renderServices(params) {
@@ -180,11 +185,11 @@
     function setupHeaderScroll() {
         let lastScrollY = 0;
         const header = UI.qs('.site-header');
-        const logoContainer = UI.qs('.logo-container');
+        const logoContainer = UI.qs('.brand-area');
         
         if (!header || !logoContainer) return;
 
-        // Obtém a altura do logo-container (posição de referência)
+        // Obtém a altura do brand-area (posição de referência)
         const logoHeight = logoContainer.offsetHeight;
 
         window.addEventListener('scroll', () => {

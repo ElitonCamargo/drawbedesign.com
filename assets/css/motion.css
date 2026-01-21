@@ -1,0 +1,212 @@
+/* ========================================================================== */
+/* MOTION SYSTEM — drawbe                                                      */
+/* Arquivo responsável exclusivamente por animações e efeitos visuais         */
+/* Objetivo: criar uma identidade de movimento elegante, reutilizável e leve   */
+/* ========================================================================== */
+
+
+/* -------------------------------------------------------------------------- */
+/* VARIÁVEIS DE MOTION                                                         */
+/* Centraliza timing, easing e distância para manter consistência visual       */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --fx-distance-sm: 16px;
+  --fx-distance-md: 32px;
+  --fx-distance-lg: 64px;
+
+  --fx-duration-fast: 0.4s;
+  --fx-duration-base: 0.8s;
+  --fx-duration-slow: 1.2s;
+
+  /* easing suave, elegante (sem bounce agressivo) */
+  --fx-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* ESTADOS BASE                                                                */
+/* Use estes estados para controlar quando o elemento anima                   */
+/* -------------------------------------------------------------------------- */
+
+/* Elemento inicia oculto */
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Elemento visível (ativa a animação) */
+.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* EFEITOS DE ENTRADA (ENTRANCE EFFECTS)                                       */
+/* Combine sempre com .is-hidden / .is-visible                                 */
+/* -------------------------------------------------------------------------- */
+
+
+/* Sobe suavemente (ideal para textos) */
+.fx-up {
+  transform: translateY(var(--fx-distance-md));
+  transition:
+    opacity var(--fx-duration-base) var(--fx-ease),
+    transform var(--fx-duration-base) var(--fx-ease);
+}
+
+/* Desce suavemente */
+.fx-down {
+  transform: translateY(calc(var(--fx-distance-md) * -1));
+  transition:
+    opacity var(--fx-duration-base) var(--fx-ease),
+    transform var(--fx-duration-base) var(--fx-ease);
+}
+
+/* Entra da esquerda (ideal para imagens) */
+.fx-left {
+  transform: translateX(calc(var(--fx-distance-lg) * -1));
+  transition:
+    opacity var(--fx-duration-slow) var(--fx-ease),
+    transform var(--fx-duration-slow) var(--fx-ease);
+}
+
+/* Entra da direita */
+.fx-right {
+  transform: translateX(var(--fx-distance-lg));
+  transition:
+    opacity var(--fx-duration-slow) var(--fx-ease),
+    transform var(--fx-duration-slow) var(--fx-ease);
+}
+
+
+/* Estado ativo — remove deslocamento */
+.is-visible.fx-up,
+.is-visible.fx-down,
+.is-visible.fx-left,
+.is-visible.fx-right {
+  transform: translate(0);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* EFEITOS DE FADE SIMPLES                                                     */
+/* Para elementos que não precisam se mover                                   */
+/* -------------------------------------------------------------------------- */
+
+.fx-fade {
+  transition: opacity var(--fx-duration-base) var(--fx-ease);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* EFEITO DE ESCALA SUAVE                                                      */
+/* Útil para imagens, cards ou destaques                                      */
+/* -------------------------------------------------------------------------- */
+
+.fx-scale {
+  transform: scale(0.96);
+  transition:
+    opacity var(--fx-duration-base) var(--fx-ease),
+    transform var(--fx-duration-base) var(--fx-ease);
+}
+
+.is-visible.fx-scale {
+  transform: scale(1);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* DELAYS — para criar hierarquia visual                                       */
+/* Use quando vários elementos entram em sequência                             */
+/* -------------------------------------------------------------------------- */
+
+.fx-delay-1 { transition-delay: 0.1s; }
+.fx-delay-2 { transition-delay: 0.2s; }
+.fx-delay-3 { transition-delay: 0.3s; }
+.fx-delay-4 { transition-delay: 0.4s; }
+.fx-delay-5 { transition-delay: 0.5s; }
+
+
+/* -------------------------------------------------------------------------- */
+/* HOVER MOTION — microinterações elegantes                                    */
+/* Não usar em excesso                                                         */
+/* -------------------------------------------------------------------------- */
+
+/* Elevação sutil */
+.fx-hover-rise {
+  transition: transform var(--fx-duration-fast) var(--fx-ease);
+}
+
+.fx-hover-rise:hover {
+  transform: translateY(-4px);
+}
+
+/* Fade discreto */
+.fx-hover-fade {
+  transition: opacity var(--fx-duration-fast) ease;
+}
+
+.fx-hover-fade:hover {
+  opacity: 0.75;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* ANIMAÇÃO DE IMAGEM SOBRE FUNDO                                              */
+/* Caso específico: imagem sobre background (como seu about)                  */
+/* -------------------------------------------------------------------------- */
+
+.fx-image-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.fx-image-overlay img {
+  display: block;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity var(--fx-duration-slow) var(--fx-ease),
+    transform var(--fx-duration-slow) var(--fx-ease);
+}
+
+.is-visible .fx-image-overlay img {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* MOTION DE TEXTO EM BLOCO                                                    */
+/* Ideal para parágrafos longos                                                */
+/* -------------------------------------------------------------------------- */
+
+.fx-text-block {
+  transition:
+    opacity var(--fx-duration-base) var(--fx-ease),
+    transform var(--fx-duration-base) var(--fx-ease);
+  transform: translateY(24px);
+}
+
+.is-visible .fx-text-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* ACESSIBILIDADE                                                              */
+/* Respeita usuários que preferem menos animação                              */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,55 +1,57 @@
 {
   "name": "CETYN",
-  "slogan": "Roupa Feminina e Masculina alta costura",
-  "description": "Roupas femininas e masculinas de alta costura, feitas com tecidos de alta qualidade para valorizar a beleza e o estilo.",
-  "tags": ["roupa", "feminina", "masculina", "alta costura"],
-  "year": 2024,
-  "client": "CETYN",
+  "slogan": "Dormindo com Elegância",
+  "description": "Marca de sleepwear de luxo especializada em pijamas e robes femininos de alto padrão. Unimos alta costura, tecidos acetinados e design refinado para proporcionar máximo requinte aos seus momentos de descanso.",
+  "tags": ["sleepwear de luxo", "pijamas femininos", "robes de seda", "alta costura", "moda íntima elegante", "cetyn"],
   "links": {
-    "website": "https://cetyn.com.br",
-    "instagram": "https://www.instagram.com/cetynoficial/",
-    "facebook": "https://www.facebook.com/cetynoficial"
+    "website": "",
+    "instagram": ""
   },
   "images": [
     {
       "file": "1.png",
-      "title": "",
-      "alt": ""
+      "title": "Vestido Pijama Slip de Seda",
+      "alt": "Vestido pijama de seda branca em cabide de madeira com iluminação natural e sombras elegantes."
     },
     {
       "file": "2.png",
-      "title": "",
-      "alt": ""
+      "title": "Experiência de Compra Cetyn",
+      "alt": "Sacola de compras personalizada da marca Cetyn sobre uma cama branca de hotel luxuosa."
     },
     {
       "file": "3.png",
-      "title": "",
-      "alt": ""
+      "title": "Detalhe da Gola de Robe Cetyn",
+      "alt": "Gola de robe de seda champanhe com foco na etiqueta interna da marca Cetyn."
     },
     {
       "file": "4.png",
-      "title": "",
-      "alt": ""
+      "title": "Pijama Feminino de Luxo",
+      "alt": "Mulher vestindo camisa de pijama de seda branca com botões e caimento fluido."
     },
     {
       "file": "5.png",
-      "title": "",
-      "alt": ""
+      "title": "Textura do Tecido Acetinado",
+      "alt": "Close-up de tecido de seda de alta qualidade com etiqueta da marca Cetyn."
     },
     {
       "file": "6.png",
-      "title": "",
-      "alt": ""
+      "title": "Acabamento de Alta Costura",
+      "alt": "Punho de pijama branco com detalhe de bordado em letra T e acabamento em vivo preto."
     },
     {
       "file": "7.png",
-      "title": "",
-      "alt": ""
+      "title": "Embalagem de Presente Cetyn",
+      "alt": "Pijama dobrado delicadamente dentro de uma caixa de presente premium aberta."
     },
     {
       "file": "8.png",
-      "title": "",
-      "alt": ""
+      "title": "Logotipo Cetyn - Dormindo com Elegância",
+      "alt": "Logotipo minimalista da marca Cetyn com slogan Dormindo com Elegância em fundo neutro."
+    },
+    {
+      "file": "9.png",
+      "title": "Ícone da Marca Cetyn",
+      "alt": "Ícone minimalista com a letra T em caligrafia elegante, símbolo da marca Cetyn."
     }
   ]
 }
