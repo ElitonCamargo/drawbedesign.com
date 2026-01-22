@@ -1,0 +1,62 @@
+{
+  "name": "GEN",
+  "slogan": "Joias",
+  "description": "Desenvolvimento de identidade visual estratégica para a Gen, uma marca de joias modernas e orgânicas voltada para o público feminino maduro. O projeto de branding utiliza uma paleta de tons terrosos e tipografia refinada para comunicar sofisticação, força e a exclusividade do design contemporâneo.",
+  "tags": ["branding para joalherias", "identidade visual de luxo", "design de joias modernas", "logotipo para joias", "embalagem premium joalheria", "direção de arte para moda"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [    
+    {
+      "file": "1.png",
+      "title": "Branding em Ecobag de Luxo",
+      "alt": "Sacola de tecido em tom marrom escuro pendurada, exibindo a marca Gen de forma clean e moderna."
+    },
+    {
+      "file": "2.png",
+      "title": "Mix de Embalagens e Unboxing",
+      "alt": "Pessoa segurando empilhamento de caixas de joias de luxo, com destaque para colar em estojo aberto."
+    },
+    {
+      "file": "3.png",
+      "title": "Design de Envelope para Joias",
+      "alt": "Envelope de couro ou material premium com fecho de botão para joias delicadas, reforçando o cuidado nos detalhes."
+    },
+    {
+      "file": "4.png",
+      "title": "Fotografia de Produto Estilo Orgânico",
+      "alt": "Argolas de ouro com design orgânico sobre pedra natural, com o logotipo Gen aplicado suavemente ao fundo."
+    },
+    {
+      "file": "5.png",
+      "title": "Embalagem em Tecido Premium",
+      "alt": "Saquinho de joias personalizado em tecido creme com cordão, exibindo o ícone da marca e anel dourado orgânico."
+    },
+    {
+      "file": "6.png",
+      "title": "Papelaria de Luxo e Anéis Gen",
+      "alt": "Papelaria corporativa minimalista da marca Gen com anéis de ouro dispostos sobre envelope, focando na elegância do branding."
+    },
+    {
+      "file": "7.png",
+      "title": "Branding Editorial de Joalheria",
+      "alt": "Anéis de ouro em mini bandeja cerâmica sobre catálogo da marca, demonstrando a força visual da identidade Gen."
+    },
+    {
+      "file": "8.png",
+      "title": "Logotipo Principal Gen Joias",
+      "alt": "Logotipo minimalista Gen com tipografia serifada moderna e slogan Joias em fundo marrom chocolate sofisticado."
+    },
+    {
+      "file": "9.png",
+      "title": "Ícone da Marca - Letra G Estilizada",
+      "alt": "Ícone minimalista com a letra 'g' em curvas elegantes, núcleo da identidade visual da marca de joias Gen."
+    },
+    {
+      "file": "10.png",
+      "title": "Experiência de Compra no Varejo",
+      "alt": "Mão segurando sacola de presente marrom com tag branca da marca Gen, representando o posicionamento premium."
+    }
+  ]
+}

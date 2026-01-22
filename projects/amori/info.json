@@ -1,0 +1,62 @@
+{
+  "name": "AMORI",
+  "slogan": "Doces Finos",
+  "description": "Projeto de identidade visual premium para a Amori Doces Finos. O branding utiliza uma paleta de cores suaves e estética minimalista para transmitir a leveza e a sofisticação de uma confeitaria de alto padrão, focada em autenticidade e design delicado.",
+  "tags": ["branding para confeitaria", "identidade visual doces finos", "design de logotipo minimalista", "embalagem de luxo", "logotipo confeitaria gourmet", "design gráfico premium"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Símbolo Minimalista Amori",
+      "alt": "Ícone da letra A em linhas finas sobre fundo verde sálvia, representando a essência minimalista da marca Amori."
+    },
+    {
+      "file": "2.png",
+      "title": "Design de Embalagem para Presente",
+      "alt": "Sacola transparente com laço de cetim e potes de doces finos, demonstrando o cuidado com o packaging da marca."
+    },
+    {
+      "file": "3.png",
+      "title": "Apresentação de Produto Gourmet",
+      "alt": "Profissional segurando potes de doces artesanais com rótulos minimalistas em tons pastéis."
+    },
+    {
+      "file": "4.png",
+      "title": "Uniforme Corporativo Personalizado",
+      "alt": "Avental de confeiteira na cor verde claro com o logotipo Amori bordado, reforçando a identidade visual no ambiente de trabalho."
+    },
+    {
+      "file": "5.png",
+      "title": "Logotipo Aplicado em Embalagem",
+      "alt": "Caixa de doces aberta revelando brigadeiros gourmet e o logotipo Amori Doces Finos impresso na tampa verde."
+    },
+    {
+      "file": "6.png",
+      "title": "Logotipo Principal Amori",
+      "alt": "Logotipo Amori em tipografia moderna e elegante centralizado em fundo creme, transmitindo clareza e sofisticação."
+    },
+    {
+      "file": "7.png",
+      "title": "Detalhe de Doce Fino",
+      "alt": "Close-up de um bombom de chocolate premium em caixa personalizada, focando na qualidade e textura do produto."
+    },
+    {
+      "file": "8.png",
+      "title": "Set de Papelaria e Caixas",
+      "alt": "Conjunto de caixas de presente de diferentes tamanhos em tons de verde e bege com o branding Amori."
+    },
+    {
+      "file": "9.png",
+      "title": "Submarca / Emblema Amori",
+      "alt": "Selo circular da marca com o ícone central e o nome Amori Doces Finos em volta, variação de submarca para aplicações diversas."
+    },
+    {
+      "file": "10.png",
+      "title": "Ícone Conceitual A e Saco de Confeitar",
+      "alt": "Ícone estilizado unindo a letra A à silhueta de um saco de confeitar, símbolo da identidade visual da Amori."
+    }
+  ]
+}

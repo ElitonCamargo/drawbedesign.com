@@ -1,0 +1,52 @@
+{
+  "name": "CLOE",
+  "slogan": "Velas Aromáticas",
+  "description": "Identidade visual autoral desenvolvida para a marca Cloe Velas Aromáticas. Com foco na produção artesanal e no design de luxo, o projeto destaca embalagens e frascos que funcionam como itens de decoração exclusivos, utilizando uma paleta de cores botânica para traduzir a essência de seus aromas.",
+  "tags": ["branding para velas", "identidade visual artesanal", "design de embalagem premium", "velas de luxo", "logotipo minimalista", "design autoral"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Design Orgânico e Artesanal",
+      "alt": "Conjunto de vasos e recipientes cerâmicos em tons terrosos e orgânicos, representando o processo artesanal da marca Cloe."
+    },
+    {
+      "file": "2.png",
+      "title": "Vela Aromática e Ingredientes Naturais",
+      "alt": "Vela Cloe em copo de vidro com rótulo verde oliva ao lado de limas e amêndoas, sugerindo frescor e bem-estar."
+    },
+    {
+      "file": "3.png",
+      "title": "Packaging de Luxo para Velas",
+      "alt": "Pessoa segurando trio de velas em frascos verdes com tampa de madeira, destacando a sofisticação da marca."
+    },
+    {
+      "file": "4.png",
+      "title": "Branding e Design de Caixas",
+      "alt": "Embalagem quadrada premium na cor verde militar com logotipo Cloe aplicado em minimalismo absoluto."
+    },
+    {
+      "file": "5.png",
+      "title": "Identidade Visual e Papelaria",
+      "alt": "Caixa de presente com baixo relevo e vela aromática em vidro escuro, focando na elegância e bom gosto da marca."
+    },
+    {
+      "file": "6.png",
+      "title": "Experiência de Produto Cloe",
+      "alt": "Mãos segurando conjunto de vela e caixa personalizada em tons de verde sálvia, reforçando o conceito autoral."
+    },
+    {
+      "file": "7.png",
+      "title": "Logotipo Principal Cloe",
+      "alt": "Logotipo Cloe em tipografia serifada fina e elegante aplicado centralizado sobre fundo verde musgo."
+    },
+    {
+      "file": "8.png",
+      "title": "Ícone da Marca Monograma C",
+      "alt": "Ícone minimalista com a letra C estilizada em curvas delicadas, símbolo gráfico da identidade visual Cloe."
+    }
+  ]
+}

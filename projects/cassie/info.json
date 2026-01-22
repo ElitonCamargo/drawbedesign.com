@@ -1,0 +1,72 @@
+{
+  "name": "CASSIE",
+  "slogan": "Interior Design",
+  "description": "Identidade visual minimalista desenvolvida para Cassie Interior Design. O projeto utiliza tipografia orgânica e linhas limpas para transmitir modernidade, delicadeza e autenticidade, refletindo um trabalho de alto padrão para clientes exigentes no mercado de design de interiores.",
+  "tags": ["branding para design de interiores", "identidade visual minimalista", "logotipo arquitetura", "design de luxo", "tipografia orgânica", "branding premium"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Aplicação de Marca em Objeto de Design",
+      "alt": "Caneca branca com alça orgânica em formato de esferas exibindo o logotipo minimalista Cassie."
+    },
+    {
+      "file": "2.png",
+      "title": "Embalagem Têxtil Premium",
+      "alt": "Ecobag de algodão cru com a marca Cassie Interior Design em cenário de luz suave e minimalista."
+    },
+    {
+      "file": "3.png",
+      "title": "Conceito de Espaço e Movimento",
+      "alt": "Mulher caminhando em ambiente clean com logotipo Cassie aplicado na parede, representando design de espaços."
+    },
+    {
+      "file": "4.png",
+      "title": "Interação com Formas Orgânicas",
+      "alt": "Pessoa segurando escultura cerâmica branca com o ícone CA aplicado, unindo arte e design de interiores."
+    },
+    {
+      "file": "5.png",
+      "title": "Papelaria Corporativa Minimalista",
+      "alt": "Pasta de projetos em tom bege com logotipo Cassie, transmitindo organização e sofisticação profissional."
+    },
+    {
+      "file": "6.png",
+      "title": "Cartões de Visita de Alto Padrão",
+      "alt": "Cartões de visita em preto e branco com acabamento premium sobre superfície texturizada."
+    },
+    {
+      "file": "7.png",
+      "title": "Sinalização de Interiores",
+      "alt": "Mockup de recepção com logotipo Cassie retroiluminado em nicho arqueado com mobiliário moderno."
+    },
+    {
+      "file": "8.png",
+      "title": "Editorial de Design de Interiores",
+      "alt": "Mãos segurando revista aberta com layout editorial da marca Cassie sob luz solar natural."
+    },
+    {
+      "file": "9.png",
+      "title": "Logotipo Principal Cassie",
+      "alt": "Logotipo minimalista com tipografia moderna e slogan Interior Design centralizado em fundo cinza claro."
+    },
+    {
+      "file": "10.png",
+      "title": "Ícone Monograma CA",
+      "alt": "Símbolo gráfico minimalista com as iniciais CA em estilo orgânico, núcleo da identidade visual Cassie."
+    },
+    {
+      "file": "11.png",
+      "title": "Portfólio e Materiais Técnicos",
+      "alt": "Profissional segurando tubo de projetos personalizado com a marca, indicando autoridade técnica."
+    },
+    {
+      "file": "12.png",
+      "title": "Branding Conceitual e Arte",
+      "alt": "Livro de marca aberto ao lado de escultura abstrata, reforçando o posicionamento autêntico e artístico."
+    }
+  ]
+}

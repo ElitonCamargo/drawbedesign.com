@@ -1,0 +1,77 @@
+{
+  "name": "LA COCCINA",
+  "slogan": "Gastronomia",
+  "description": "Projeto de identidade visual que equilibra elegância rústica e minimalismo contemporâneo. A marca utiliza uma paleta terracota vibrante e texturas orgânicas — como linho e madeira — para evocar calor e hospitalidade. O design comunica sofisticação artesanal, focando na simplicidade refinada e na experiência sensorial da alta gastronomia.",
+  "tags": ["branding gastronômico", "identidade visual premium", "design rústico minimalista", "direção de arte gastronomia", "papelaria institucional luxo", "branding de experiência"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Design de Menu Editorial",
+      "alt": "Profissional segurando menu vertical em tom terracota, destacando a sobriedade e a verticalidade do design institucional."
+    },
+    {
+      "file": "2.png",
+      "title": "Branding em Vestuário Corporativo",
+      "alt": "Logotipo La Coccina bordado em camisa de sarja cinza claro, demonstrando a aplicação da marca em uniformes de alto padrão."
+    },
+    {
+      "file": "3.png",
+      "title": "Packaging e Design de Caixas",
+      "alt": "Embalagem quadrada em papel fosco terracota com logotipo centralizado, reforçando a identidade tátil da marca."
+    },
+    {
+      "file": "4.png",
+      "title": "Detalhe de Enxoval e Cutelaria",
+      "alt": "Talheres dourados dentro de porta-talheres de linho com ícone bordado, unindo funcionalidade e requinte à mesa."
+    },
+    {
+      "file": "5.png",
+      "title": "Sinalização e Ambientação",
+      "alt": "Logotipo aplicado em vitrine de vidro com cortinas de linho ao fundo, sugerindo um ambiente gastronômico acolhedor."
+    },
+    {
+      "file": "6.png",
+      "title": "Avental Personalizado de Chef",
+      "alt": "Profissional utilizando avental terracota com a marca bordada, simbolizando a conexão com o feito à mão e o artesanal."
+    },
+    {
+      "file": "7.png",
+      "title": "Cartão de Visita em Cenário Orgânico",
+      "alt": "Cartão de visita terracota posicionado sobre pedra natural com iluminação de sombras marcantes e um garfo."
+    },
+    {
+      "file": "8.png",
+      "title": "Design de Sacola para Delivery de Luxo",
+      "alt": "Pessoa segurando sacola de papel terracota com tipografia vertical, focando na elegância do branding em movimento."
+    },
+    {
+      "file": "9.png",
+      "title": "Papelaria Institucional Minimalista",
+      "alt": "Cartão de visita em suporte de acrílico transparente, destacando o contraste entre o moderno e o clássico."
+    },
+    {
+      "file": "10.png",
+      "title": "Embalagem de Papel para Padaria/Bistrô",
+      "alt": "Saco de papel branco com logotipo minimalista contendo um croissant, evocando simplicidade e qualidade do produto."
+    },
+    {
+      "file": "11.png",
+      "title": "Guardanapo de Tecido Bordado",
+      "alt": "Guardanapo de linho off-white com o nome La Coccina em bordado fino, aplicado sobre mesa de madeira escura."
+    },
+    {
+      "file": "12.png",
+      "title": "Logotipo Principal La Coccina",
+      "alt": "Logotipo com tipografia serifada delicada em branco sobre fundo sólido terracota, base da identidade visual."
+    },
+    {
+      "file": "13.png",
+      "title": "Ícone Minimalista - Colher Estilizada",
+      "alt": "Símbolo gráfico de uma colher em traços finos, ícone que representa a essência da gastronomia da marca."
+    }
+  ]
+}

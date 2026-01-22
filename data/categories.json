@@ -1,12 +1,21 @@
 {
   "categories": [
-    { "id": 1, "slug": "arquitetura", "name": "Arquitetura" },
-    { "id": 2, "slug": "engenharia", "name": "Engenharia" },
-    { "id": 3, "slug": "moda", "name": "Moda" },
-    { "id": 4, "slug": "beleza", "name": "Beleza" },
-    { "id": 5, "slug": "gastronomia", "name": "Gastronomia" },
-    { "id": 6, "slug": "culinaria", "name": "Culinária" },
-    { "id": 7, "slug": "estilo", "name": "Estilo" },
-    { "id": 8, "slug": "estética", "name": "Estética" }
+    { "id": "arquitetura", "name": "Arquitetura" },
+    { "id": "artesanal", "name": "Artesanal" },
+    { "id": "branding", "name": "Branding" },
+    { "id": "beleza", "name": "Beleza" },
+    { "id": "confeitaria", "name": "Confeitaria" },
+    { "id": "culinaria", "name": "Culinária" },
+    { "id": "delicias", "name": "Delícias" },
+    { "id": "design-de-interiores", "name": "Design de Interiores" },
+    { "id": "doces-finos", "name": "Doces Finos" },
+    { "id": "engenharia", "name": "Engenharia" },
+    { "id": "estética", "name": "Estética" },
+    { "id": "estilo", "name": "Estilo" },
+    { "id": "fotografia", "name": "Fotografia" },
+    { "id": "joias", "name": "Joias" },
+    { "id": "gastronomia", "name": "Gastronomia" },
+    { "id": "luxo", "name": "Luxo" },
+    { "id": "moda", "name": "Moda" }
   ]
 }

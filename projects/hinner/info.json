@@ -1,0 +1,62 @@
+{
+  "name": "HINNER",
+  "slogan": "Arq & Design",
+  "description": "Identidade visual estratégica desenvolvida para Hinner Arq & Design. Com uma estética rigorosamente minimalista e tipografia de linhas orgânicas, o branding comunica precisão técnica e sensibilidade. O projeto foi desenhado para refletir o olhar atento aos detalhes e a elegância atemporal exigida por escritórios de arquitetura de alto padrão.",
+  "tags": ["branding para arquitetura", "identidade visual design de interiores", "logotipo minimalista", "direção de arte para arquitetos", "papelaria técnica premium", "branding estratégico"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Sinalização e Ambientação de Marca",
+      "alt": "Banheira de design minimalista em ambiente clean com o logotipo Hinner aplicado na parede, representando a integração entre marca e espaço."
+    },
+    {
+      "file": "2.png",
+      "title": "Design de Papelaria Institucional",
+      "alt": "Pasta de projetos com o símbolo da marca (arco) em relevo, demonstrando sobriedade e profissionalismo na entrega técnica."
+    },
+    {
+      "file": "3.png",
+      "title": "Apresentação de Portfólio Profissional",
+      "alt": "Pessoa segurando pasta de apresentação da marca Hinner em tons de cinza, focando na experiência de atendimento ao cliente."
+    },
+    {
+      "file": "4.png",
+      "title": "Cartões de Visita com Textura Premium",
+      "alt": "Cartões de visita minimalistas sobre superfície de pedra natural, destacando a tipografia orgânica e o ícone da marca."
+    },
+    {
+      "file": "5.png",
+      "title": "Curadoria de Materiais e Moodboard",
+      "alt": "Composição de amostras de tecidos, metais e papelaria da marca, refletindo o processo criativo e o cuidado com detalhes técnicos."
+    },
+    {
+      "file": "6.png",
+      "title": "Merchandising e Ecobag Minimalista",
+      "alt": "Sacola de tecido com branding Hinner em cenário de luz e sombra, reforçando a identidade visual no dia a dia do arquiteto."
+    },
+    {
+      "file": "7.png",
+      "title": "Logotipo Principal Hinner",
+      "alt": "Logotipo minimalista Hinner Arq & Design centralizado em fundo cinza médio, transmitindo modernidade e clareza visual."
+    },
+    {
+      "file": "8.png",
+      "title": "Ícone da Marca - Arco Arquitetônico",
+      "alt": "Ícone gráfico baseado em formas geométricas e arcos, símbolo da identidade visual Hinner em tom neutro."
+    },
+    {
+      "file": "9.png",
+      "title": "Stationery e Elementos de Apoio",
+      "alt": "Papelaria da marca disposta em bandeja de design orgânico, unindo a rigidez da arquitetura à fluidez da tipografia."
+    },
+    {
+      "file": "10.png",
+      "title": "Workspace e Planejamento Técnico",
+      "alt": "Mesa de trabalho com iPad exibindo a marca Hinner ao lado de catálogos e ferramentas de desenho, indicando autoridade na área."
+    }
+  ]
+}

@@ -24,7 +24,7 @@
       "slug": "dona",
       "cover": "projects/dona/images/1.png",
       "categories":  ["moda", "estilo", "beleza"],
-      "is_featured": true,
+      "is_featured": false,
       "order": 3
     },
     {
@@ -35,7 +35,186 @@
       "categories":  ["estética", "beleza"],
       "is_featured": true,
       "order": 4
+    },
+    {
+      "id": "amori",
+      "name": "AMORI",
+      "slug": "amori",
+      "cover": "projects/amori/images/1.png",
+      "categories":  ["gastronomia", "culinaria", "delicias"],
+      "is_featured": true,
+      "order": 5
+    },
+    {
+      "id": "cassie",
+      "name": "CASSIE",
+      "slug": "cassie",
+      "cover": "projects/cassie/images/1.png",
+      "categories":  ["arquitetura", "design-de-interiores", "luxo"],
+      "is_featured": false,
+      "order": 6
+    },
+    {
+      "id": "cloe",
+      "name": "CLOE",
+      "slug": "cloe",
+      "cover": "projects/cloe/images/1.png",
+      "categories":  ["luxo", "estilo", "branding", "artesanal"],
+      "is_featured": false,
+      "order": 7
+    },
+    {
+      "id": "doucx",
+      "name": "DOUCX",
+      "slug": "doucx",
+      "cover": "projects/doucx/images/1.png",
+      "categories":  ["confeitaria", "doces-finos", "branding", "artesanal"],
+      "is_featured": true,
+      "order": 8
+    },
+    {
+      "id": "estela-gomes",
+      "name": "ESTELA GOMES",
+      "slug": "estela-gomes",
+      "cover": "projects/estela-gomes/images/1.png",
+      "categories":  ["fotografia", "branding", "design"],
+      "is_featured": false,
+      "order": 9
+    },
+    {
+      "id": "gen",
+      "name": "GEN",
+      "slug": "gen",
+      "cover": "projects/gen/images/1.png",
+      "categories":  ["joias", "luxo", "branding"],
+      "is_featured": true,
+      "order": 10
+    },
+    {
+      "id": "hinner",
+      "name": "HINNER",
+      "slug": "hinner",
+      "cover": "projects/hinner/images/1.png",
+      "categories":  ["arquitetura", "design-de-interiores", "luxo", "branding"],
+      "is_featured": false,
+      "order": 11
+    },
+    {
+      "id":"la-pate",
+      "name":"LA´COCCINA",
+      "slug":"la-coccina",
+      "cover":"projects/la-coccina/images/1.png",
+      "categories":["gastronomia", "luxo", "branding"],
+      "is_featured": false,
+      "order":12      
+    },
+    {
+      "id": "v2la-pate",
+      "name": "LA´PATE",
+      "slug": "la-pate",
+      "cover": "projects/la-pate/images/2.png",
+      "categories": ["gastronomia", "culinaria"],
+      "is_featured": false,
+      "order": 101
+    },
+    {
+      "id": "v2cetyn",
+      "name": "CETYN",
+      "slug": "cetyn",
+      "cover": "projects/cetyn/images/5.png",
+      "categories": ["moda", "estilo"],
+      "is_featured": false,
+      "order": 102
+    },
+    {
+      "id": "v2dona",
+      "name": "DONA",
+      "slug": "dona",
+      "cover": "projects/dona/images/2.png",
+      "categories":  ["moda", "estilo", "beleza"],
+      "is_featured": false,
+      "order": 103
+    },
+    {
+      "id": "v2amanda-castro",
+      "name": "AMANDA CASTRO",
+      "slug": "amanda-castro",
+      "cover": "projects/amanda-castro/images/2.png",
+      "categories":  ["estética", "beleza"],
+      "is_featured": false,
+      "order": 104
+    },
+    {
+      "id": "v2amori",
+      "name": "AMORI",
+      "slug": "amori",
+      "cover": "projects/amori/images/2.png",
+      "categories":  ["gastronomia", "culinaria", "delicias"],
+      "is_featured": false,
+      "order": 5
+    },
+    {
+      "id": "v2cassie",
+      "name": "CASSIE",
+      "slug": "cassie",
+      "cover": "projects/cassie/images/2.png",
+      "categories":  ["arquitetura", "design-de-interiores", "luxo"],
+      "is_featured": false,
+      "order": 106
+    },
+    {
+      "id": "v2cloe",
+      "name": "CLOE",
+      "slug": "cloe",
+      "cover": "projects/cloe/images/2.png",
+      "categories":  ["luxo", "estilo", "branding", "artesanal"],
+      "is_featured": false,
+      "order": 107
+    },
+    {
+      "id": "v2doucx",
+      "name": "DOUCX",
+      "slug": "doucx",
+      "cover": "projects/doucx/images/2.png",
+      "categories":  ["confeitaria", "doces-finos", "branding", "artesanal"],
+      "is_featured": false,
+      "order": 108
+    },
+    {
+      "id": "v2estela-gomes",
+      "name": "ESTELA GOMES",
+      "slug": "estela-gomes",
+      "cover": "projects/estela-gomes/images/2.png",
+      "categories":  ["fotografia", "branding", "design"],
+      "is_featured": false,
+      "order": 109
+    },
+    {
+      "id": "v2gen",
+      "name": "GEN",
+      "slug": "gen",
+      "cover": "projects/gen/images/2.png",
+      "categories":  ["joias", "luxo", "branding"],
+      "is_featured": false,
+      "order": 110
+    },
+    {
+      "id": "v2hinner",
+      "name": "HINNER",
+      "slug": "hinner",
+      "cover": "projects/hinner/images/2.png",
+      "categories":  ["arquitetura", "design-de-interiores", "luxo", "branding"],
+      "is_featured": false,
+      "order": 111
+    },
+    {
+      "id":"la-pate",
+      "name":"LA´COCCINA",
+      "slug":"la-coccina",
+      "cover":"projects/la-coccina/images/2.png",
+      "categories":["gastronomia", "luxo", "branding"],
+      "is_featured": false,
+      "order": 112      
     }
-    
   ]
 }

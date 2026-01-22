@@ -12,11 +12,20 @@
 
 		// Carrega dados de projetos
 		const data = await UI.fetchJSON('data/projects.json');
-		const projects = (data.projects || [])
-			.slice()
-			// Ordena por `order` quando disponível
-			.sort((a, b) => (b.order ?? 999) - (a.order ?? 999));
 
+		const featured = [];
+		const regular = [];
+
+		(data.projects || []).forEach(p => {
+			if (p.is_featured === true) featured.push(p);
+			else regular.push(p);
+		});
+
+		const sortByOrder = (a, b) => (b.order ?? 999) - (a.order ?? 999);
+
+		const projects = [...featured.sort(sortByOrder), ...regular.sort(sortByOrder)];
+		
+		// Renderiza os cards
 		projects.forEach(p => {
 			const alt = p.name ? `Capa do projeto ${p.name}` : 'Capa do projeto';
 			const coverSrc = p.cover && !p.cover.startsWith('/') ? `/${p.cover}` : p.cover;
