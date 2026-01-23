@@ -74,6 +74,13 @@ h1, h2, h3, h4, h5, h6 {
   text-align: right;
 }
 
+.ai-c{
+  align-items: center;
+}
+
+.jc-c{
+  justify-content: center;
+}
 
 .color-muted {
   color: var(--muted);
@@ -92,12 +99,12 @@ h1, h2, h3, h4, h5, h6 {
 .ml-0{ margin-left: var(--spacing-0);} .ml-1{ margin-left: var(--spacing-1);} .ml-2{ margin-left: var(--spacing-2);} .ml-3{ margin-left: var(--spacing-3);} .ml-4{ margin-left: calc(var(--spacing-3) * 2);} .p-5{ padding: calc(var(--spacing-3) * 3); }
 .mr-0{ margin-right: var(--spacing-0);} .mr-1{ margin-right: var(--spacing-1);} .mr-2{ margin-right: var(--spacing-2);} .mr-3{ margin-right: var(--spacing-3);} .mr-4{ margin-right: calc(var(--spacing-3) * 2);} .p-5{ padding: calc(var(--spacing-3) * 3); }
 
-.spacer-1{ height: var(--spacing-1); }
-.spacer-2{ height: var(--spacing-2); }
-.spacer-3{ height: var(--spacing-3); }
-.spacer-4{ height: calc(var(--spacing-3) * 2); }
-.spacer-5{ height: calc(var(--spacing-3) * 3); }
-.spacer-6{ height: calc(var(--spacing-3) * 4); }
+.spacer-1{ display: block; width: 100%; height: var(--spacing-1); }
+.spacer-2{ display: block; width: 100%; height: var(--spacing-2); }
+.spacer-3{ display: block; width: 100%; height: var(--spacing-3); }
+.spacer-4{ display: block; width: 100%; height: calc(var(--spacing-3) * 2); }
+.spacer-5{ display: block; width: 100%; height: calc(var(--spacing-3) * 3); }
+.spacer-6{ display: block; width: 100%; height: calc(var(--spacing-3) * 4); }
 
 /* ========================================================================
    2) Scrollbar (mantido)
@@ -164,16 +171,35 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ========================================================================
-   4) Grid de Portfólio (Masonry) e Cards
-   - Base mobile: 1 coluna; escala em min-width
+   4) Grid de Portfólio - CSS GRID (ao invés de Masonry)
+   - Mantém posição dos cards ao adicionar novos itens
    ======================================================================== */
-.masonry { column-gap: var(--spacing-1); column-count: 1; } /* < 340px */
-.project-card { display: inline-block; width: 100%; margin: 0 0 var(--spacing-0); break-inside: avoid; }
-.project-card a { display: block; text-decoration: none; color: inherit; }
-.project-card .cover {
-  width: 100%; display: block; border-radius: var(--radius); box-shadow: var(--shadow);
-  background: #f6f6f6; object-fit: cover; transition: transform 240ms ease, opacity 240ms ease;
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-0);
+  align-items: start; /* Evita esticamento */
 }
+
+.project-card {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.project-card a { display: block; text-decoration: none; color: inherit; }
+
+.project-card .cover {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Mantém proporção consistente */
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #f6f6f6;
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+
 .project-card:hover .cover { transform: scale(1.02); }
 .project-card .title { font-size: clamp(14px, 2.2vw, 18px); margin-top: var(--spacing-1); }
 .project-card .meta { font-size: clamp(12px, 2vw, 14px); color: var(--muted); margin-top: 4px; }
@@ -327,10 +353,36 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 200px;
 }
 
+/* 8.2 conteúdo da página serviços */
 
+.services-section .page-grid{
+  margin-bottom: 40px;
+}
 
+.services-col{
+  width: 90%; margin: 0 auto;
+}
 
+.services-col img{
+  max-width: 100%; display: block; margin: 0 auto;
+}
 
+.services-ps{
+  background-color: #e9e5e1;
+}
+
+.services-ps img{
+  max-width: 40px; display: block; margin: 0 auto;
+}
+
+.services-section .ta-c{
+  text-align: center;
+}
+
+.services-fp{
+  background-color: #e9e5e1;
+  padding-block: 80px;
+}
 
 
 
@@ -367,14 +419,16 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ========================================================================
-   11) Breakpoints Mobile-First (min-width)
-   - Consolidado e ordenado: 340, 400, 640, 700, 900, 1100, 1200
+   11) Breakpoints Mobile-First
    ======================================================================== */
+
+
+
 
 /* >= 340px */
 @media (min-width: 340px) {
   /* Masonry e Gallery aumentam para 2 colunas */
-  .masonry { column-count: 2; }
+  .masonry { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
   .gallery { column-count: 2; }
 }
 
@@ -391,7 +445,7 @@ h1, h2, h3, h4, h5, h6 {
 /* >= 640px (smartphones grandes / tablets em retrato) */
 @media (min-width: 640px) {
     /* Masonry sobe para 4 colunas */
-  .masonry { column-count: 3; }
+  .masonry { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
 
   /* Marca um pouco maior */
   .brand-area { padding: 1.25rem 2rem; }
@@ -417,7 +471,7 @@ h1, h2, h3, h4, h5, h6 {
 /* >= 900px (tablets landscape / desktops pequenos) */
 @media (min-width: 900px) {
   /* Masonry sobe para 4 colunas */
-  .masonry { column-count: 4; }
+  .masonry { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
 
   /* Featured: 3 colunas */
   .featured-projects { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-3); }
@@ -464,7 +518,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* >= 1200px (desktops grandes) */
 @media (min-width: 1200px) {
-  .masonry { column-count: 5; }
+  .masonry { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
 }
 
 

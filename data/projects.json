@@ -40,7 +40,7 @@
       "id": "amori",
       "name": "AMORI",
       "slug": "amori",
-      "cover": "projects/amori/images/1.png",
+      "cover": "projects/amori/images/2.png",
       "categories":  ["gastronomia", "culinaria", "delicias"],
       "is_featured": true,
       "order": 5
@@ -148,7 +148,7 @@
       "id": "v2amori",
       "name": "AMORI",
       "slug": "amori",
-      "cover": "projects/amori/images/2.png",
+      "cover": "projects/amori/images/3.png",
       "categories":  ["gastronomia", "culinaria", "delicias"],
       "is_featured": false,
       "order": 5

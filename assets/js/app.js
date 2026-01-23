@@ -151,6 +151,10 @@
 		main.innerHTML = '';
 		main.appendChild(servicesHtml);
 		UI.setTitleAndMeta('Serviços — drawbe', 'Conheça os serviços oferecidos pela drawbe em design e branding.');
+		// Reinicializa o sistema de motion para os novos elementos
+		if (window.Motion && window.Motion.initMotion) {
+			window.Motion.initMotion();
+		}
 	}
 
 
