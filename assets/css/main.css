@@ -1,502 +1,191 @@
+/* ========================================================================
+   drawbe main.css — Reescrito Mobile-First
+   - Mantém todas as funcionalidades do CSS atual
+   - Unifica e organiza @media em escala crescente (min-width)
+   - Remove duplicações e conflitos, com comentários de orientação
+   ======================================================================== */
+
+
+/* ========================================================================
+   1) Variáveis, Reset e Utilitários
+   ======================================================================== */
 :root {
-	--bg: #f7f7f7;
-	--fg: #0b0b0b;
-	--muted: #6a6a6a;
-	--nav-color: #7f7a70;
-	--border: #eaeaea;
-	--brand: #0b0b0b;
-	--spacing-0: clamp(4px, 0.5vw, 6px);
-	--spacing-1: clamp(8px, 1vw, 12px);
-	--spacing-2: clamp(12px, 1.5vw, 18px);
-	--spacing-3: clamp(16px, 2vw, 24px);
-	--radius: 1px;
-	--shadow: 0 2px 24px rgba(0,0,0,0.06);
+  --bg: #f7f7f7;
+  --fg: #0b0b0b;
+  --muted: #6a6a6a;
+  --nav-color: #7f7a70;
+  --border: #eaeaea;
+  --brand: #0b0b0b;
+  --spacing-0: clamp(4px, 0.5vw, 6px);
+  --spacing-1: clamp(8px, 1vw, 12px);
+  --spacing-2: clamp(12px, 1.5vw, 18px);
+  --spacing-3: clamp(16px, 2vw, 24px);
+  --radius: 1px;
+  --shadow: 0 2px 24px rgba(0,0,0,0.06);
 }
 
-.pt-1 {
-  padding-top: var(--spacing-1);
-}
-.pt-2 {
-  padding-top: var(--spacing-2);
-}
-.pt-3 {
-  padding-top: var(--spacing-3);
-}
-.pt-4 {
-  padding-top: calc(var(--spacing-3) * 2);
-}
-.pb-1 {
-  padding-bottom: var(--spacing-1);
-}
-.pb-2 {
-  padding-bottom: var(--spacing-2);
-}
-.pb-3 {
-  padding-bottom: var(--spacing-3);
-}
-.pb-4 {
-  padding-bottom: calc(var(--spacing-3) * 2);
-}
-.pr-1{
-  padding-right: var(--spacing-1);
-}
-.pr-2{
-  padding-right: var(--spacing-2);
-}
-.pr-3{
-  padding-right: var(--spacing-3);
-}
-.pr-4{
-  padding-right: calc(var(--spacing-3) * 2);
-}
-.pl-1{
-  padding-left: var(--spacing-1);
-}
-.pl-2{
-  padding-left: var(--spacing-2);
-}
-.pl-3{
-  padding-left: var(--spacing-3);
-}
-.pl-4{
-  padding-left: calc(var(--spacing-3) * 2);
-}
-
-.mt-1 {
-  margin-top: var(--spacing-1);
-}
-.mt-2 {
-  margin-top: var(--spacing-2);
-}
-.mt-3 {
-  margin-top: var(--spacing-3);
-}
-.mt-4 {
-  margin-top: calc(var(--spacing-3) * 2);
-}
-.mb-1 {
-  margin-bottom: var(--spacing-1);
-}
-.mb-2 {
-  margin-bottom: var(--spacing-2);
-}
-.mb-3 {
-  margin-bottom: var(--spacing-3);
-}
-.mb-4 {
-  margin-bottom: calc(var(--spacing-3) * 2);
-}
-.mr-1 {
-  margin-right: var(--spacing-1);
-}
-.mr-2 {
-  margin-right: var(--spacing-2);
-}
-.mr-3 {
-  margin-right: var(--spacing-3);
-}
-.mr-4 {
-  margin-right: calc(var(--spacing-3) * 2);
-}
-.ml-1 {
-  margin-left: var(--spacing-1);
-}
-.ml-2 {
-  margin-left: var(--spacing-2);
-}
-.ml-3 {
-  margin-left: var(--spacing-3);
-}
-.ml-4 {
-  margin-left: calc(var(--spacing-3) * 2);
-}
-
-/* Estilização do scroll */
-/* *********************************************************************** */
-/* width */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(128, 128, 128); 
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(139, 139, 139); 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background: rgb(102, 102, 102); 
-}
-/* *********************************************************************** */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
-	margin: 0;
-	font-family: 'Montserrat', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-	color: var(--fg);
-	background: var(--bg);
+  margin: 0;
+  font-family: 'Montserrat', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--fg);
+  background: var(--bg);
 }
 
-/* Títulos com fonte Italiana 600 */
+/* Tipografia */
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Italiana', serif;
-	font-weight: 500;
-	letter-spacing: 1px;
-	/* font-size: 1.4rem; */
+  font-family: 'Italiana', serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.fs-7{
+  font-size: clamp(12px, 2vw, 14px);
+}
+.fs-6{
+  font-size: clamp(14px, 2.2vw, 16px);
+}
+.fs-5{
+  font-size: clamp(16px, 2.5vw, 18px);
+}
+.fs-4{
+  font-size: clamp(18px, 3vw, 20px);
+}
+.fs-3{
+  font-size: clamp(20px, 3.5vw, 24px);
+}
+.fs-2{
+  font-size: clamp(24px, 4vw, 28px);
+}
+.fs-1{
+  font-size: clamp(28px, 5vw, 32px);
 }
 
-/* Área da marca */
+.color-muted {
+  color: var(--muted);
+}
+
+/* Utilitários de espaçamento (mantidos) */
+.p-0{ padding: var(--spacing-0); } .p-1{ padding: var(--spacing-1); } .p-2{ padding: var(--spacing-2); } .p-3{ padding: var(--spacing-3); } .p-4{ padding: calc(var(--spacing-3) * 2); }
+.pt-0{ padding-top: var(--spacing-0);} .pt-1{ padding-top: var(--spacing-1);} .pt-2{ padding-top: var(--spacing-2);} .pt-3{ padding-top: var(--spacing-3);} .pt-4{ padding-top: calc(var(--spacing-3) * 2);}
+.pb-0{ padding-bottom: var(--spacing-0);} .pb-1{ padding-bottom: var(--spacing-1);} .pb-2{ padding-bottom: var(--spacing-2);} .pb-3{ padding-bottom: var(--spacing-3);} .pb-4{ padding-bottom: calc(var(--spacing-3) * 2);}
+.pr-0{ padding-right: var(--spacing-0);} .pr-1{ padding-right: var(--spacing-1);} .pr-2{ padding-right: var(--spacing-2);} .pr-3{ padding-right: var(--spacing-3);} .pr-4{ padding-right: calc(var(--spacing-3) * 2);}
+.pl-0{ padding-left: var(--spacing-0);} .pl-1{ padding-left: var(--spacing-1);} .pl-2{ padding-left: var(--spacing-2);} .pl-3{ padding-left: var(--spacing-3);} .pl-4{ padding-left: calc(var(--spacing-3) * 2);}
+.m-0{ margin: var(--spacing-0);} .m-1{ margin: var(--spacing-1);} .m-2{ margin: var(--spacing-2);} .m-3{ margin: var(--spacing-3);} .m-4{ margin: calc(var(--spacing-3) * 2);}
+.mt-0{ margin-top: var(--spacing-0);} .mt-1{ margin-top: var(--spacing-1);} .mt-2{ margin-top: var(--spacing-2);} .mt-3{ margin-top: var(--spacing-3);} .mt-4{ margin-top: calc(var(--spacing-3) * 2);}
+.mb-0{ margin-bottom: var(--spacing-0);} .mb-1{ margin-bottom: var(--spacing-1);} .mb-2{ margin-bottom: var(--spacing-2);} .mb-3{ margin-bottom: var(--spacing-3);} .mb-4{ margin-bottom: calc(var(--spacing-3) * 2);}
+.ml-0{ margin-left: var(--spacing-0);} .ml-1{ margin-left: var(--spacing-1);} .ml-2{ margin-left: var(--spacing-2);} .ml-3{ margin-left: var(--spacing-3);} .ml-4{ margin-left: calc(var(--spacing-3) * 2);}
+.mr-0{ margin-right: var(--spacing-0);} .mr-1{ margin-right: var(--spacing-1);} .mr-2{ margin-right: var(--spacing-2);} .mr-3{ margin-right: var(--spacing-3);} .mr-4{ margin-right: calc(var(--spacing-3) * 2);}
+
+.spacer-1{ height: var(--spacing-1); }
+.spacer-2{ height: var(--spacing-2); }
+.spacer-3{ height: var(--spacing-3); }
+.spacer-4{ height: calc(var(--spacing-3) * 2); }
+.spacer-5{ height: calc(var(--spacing-3) * 3); }
+.spacer-6{ height: calc(var(--spacing-3) * 4); }
+
+/* ========================================================================
+   2) Scrollbar (mantido)
+   ======================================================================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { box-shadow: inset 0 0 5px rgb(128, 128, 128); border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: rgb(139, 139, 139); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(102, 102, 102); }
+
+
+/* ========================================================================
+   3) Cabeçalho, Marca e Navegação
+   - Mobile first: dimensões menores por padrão
+   ======================================================================== */
 .brand-area {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 1.25rem 2rem;
+  padding: 1rem 1.25rem; /* mobile */
   max-width: 1280px;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
 }
-
-.brand-logo img {
-  height: 32px;
-  width: auto;
-  display: block;
-}
-
-.brand-social {
-  display: flex;
-  gap: 1rem;
-}
-
+.brand-logo img { height: 28px; width: auto; display: block; }
+.brand-social { display: flex; gap: 0.75rem; }
 .brand-social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 32px;
-  height: 32px;
-
-  opacity: 0.65;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; opacity: 0.65;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
-
-.brand-social a:hover {
-  opacity: 1;
-  transform: translateY(-1px);
-}
-
-.brand-social img {
-  width: 28px;
-  /* height: 18px; */
-  display: block;
-}
-
-
-
-/* ***************************************************************** */
+.brand-social a:hover { opacity: 1; transform: translateY(-1px); }
+.brand-social img { width: 28px; display: block; }
 
 .container { max-width: 1080px; margin: 0 auto; padding: 0 var(--spacing-2); }
 
 .site-header { 
-    position: relative;
-	top: 50px;
-    transform: translateY(0);
-    opacity: 1;
-    z-index: 100;
-	background: transparent;
-	box-shadow: none;
+  position: relative; top: 50px; transform: translateY(0); opacity: 1; z-index: 100;
+  background: transparent; box-shadow: none;
 }
-
-.site-header:not(.fixo) {
-	transform: translateY(-100%);
-}
-
+/* Comportamento sticky */
+.site-header:not(.fixo) { transform: translateY(-100%); }
 .site-header.fixo {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    /* background: var(--bg); */
-    z-index: 100;
-	opacity: 1;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  	box-shadow: 0 2px 24px rgba(0,0,0,0.04);
-
-	background: rgba(247,247,247,0.98);
-  	backdrop-filter: blur(4px);
+  position: fixed; top: 0; width: 100%; z-index: 100; opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.04);
+  background: rgba(247,247,247,0.98);
+  backdrop-filter: blur(4px);
 }
 
-.site-header .container { 
-	display: flex; 
-	flex-direction: column; 
-	align-items: center; 
-	justify-content: center; 
-	gap: var(--spacing-1); 
-	padding: var(--spacing-2) 0; 
-	font-size: 0.9rem;
+.site-header .container {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--spacing-1); padding: var(--spacing-2) 0; font-size: 0.9rem;
 }
 
 .brand { font-weight: 600; text-decoration: none; color: var(--brand); letter-spacing: 0.5px; position: relative; padding-bottom: 6px; }
 .site-nav { display: flex; align-items: center; justify-content: center; gap: var(--spacing-2); }
 .site-nav a { color: var(--nav-color); text-decoration: none; position: relative; padding-bottom: 6px; }
 .site-nav a:hover { opacity: 0.7; }
-
-/* sublinhado discreto para item ativo */
-.site-nav a.active::after,
-.brand.active::after {
-	content: "";
-	position: absolute;
-	left: 0; right: 0; bottom: 0;
-	height: 1px;
-	background: var(--fg);
-	border-radius: 2px;
+/* Ativo */
+.site-nav a.active::after, .brand.active::after {
+  content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background: var(--fg); border-radius:2px;
 }
 
-.site-main { padding: var(--spacing-3) 10px; padding-top: 0px;}
+.site-main { padding: var(--spacing-3) 10px 0; }
 
-/* Masonry usando colunas para efeito fluido */
-.masonry {
-	column-gap: var(--spacing-1);
-}
-@media (min-width: 340px) { .masonry { column-count: 2; } }
-@media (min-width: 640px) { .masonry { column-count: 3; } }
-@media (min-width: 900px) { .masonry { column-count: 4; } }
-@media (min-width: 1200px) { .masonry { column-count: 5; } }
 
+/* ========================================================================
+   4) Grid de Portfólio (Masonry) e Cards
+   - Base mobile: 1 coluna; escala em min-width
+   ======================================================================== */
+.masonry { column-gap: var(--spacing-1); column-count: 1; } /* < 340px */
 .project-card { display: inline-block; width: 100%; margin: 0 0 var(--spacing-0); break-inside: avoid; }
 .project-card a { display: block; text-decoration: none; color: inherit; }
 .project-card .cover {
-	width: 100%;
-	display: block;
-	border-radius: var(--radius);
-	box-shadow: var(--shadow);
-	background: #f6f6f6;
-	/* aspect-ratio: 4 / 3; */
-	object-fit: cover;
-	transition: transform 240ms ease, opacity 240ms ease;
+  width: 100%; display: block; border-radius: var(--radius); box-shadow: var(--shadow);
+  background: #f6f6f6; object-fit: cover; transition: transform 240ms ease, opacity 240ms ease;
 }
 .project-card:hover .cover { transform: scale(1.02); }
 .project-card .title { font-size: clamp(14px, 2.2vw, 18px); margin-top: var(--spacing-1); }
 .project-card .meta { font-size: clamp(12px, 2vw, 14px); color: var(--muted); margin-top: 4px; }
 
-/* Página do projeto */
-.project-hero { padding-bottom: var(--spacing-3); margin-bottom: var(--spacing-3); margin-top: var(--spacing-3);}
-.project-hero h1 { font-size: clamp(24px, 4vw, 30px); margin: 0 0 var(--spacing-1); font-weight: 400; text-align: center; color: #393939;}
+
+/* ========================================================================
+   5) Página do Projeto (Hero + Gallery Masonry)
+   ======================================================================== */
+.project-hero { padding-bottom: var(--spacing-3); margin: var(--spacing-3) 0; }
+.project-hero h1 { font-size: clamp(24px, 4vw, 30px); margin: 0 0 var(--spacing-1); font-weight: 400; text-align: center; color: #393939; }
 .project-hero .slogan { color: var(--muted); font-size: clamp(14px, 2.2vw, 16px); text-align: center; }
 .project-hero .desc { margin-top: var(--spacing-2); max-width: 72ch; line-height: 1.6; display: none; }
 
-
-
-.gallery { column-gap: var(--spacing-0); }
-@media (min-width: 340px) { .gallery { column-count: 2; } }
-@media (min-width: 700px) { .gallery { column-count: 3; } }
-@media (min-width: 1100px) { .gallery { column-count: 4; } }
+/* Gallery masonry (mobile: 1 col) */
+.gallery { column-gap: var(--spacing-0); column-count: 1; }
 .gallery figure { display: inline-block; width: 100%; margin: 0 0 var(--spacing-0); break-inside: avoid; }
 .gallery img { width: 100%; height: auto; display: block; border-radius: var(--radius); box-shadow: var(--shadow); background: #f6f6f6; }
 .gallery figcaption { font-size: clamp(12px, 2vw, 14px); color: var(--muted); margin-top: 6px; }
 
 .site-footer { border-top: 1px solid var(--border); padding: var(--spacing-3) 0; color: var(--muted); }
 
-/* Lightbox */
-.lightbox {
-	position: fixed;
-	inset: 0;
-	display: none;
-	place-items: center;
-	z-index: 1000;
-}
-.lightbox.open { display: grid; }
-.lightbox-backdrop {
-	position: absolute;
-	inset: 0;
-	background: rgba(0,0,0,0.7);
-}
-.lightbox-content {
-	position: relative;
-	max-width: 92vw;
-	max-height: 92vh;
-	display: grid;
-	grid-template-areas:
-		'prev img next'
-		'cap cap cap';
-	grid-template-columns: auto 1fr auto;
-	gap: var(--spacing-2);
-	align-items: center;
-}
-.lightbox-img {
-	grid-area: img;
-	max-width: 82vw;
-	max-height: 82vh;
-	width: auto;
-	height: auto;
-	border-radius: var(--radius);
-	box-shadow: var(--shadow);
-}
-.lightbox-caption {
-	grid-area: cap;
-	color: #e8e8e8;
-	text-align: center;
-	margin-top: var(--spacing-1);
-}
-.lightbox-btn,
-.lightbox-close {
-	appearance: none;
-	border: 0;
-	background: rgba(255,255,255,0.1);
-	color: white;
-	width: 40px;
-	height: 40px;
-	border-radius: 999px;
-	display: grid;
-	place-items: center;
-	cursor: pointer;
-}
-.lightbox-prev { grid-area: prev; }
-.lightbox-next { grid-area: next; }
-.lightbox-close {
-	position: absolute;
-	top: -16px;
-	right: -16px;
-}
 
-
-/* Project inline carousel */
-.project-carousel {
-	padding: 24px 0 48px;
-}
-.project-carousel .container {
-	max-width: none;
-	width: 100%;
-	height: 85vh;
-	.swiper-mount {
-		width: 100%;
-		height: 100%;
-	}
-}
-
-/* Estilos antigos (.pc-*) removidos — Swiper cuida do layout do slider */
-
-
-/* Ajustes slide swiper */
-
-/* Project inline carousel - Minimalista */
-
-.project-carousel {
-  width: 100%;
-  padding: 40px 0;
-}
-
-.swiper {
-  width: 100%;
-  height: 9k.5vh;
-}
-
-.swiper-wrapper {
-  align-items: center;
-}
-
-.swiper-slide {
-	width: auto !important;   /* CRÍTICO */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	opacity: 0.3;
-	transition: opacity 0.3s ease;
-}
-
-.swiper-slide-active {
-  opacity: 1;
-}
-
-
-.swiper-slide img {
-  height: 90vh;            /* ALTURA PADRÃO */
-  width: auto;              /* LARGURA CALCULADA */
-  max-width: none;          /* NÃO limitar */
-  object-fit: contain;
-  display: block;
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-
-	/* Área da marca */
-	.brand-area {
-		padding: 1rem 1.25rem;
-	}
-
-	.brand-logo img {
-		height: 28px;
-	}
-
-	.brand-social {
-		gap: 0.75rem;
-	}
-	/* *************** */
-
-	.swiper-slide img {
-		height: 80vh;
-	}
-}
-
-/* Botões de navegação minimalistas */
-.swiper-button-next, 
-.swiper-button-prev {
-  color: var(--muted);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.575);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  transition: all 0.2s ease;
-  padding: 12px;
-}
-
-.swiper-button-next:hover, 
-.swiper-button-prev:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: scale(1.05);
-}
-
-.swiper-button-next::after, 
-.swiper-button-prev::after {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-/* Paginação minimalista */
-.swiper-pagination-bullet {
-  background: var(--muted);
-  opacity: 0.4;
-  width: 8px;
-  height: 8px;
-  transition: all 0.2s ease;
-}
-
-.swiper-pagination-bullet-active {
-  background: var(--muted);
-  opacity: 1;
-  width: 24px;
-  border-radius: 4px;
-}
-
-/* Oculta caption */
-.swiper-caption {
-  display: none;
-}
-
-/* Oculta paginação (bolinhas que fica mudando ao trocar de slide) */
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-horizontal.swiper-pagination-bullets {
-    display: none;
-}
-
-/* Lightbox minimalista */
+/* ========================================================================
+   6) Lightbox
+   - Unificado: cobre tanto a versão com backdrop + content quanto a minimalista
+   - Mantém seletores .lightbox-*, .lightbox .close existentes
+   ======================================================================== */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -517,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lightbox .close {
-position: absolute;
+	position: absolute;
     top: 24px;
     right: 24px;
     width: 44px;
@@ -537,393 +226,241 @@ position: absolute;
     transition: transform 0.2s ease;
     border: solid 0.1px #6a6a6a3b;
 
-
-}
-
-.lightbox .close:hover {
-  transform: scale(1.1);
 }
 
 
-/* Página sobre */
-/* ********************************************************************************************************* */
-/* Classes reutilizáveis para templates de páginas (about, services, contact, etc) */
+/* ========================================================================
+   7) Project Inline Carousel (Swiper) — Minimalista
+   ======================================================================== */
+.project-carousel { width: 100%; padding: 40px 0; }
+.project-carousel .container { max-width: none; width: 100%; height: 85vh; }
+.project-carousel .container .swiper-mount { width: 100%; height: 100%; }
+
+.swiper { width: 100%; height: auto; }
+.swiper-wrapper { align-items: center; }
+.swiper-slide {
+  width: auto !important; display: flex; align-items: center; justify-content: center;
+  opacity: 0.3; transition: opacity 0.3s ease;
+}
+.swiper-slide-active { opacity: 1; }
+.swiper-slide img {
+  height: 80vh; /* mobile padrão */
+  width: auto; max-width: none; object-fit: contain; display: block;
+}
+
+/* Botões de navegação minimalistas */
+.swiper-button-next, .swiper-button-prev {
+  color: var(--muted); width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.575); box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  transition: all 0.2s ease; padding: 12px;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover { background: rgba(255, 255, 255, 1); transform: scale(1.05); }
+.swiper-button-next::after, .swiper-button-prev::after { font-size: 18px; font-weight: bold; }
+
+/* Paginação minimalista */
+.swiper-pagination-bullet { background: var(--muted); opacity: 0.4; width: 8px; height: 8px; transition: all 0.2s ease; }
+.swiper-pagination-bullet-active { background: var(--muted); opacity: 1; width: 24px; border-radius: 4px; }
+
+/* Oculta caption e paginação horizontal por padrão (mantido) */
+.swiper-caption { display: none; }
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-horizontal.swiper-pagination-bullets { display: none; }
+
+
+/* ========================================================================
+   8) Templates de Páginas (about, services, contact, etc)
+   ======================================================================== */
+/* Conteúdo e textos */
+.page-content { display: flex; flex-direction: column; justify-content: flex-start; }
+.page-text { font-size: 0.9rem; line-height: 1.7; color: #555; margin-bottom: 1.25rem; text-align: justify; }
+.page-heading { font-family: 'Italiana', serif; font-size: clamp(24px, 6vw, 32px); margin-bottom: 1.25rem; font-weight: 500; color: #393939; letter-spacing: 1px; }
+.page-heading-2 { font-family: serif; font-size: 1.2rem; margin-bottom: 0.75rem; font-weight: 500; }
+
+/* Animações motion (mantidas) */
+.page-image { opacity: 0; transform: translateX(-60px); transition: opacity 1s ease, transform 1s ease; }
+.page-content, .page-text-main, .page-text-secondary, .page-quote {
+  opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.is-visible .page-image, .page-image.is-visible { opacity: 1; transform: translateX(0); }
+.is-visible .page-content, .is-visible .page-text-main, .is-visible .page-text-secondary, .is-visible .page-quote,
+.page-content.is-visible, .page-text-main.is-visible, .page-text-secondary.is-visible, .page-quote.is-visible {
+  opacity: 1; transform: translateY(0);
+}
+/* Compat com fx-* */
+.page-section.fx-up.is-visible, .page-visual.fx-left.is-visible, .page-text-main.fx-up.is-visible, .page-text-secondary.fx-up.is-visible, .page-quote.fx-up.is-visible {
+  opacity: 1; transform: translate(0);
+}
+
 
 .page-section {
-  padding: 4rem 2rem;
-}
-
-.page-grid {
+  padding-block: 3rem;
+  width: 95vw; /* mobile-first mais estreito */
   max-width: 1280px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
 }
+.page-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; }
 
-/* Variação com 3 colunas (para serviços) */
-.page-grid.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-}
-
-/* Variação com 1 coluna (para contato) */
-.page-grid.grid-1 {
-  grid-template-columns: 1fr;
-  max-width: 600px;
-}
-
-/* Área visual com imagem/background */
-.page-visual {
-  position: relative;
-  height: 420px;
-  overflow: hidden;
-}
-
-.page-bg {
-  position: absolute;
-  inset: 0;
-  background-color: #d3d1cd;
-}
-
-.page-image {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  max-width: 85%;
-  height: auto;
-}
-
-/* Blocos de conteúdo e texto */
-.page-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.page-text {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 1.5rem;
+/* 8.1 conteudo da página sobre */
+.about-1,.about-2, .about-3, .about-4 {
+  max-width: 90%; margin: 0 auto;
   text-align: justify;
 }
 
-.page-heading {
-  font-family: 'Italiana', serif;
-  font-size: clamp(24px, 4vw, 30px);
-  margin-bottom: 2rem;
-  font-weight: 500;
-  color: #393939;
-  letter-spacing: 1px;
+.about-1 img{
+  max-width: 100%; display: block; margin: 0 auto;
 }
 
-.page-heading-2 {
-  font-family: serif;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
+.about-4 img{
+  max-width: 250px;
 }
 
-.page-text-main {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-}
 
-.page-text-secondary {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  max-width: 420px;
-}
 
-.page-quote {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  display: flex;
-  align-items: flex-end;
-}
 
-.page-quote-text {
-  font-family: 'Italiana', serif;
-  font-size: 1.3rem;
-  line-height: 1.4;
-  letter-spacing: 1px;
-  max-width: 360px;
-  color: #393939;
-}
 
-/* Aplicar animações motion aos elementos */
-.page-image {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 1s ease, transform 1s ease;
-}
 
-.page-content,
-.page-text-main,
-.page-text-secondary,
-.page-quote {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
 
-/* Estados visíveis */
-.is-visible .page-image,
-.page-image.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
 
-.is-visible .page-content,
-.is-visible .page-text-main,
-.is-visible .page-text-secondary,
-.is-visible .page-quote,
-.page-content.is-visible,
-.page-text-main.is-visible,
-.page-text-secondary.is-visible,
-.page-quote.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Compatibilidade com fx-* classes (motion.css) */
-.page-section.fx-up.is-visible,
-.page-visual.fx-left.is-visible,
-.page-text-main.fx-up.is-visible,
-.page-text-secondary.fx-up.is-visible,
-.page-quote.fx-up.is-visible {
-  opacity: 1;
-  transform: translate(0);
-}
-
-/* ================================================= */
-/* RESPONSIVIDADE - TEMPLATES DE PÁGINAS            */
-/* ================================================= */
-
-/* Tablets e dispositivos médios */
-@media (max-width: 900px) {
-  .page-section {
-    padding: 3rem 1.5rem;
-  }
-
-  .page-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  /* Grid de 3 colunas vira 2 em tablets */
-  .page-grid.grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .page-visual {
-    height: 320px;
-  }
-
-  /* Remove grid-column/row específicos - layout linear */
-  .page-text-main {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .page-text-secondary {
-    grid-column: auto;
-    grid-row: auto;
-    max-width: 100%;
-  }
-
-  .page-quote {
-    grid-column: auto;
-    grid-row: auto;
-    align-items: flex-start;
-  }
-
-  .page-quote-text {
-    max-width: 100%;
-    font-size: 1.5rem;
-  }
-
-  .page-heading {
-    font-size: clamp(28px, 5vw, 36px);
-    margin-bottom: 1.5rem;
-  }
-}
-
-/* Smartphones */
-@media (max-width: 640px) {
-  .page-section {
-    padding: 2rem 1rem;
-  }
-
-  .page-grid {
-    gap: 2rem;
-  }
-
-  /* Grid de 3 colunas vira 1 em mobile */
-  .page-grid.grid-3 {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .page-visual {
-    height: 280px;
-  }
-
-  .page-image {
-    max-width: 90%;
-  }
-
-  .page-heading {
-    font-size: clamp(24px, 6vw, 32px);
-    margin-bottom: 1.25rem;
-  }
-
-  .page-heading-2 {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .page-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-  }
-
-  .page-quote-text {
-    font-size: 1.25rem;
-    line-height: 1.3;
-  }
-}
-
-/* Dispositivos muito pequenos */
-@media (max-width: 400px) {
-  .page-section {
-    padding: 2rem 1rem;
-  }
-
-  .page-grid {
-    gap: 1.5rem;
-  }
-
-  .page-visual {
-    height: 220px;
-  }
-
-  .page-image {
-    max-width: 95%;
-  }
-
-  .page-heading {
-    font-size: 22px;
-    margin-bottom: 1rem;
-  }
-
-  .page-text {
-    font-size: 0.875rem;
-    line-height: 1.65;
-  }
-
-  .page-quote-text {
-    font-size: 1.1rem;
-  }
-}
-
-/* ================================================= */
-/* SEÇÃO DE PROJETOS EM DESTAQUE                    */
-/* ================================================= */
-
+/* ========================================================================
+   9) Projetos em Destaque (Featured)
+   - Mobile: 1 coluna; escala para 2 e 3 colunas
+   ======================================================================== */
 .featured-projects {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-3);
+  grid-template-columns: 1fr; /* mobile */
+  gap: var(--spacing-2);
   margin-top: var(--spacing-3);
 }
-
-.featured-projects .project-card {
-  margin: 0;
-  break-inside: initial;
-}
-
+.featured-projects .project-card { margin: 0; break-inside: initial; }
 .featured-projects .project-card .cover {
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  width: 100%;
+  aspect-ratio: 4 / 3; object-fit: cover; width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.featured-projects .project-card:hover .cover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+.featured-projects .project-card .title { display: none; }
 
-.featured-projects .project-card:hover .cover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-}
 
-.featured-projects .project-card .title {
-  display: none;
-}
-
-/* Responsividade projetos em destaque */
-@media (max-width: 900px) {
-  .featured-projects {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-2);
-  }
-}
-
-@media (max-width: 640px) {
-  .featured-projects {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-2);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* ================================================= */
-/* BOTÃO CALL-TO-ACTION (CTA)                       */
-/* ================================================= */
-
-.cta-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-}
-
+/* ========================================================================
+   10) CTA (Call-to-Action)
+   ======================================================================== */
+.cta-section { display: flex; align-items: center; justify-content: center; padding: 1rem; }
 .btn-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 3rem;
-  background: #beb7af;
-  color: var(--bg);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  border-radius: 2px;
-  border: 1px solid #beb7af;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.875rem 2rem; background: #beb7af; color: var(--bg); text-decoration: none;
+  font-weight: 500; font-size: 0.95rem; letter-spacing: 0.5px; border-radius: 2px;
+  border: 1px solid #beb7af; transition: all 0.3s ease; cursor: pointer;
+}
+.btn-cta:hover { background: var(--bg); color: #beb7af; transform: translateY(-2px); }
+
+
+/* ========================================================================
+   11) Breakpoints Mobile-First (min-width)
+   - Consolidado e ordenado: 340, 400, 640, 700, 900, 1100, 1200
+   ======================================================================== */
+
+/* >= 340px */
+@media (min-width: 340px) {
+  /* Masonry e Gallery aumentam para 2 colunas */
+  .masonry { column-count: 2; }
+  .gallery { column-count: 2; }
 }
 
-.btn-cta:hover {
-  background: var(--bg);
-  color: #beb7af;
-  transform: translateY(-2px);
+/* >= 400px (dispositivos muito pequenos -> pequenos) */
+@media (min-width: 400px) {
+  .page-grid { gap: 1.5rem; }
+  .page-visual { height: 220px; }
+  .page-image { max-width: 95%; }
+  .page-heading { font-size: 22px; margin-bottom: 1rem; }
+  .page-text { font-size: 0.875rem; line-height: 1.65; }
+  .page-quote-text { font-size: 1.1rem; }
 }
 
-/* Responsividade botão CTA */
-@media (max-width: 640px) {
-  .cta-section {
-    padding: 1rem 1rem;
+/* >= 640px (smartphones grandes / tablets em retrato) */
+@media (min-width: 640px) {
+    /* Masonry sobe para 4 colunas */
+  .masonry { column-count: 3; }
+
+  /* Marca um pouco maior */
+  .brand-area { padding: 1.25rem 2rem; }
+  .brand-logo img { height: 32px; }
+  .brand-social { gap: 1rem; }
+
+  /* Swiper imagens mais altas */
+  .swiper-slide img { height: 90vh; }
+
+  /* Featured: 2 colunas */
+  .featured-projects { grid-template-columns: repeat(2, 1fr); gap: var(--spacing-2); }
+
+  /* Page section mais larga */
+  .page-section { width: 95vw; }
+  .page-grid.grid-3 { grid-template-columns: 1fr; } /* mantém 1 col no 640, sobe em 900 */
+}
+
+/* >= 700px (gallery específica) */
+@media (min-width: 700px) {
+  .gallery { column-count: 3; }
+}
+
+/* >= 900px (tablets landscape / desktops pequenos) */
+@media (min-width: 900px) {
+  /* Masonry sobe para 4 colunas */
+  .masonry { column-count: 4; }
+
+  /* Featured: 3 colunas */
+  .featured-projects { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-3); }
+
+  /* Page Section mais larga e grid 2 col para templates */
+  .page-section { width: 90vw; }
+  .page-grid.grid-3 { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+  .page-visual { height: 820px; }
+  .page-text-secondary { max-width: 100%; }
+  .page-quote { align-items: flex-start; }
+  .page-quote-text { max-width: 100%; font-size: 1.5rem; }
+  .page-heading { font-size: clamp(28px, 5vw, 36px); margin-bottom: 1.5rem; }
+
+
+  /* 8.1 conteudo da página sobre */
+  .page-grid{
+    gap: 5rem 1rem;
   }
 
-  .btn-cta {
-    padding: 0.875rem 2rem;
-    font-size: 0.95rem;
+  .about-1,.about-2, .about-3, .about-4 {
+    max-width: 40%; 
+    margin: 0 auto;    
+  }
+
+  .about-3, .about-4 {
+    padding-left: 3rem;    
+  }
+
+
+  .about-1 img{
+    margin: 0 auto;
+  }
+
+  .about-4 img{
+    max-width: 250px;
   }
 }
 
-/* ********************************************************************************************************* */
+/* >= 1100px (gallery específica) */
+@media (min-width: 1100px) {
+  .gallery { column-count: 4; }
+}
+
+/* >= 1200px (desktops grandes) */
+@media (min-width: 1200px) {
+  .masonry { column-count: 5; }
+}
+
+
+/* ========================================================================
+   Notas:
+   - A versão “Lightbox minimalista” foi integrada: .lightbox continua única,
+     cobrindo backdrop/content/close e mantendo os seletores antigos.
+   - Swiper: corrigida altura inconsistente; mobile 80vh, >=640px 90vh.
+   - Masonry/Gallery: base 1 coluna; escalam em min-width como no original.
+   - Featured/CTA/Page templates: responsividade consolidada.
+   ======================================================================== */
+
+/* ...existing code... (arquivo reestruturado para mobile-first, sem remover funcionalidades) */

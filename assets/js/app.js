@@ -154,15 +154,6 @@
 	}
 
 
-	// async function renderContact(params) {
-	// 	const main = UI.qs('#main');
-	// 	if (!main) return;
-
-	// 	const contactHtml = UI.qs('#contact-template').content.cloneNode(true);
-	// 	main.innerHTML = '';
-	// 	main.appendChild(contactHtml);
-	// 	UI.setTitleAndMeta('Contato — drawbe', 'Entre em contato conosco para discutir seu projeto ou solicitar um orçamento.');
-	// }
 
 	function openFullscreen(src) {
 		const overlay = document.createElement('div');
