@@ -158,6 +158,22 @@
 	}
 
 
+	async function renderContact() {
+		const main = UI.qs('#main');
+		if (!main) return;
+
+		const contactHtml = UI.qs('#contact-template').content.cloneNode(true);
+		main.innerHTML = '';
+		main.appendChild(contactHtml);
+		UI.setTitleAndMeta('Contato — drawbe', 'Entre em contato com a drawbe via WhatsApp, e-mail ou Instagram.');
+		
+		// Reinicializa o sistema de motion para os novos elementos
+		if (window.Motion && window.Motion.initMotion) {
+			window.Motion.initMotion();
+		}
+	}
+
+
 
 	function openFullscreen(src) {
 		const overlay = document.createElement('div');
@@ -269,6 +285,10 @@
 		// Chama renderServices para a página Serviços
 			await renderServices();
 		} 
+		else if (path === '/contact' || path === '/contact.html') {
+			// Chama renderContact para a página Contato
+			await renderContact();
+		}
 		else {
 			// Página não encontrada ou outra página estática
 			UI.setTitleAndMeta('drawbe', 'Agência de design e branding.');
