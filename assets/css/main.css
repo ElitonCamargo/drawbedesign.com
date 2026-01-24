@@ -509,6 +509,18 @@ h1, h2, h3, h4, h5, h6 {
   .about-4 img{
     max-width: 200px;
   }
+
+  /*8.2  conteúdo da página serviços */
+
+  .services-col{
+    max-width: 45%; 
+    margin: 0 auto;
+  }
+
+  .services-ps .services-col{
+    max-width: 30%; 
+  }
+
 }
 
 /* >= 1100px (gallery específica) */
