@@ -218,7 +218,6 @@
             // Se está voltando para cima (scroll para cima) E passou do logo
             else if (currentScrollY < lastScrollY && currentScrollY > logoHeight) {
                 // Aplica a classe fixo quando voltando para cima
-				console.log('adicionando fixo');
                 header.classList.add('fixo');
             }
             
