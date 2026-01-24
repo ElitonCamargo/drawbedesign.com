@@ -35,7 +35,7 @@ body {
 
 /* Tipografia */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Italiana', serif;
+  font-family: 'Tenor Sans', sans-serif;
   font-weight: 500;
   letter-spacing: 1px;
 }
@@ -209,7 +209,7 @@ h1, h2, h3, h4, h5, h6 {
    5) Página do Projeto (Hero + Gallery Masonry)
    ======================================================================== */
 .project-hero { padding-bottom: var(--spacing-3); margin: var(--spacing-3) 0; }
-.project-hero h1 { font-size: clamp(24px, 4vw, 30px); margin: 0 0 var(--spacing-1); font-weight: 400; text-align: center; color: #393939; }
+.project-hero h1 { font-size: clamp(24px, 4vw, 30px); margin: 0 0 var(--spacing-1); font-weight: 400; text-align: center; color: #706e6b; }
 .project-hero .slogan { color: var(--muted); font-size: clamp(14px, 2.2vw, 16px); text-align: center; }
 .project-hero .desc { margin-top: var(--spacing-2); max-width: 72ch; line-height: 1.6; display: none; }
 
@@ -313,7 +313,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Conteúdo e textos */
 .page-content { display: flex; flex-direction: column; justify-content: flex-start; }
 .page-text { font-size: 0.9rem; line-height: 1.7; color: #555; margin-bottom: 1.25rem; text-align: justify; }
-.page-heading { font-family: 'Italiana', serif; font-size: clamp(24px, 6vw, 32px); margin-bottom: 1.25rem; font-weight: 500; color: #393939; letter-spacing: 1px; }
+.page-heading { font-family: 'Tenor Sans', sans-serif; font-size: clamp(24px, 6vw, 32px); margin-bottom: 1.25rem; font-weight: 500; color: #706e6b; letter-spacing: 1px; }
 .page-heading-2 { font-family: serif; font-size: 1.2rem; margin-bottom: 0.75rem; font-weight: 500; }
 
 /* Animações motion (mantidas) */
@@ -484,7 +484,7 @@ h1, h2, h3, h4, h5, h6 {
   .page-text-secondary { max-width: 100%; }
   .page-quote { align-items: flex-start; }
   .page-quote-text { max-width: 100%; font-size: 1.5rem; }
-  .page-heading { font-size: clamp(28px, 5vw, 36px); margin-bottom: 1.5rem; }
+  .page-heading { font-size: clamp(22px, 4vw, 30px); margin-bottom: 1.5rem; }
 
 
   /* 8.1 conteudo da página sobre */
@@ -511,21 +511,26 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   /*8.2  conteúdo da página serviços */
-
+  .services-section .page-heading, .services-section .page-text{
+    text-align: left;
+  }
   .services-col{
-    max-width: 45%; 
+    max-width: 40%; 
     margin: 0 auto;
   }
-
+ .services-ps{
+    gap: 2rem 1rem
+  }
   .services-ps .services-col{
     max-width: 30%; 
   }
-
-  .services-dm .page-heading, .services-dm .page-text{
-    text-align: left;
-
+  .services-fp .page-heading{
+    margin-top: 0px;
   }
-
+  #btn-contato-servico{
+    margin-top: 40px;
+    text-align: left;
+  }
 }
 
 /* >= 1100px (gallery específica) */
