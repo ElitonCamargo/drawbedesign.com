@@ -384,7 +384,44 @@ h1, h2, h3, h4, h5, h6 {
   padding-block: 80px;
 }
 
+/* 8.3 Contato ============================================================ */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.form-group input,
+.form-group textarea {
+  border: 1px solid rgba(0,0,0,.1);
+  padding: 0.85rem 1rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #faf9f7;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #b9b4ac;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.04);
+}
+
+/* ======================================================================== */
 
 /* ========================================================================
    9) Projetos em Destaque (Featured)

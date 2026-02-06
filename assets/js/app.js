@@ -135,7 +135,7 @@
 		const aboutHtml = UI.qs('#about-template').content.cloneNode(true);
 		main.innerHTML = '';
 		main.appendChild(aboutHtml);
-		UI.setTitleAndMeta('Sobre — drawbe', 'Saiba mais sobre a drawbe e nosso trabalho de design.');
+		UI.setTitleAndMeta('Sobre', 'Saiba mais sobre a drawbe e nosso trabalho de design.');
 		
 		// Reinicializa o sistema de motion para os novos elementos
 		if (window.Motion && window.Motion.initMotion) {
@@ -150,7 +150,7 @@
 		const servicesHtml = UI.qs('#services-template').content.cloneNode(true);
 		main.innerHTML = '';
 		main.appendChild(servicesHtml);
-		UI.setTitleAndMeta('Serviços — drawbe', 'Conheça os serviços oferecidos pela drawbe em design e branding.');
+		UI.setTitleAndMeta('Serviços', 'Conheça os serviços oferecidos pela drawbe em design e branding.');
 		// Reinicializa o sistema de motion para os novos elementos
 		if (window.Motion && window.Motion.initMotion) {
 			window.Motion.initMotion();
@@ -165,7 +165,7 @@
 		const contactHtml = UI.qs('#contact-template').content.cloneNode(true);
 		main.innerHTML = '';
 		main.appendChild(contactHtml);
-		UI.setTitleAndMeta('Contato — drawbe', 'Entre em contato com a drawbe via WhatsApp, e-mail ou Instagram.');
+		UI.setTitleAndMeta('Contato', 'Entre em contato com a drawbe via WhatsApp, e-mail ou Instagram.');
 		
 		// Reinicializa o sistema de motion para os novos elementos
 		if (window.Motion && window.Motion.initMotion) {
@@ -290,7 +290,7 @@
 		}
 		else {
 			// Página não encontrada ou outra página estática
-			UI.setTitleAndMeta('drawbe', 'Agência de design e branding.');
+			UI.setTitleAndMeta('Drawbe', 'Agência de design e branding.');
 		}
 		// Marca o link ativo em todas as páginas
 		markActiveNav();
@@ -313,6 +313,31 @@
 			brand.classList.toggle('active', href === path);
 		}
 	}
+
+	// Listener para o formulário de contato via WhatsApp
+	document.addEventListener('submit', function (e) {
+		if (!e.target.matches('#whatsapp-form')) return;
+
+		e.preventDefault();
+
+		const name = document.querySelector('#name').value.trim();
+		const subject = document.querySelector('#subject').value.trim();
+		const message = document.querySelector('#message').value.trim();
+
+		const phone = '5515996305201';
+
+		const formattedMessage = 
+	`*${subject}*
+
+	${message}
+
+	— ${name}`;
+
+		const encoded = encodeURIComponent(formattedMessage);
+		const url = `https://wa.me/${phone}?text=${encoded}`;
+
+		window.open(url, '_blank');
+	});
 
 
 	window.App = { boot };

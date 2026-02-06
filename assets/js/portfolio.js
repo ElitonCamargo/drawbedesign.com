@@ -93,7 +93,7 @@
         if (!grid) return;
         
         // Define título e meta descrição da página
-        UI.setTitleAndMeta('drawbe — Portfólio', 'Portfólio minimalista da drawbe: identidade visual e design.');
+        UI.setTitleAndMeta('Portfólio', 'Portfólio minimalista da drawbe: identidade visual e design.');
 
         // Carrega dados de projetos
         const data = await UI.fetchJSON('data/projects.json');
