@@ -339,6 +339,11 @@
 		window.open(url, '_blank');
 	});
 
+	// Define a URL canônica para SEO
+	const canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
+	canonical.rel = "canonical";
+	canonical.href = window.location.origin + window.location.pathname;
+	document.head.appendChild(canonical);
 
 	window.App = { boot };
 	
