@@ -50,7 +50,7 @@ body {
 
 /* Tipografia */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Tenor Sans', sans-serif;
+  font-family: 'Julius Sans One', sans-serif;
   font-weight: 500;
   letter-spacing: 1px;
 }
@@ -328,7 +328,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Conteúdo e textos */
 .page-content { display: flex; flex-direction: column; justify-content: flex-start; }
 .page-text { font-size: 0.9rem; line-height: 1.7; color: #555; margin-bottom: 1.25rem; text-align: justify; }
-.page-heading { font-family: 'Tenor Sans', sans-serif; font-size: clamp(24px, 6vw, 32px); margin-bottom: 1.25rem; font-weight: 500; color: #706e6b; letter-spacing: 1px; }
+.page-heading { font-family: 'Julius Sans One', sans-serif; font-size: clamp(24px, 6vw, 32px); margin-bottom: 1.25rem; font-weight: 500; color: #706e6b; letter-spacing: 1px; }
 .page-heading-2 { font-family: serif; font-size: 1.2rem; margin-bottom: 0.75rem; font-weight: 500; }
 
 /* Animações motion (mantidas) */
@@ -400,40 +400,145 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 8.3 Contato ============================================================ */
+.contact-layout {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-kicker {
+  margin: 0 0 1rem;
+  color: #9b7a56;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+}
+
+.contact-info .page-heading {
+  margin-bottom: 1.75rem;
+  color: #3f3b37;
+}
+
+.contact-info .page-text {
+  max-width: 560px;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.contact-address {
+  margin-bottom: 1.8rem;
+}
+
+.contact-divider {
+  height: 1px;
+  width: 100%;
+  background: #d8d4cf;
+  margin-bottom: 1.8rem;
+}
+
+.contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.contact-help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.contact-icons {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.contact-icons a {
+  width: 36px;
+  height: 36px;
+  background: #4c311f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.contact-icons a:hover {
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+.contact-icons img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+.contact-card {
+  background: #f8f6f4;
+  border: 1px solid #ece8e4;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
-  margin-top: 2rem;
+  gap: 1.15rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-}
-
-.form-group label {
-  font-size: 0.85rem;
-  color: var(--muted);
+  gap: 0;
 }
 
 .form-group input,
 .form-group textarea {
-  border: 1px solid rgba(0,0,0,.1);
-  padding: 0.85rem 1rem;
+  border: 1px solid #d9d6d2;
+  padding: 0.95rem 1.1rem;
   border-radius: 4px;
   font-size: 0.95rem;
   font-family: inherit;
-  background: #faf9f7;
+  color: #6a778d;
+  background: #f8f6f4;
   transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 160px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #b9b4ac;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.04);
+  box-shadow: 0 0 0 2px rgba(185,180,172,.18);
+}
+
+.contact-submit {
+  margin-top: 1rem;
+  min-width: 250px;
+  background: #4c311f;
+  border-color: #4c311f;
+  color: #fff;
+}
+
+.contact-submit:hover {
+  background: #6b4a32;
+  border-color: #6b4a32;
+  color: #fff;
 }
 
 /* ======================================================================== */
@@ -513,6 +618,10 @@ h1, h2, h3, h4, h5, h6 {
   /* Page section mais larga */
   .page-section { width: 95vw; }
   .page-grid.grid-3 { grid-template-columns: 1fr; } /* mantém 1 col no 640, sobe em 900 */
+
+  .contact-actions {
+    flex-wrap: nowrap;
+  }
 }
 
 /* >= 700px (gallery específica) */
@@ -550,7 +659,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .about-3, .about-4 {
-    padding-left: 3rem;    
+    padding-right: 3rem;    
   }
 
 
@@ -582,6 +691,11 @@ h1, h2, h3, h4, h5, h6 {
   #btn-contato-servico{
     margin-top: 40px;
     text-align: left;
+  }
+
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 470px);
+    align-items: center;
   }
 }
 

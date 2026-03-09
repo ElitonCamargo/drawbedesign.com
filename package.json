@@ -1,0 +1,27 @@
+{
+  "name": "drawbedesign.com",
+  "version": "1.0.0",
+  "description": "Portfolio estático com SPA simples, carregamento dinâmico de projetos e lightbox.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve -s",
+    "sitemap": "node ./tools/generate-sitemap.js",
+    "minicss": "node ./tools/minify-css.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElitonCamargo/drawbedesign.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ElitonCamargo/drawbedesign.com/issues"
+  },
+  "homepage": "https://github.com/ElitonCamargo/drawbedesign.com#readme",
+  "dependencies": {
+    "clean-css": "^5.3.3",
+    "glob": "^13.0.6"
+  }
+}
