@@ -1,0 +1,67 @@
+{
+  "name": "NOVA",
+  "slogan": "Interior Design",
+  "description": "Identidade visual que personifica o design de interiores contemporâneo através de uma estética arquitetônica. Com uma paleta em tons de fendi e areia, o projeto une tipografia geométrica e monogramas lineares para comunicar precisão, clareza estrutural e luxo funcional em projetos autorais.",
+  "tags": ["branding para design de interiores", "identidade visual arquitetura", "design minimalista premium", "monograma linear", "papelaria técnica luxo", "branding de luxo funcional"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Branding em Acessórios Sustentáveis",
+      "alt": "Mão segurando ecobag de algodão cru com o logotipo Nova, destacando a aplicação da marca em materiais naturais."
+    },
+    {
+      "file": "2.png",
+      "title": "Design Editorial e Portfólio",
+      "alt": "Caderno de projetos com monograma linear em destaque, posicionado sobre degrau de pedra natural com iluminação solar."
+    },
+    {
+      "file": "3.png",
+      "title": "Apresentação de Projetos Executivos",
+      "alt": "Profissional segurando pasta de couro cinza com o logotipo Nova, simbolizando a entrega técnica e sofisticada."
+    },
+    {
+      "file": "4.png",
+      "title": "Texturas e Baixo-Relevo",
+      "alt": "Close-up do logotipo Nova aplicado em baixo-relevo sobre papel poroso, enfatizando o luxo tátil da identidade."
+    },
+    {
+      "file": "5.png",
+      "title": "Papelaria Corporativa Minimalista",
+      "alt": "Cartões de visita em tons de fendi e areia sobrepostos, demonstrando o equilíbrio e a neutralidade da paleta."
+    },
+    {
+      "file": "6.png",
+      "title": "Identidade Visual e Ambiência",
+      "alt": "Cartaz vertical com o logotipo Nova sob sombras de folhagens, evocando a harmonia entre espaço e bem-estar."
+    },
+    {
+      "file": "7.png",
+      "title": "Branding em Elementos de Decoração",
+      "alt": "Cartão de marca ao lado de pedaços de madeira natural, reforçando o uso de materiais orgânicos no design de interiores."
+    },
+    {
+      "file": "8.png",
+      "title": "Papelaria de Mesa e Gestão",
+      "alt": "Caderno de anotações e caneca sobre mesa de madeira clara, refletindo o cotidiano de um escritório de design refinado."
+    },
+    {
+      "file": "9.png",
+      "title": "Mockup Digital e Presença Online",
+      "alt": "Laptop exibindo o site da marca Nova ao lado de uma escultura orgânica, unindo tecnologia e arte estrutural."
+    },
+    {
+      "file": "10.png",
+      "title": "Logotipo Principal Nova",
+      "alt": "Assinatura visual principal com tipografia sans-serif geométrica sobre fundo sólido tom areia."
+    },
+    {
+      "file": "11.png",
+      "title": "Monograma Linear Abstrato",
+      "alt": "Símbolo linear abstrato que compõe a marca, representando precisão arquitetônica e modernidade."
+    }
+  ]
+}

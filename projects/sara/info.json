@@ -1,0 +1,62 @@
+{
+  "name": "SARA",
+  "slogan": "Semijoias",
+  "description": "Identidade visual desenvolvida para a marca Sara Semijoias, focada em sofisticação moderna e delicadeza atemporal. O projeto utiliza uma paleta neutra e tipografia minimalista para realçar o design das peças, criando uma narrativa de exclusividade através de embalagens premium de veludo e acabamentos refinados.",
+  "tags": ["branding para semijoias", "identidade visual joalheria", "design de embalagem premium", "branding minimalista", "experiência de unboxing", "fotografia de joias"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Fotografia de Campanha e Styling",
+      "alt": "Retrato de close-up mostrando o uso de pulseiras metálicas, com o logotipo Sara aplicado delicadamente na composição."
+    },
+    {
+      "file": "2.png",
+      "title": "Embalagem de Proteção em Veludo",
+      "alt": "Caixa de veludo com o logotipo Sara, reforçando o posicionamento premium e o cuidado com as peças delicadas."
+    },
+    {
+      "file": "3.png",
+      "title": "Packaging Institucional",
+      "alt": "Sacola estruturada com alças rígidas e acabamento clean, ícone de marca de acessórios de luxo."
+    },
+    {
+      "file": "4.png",
+      "title": "Experiência de Unboxing Premium",
+      "alt": "Saquinho de tecido de alta qualidade sobre base de veludo preto, criando um contraste elegante com o logotipo da marca."
+    },
+    {
+      "file": "5.png",
+      "title": "Embalagens de Presente Sofisticadas",
+      "alt": "Caixa de presente com acabamento minimalista, transmitindo a ideia de objeto de desejo e exclusividade."
+    },
+    {
+      "file": "6.png",
+      "title": "Papelaria Corporativa Minimalista",
+      "alt": "Cartão de visita em papel de gramatura pesada com acabamento fosco, em sintonia com a estética clean da marca."
+    },
+    {
+      "file": "7.png",
+      "title": "Apresentação de Peças em Papelaria",
+      "alt": "Peças de semijoias exibidas sobre cartão timbrado, reforçando a sutileza e o detalhe artesanal."
+    },
+    {
+      "file": "8.png",
+      "title": "Embalagem de Luxo com Laço",
+      "alt": "Caixa fechada com fita de gorgurão, destacando o cuidado manual na finalização da entrega ao cliente."
+    },
+    {
+      "file": "9.png",
+      "title": "Display de Ponto de Venda",
+      "alt": "Tag de marca aplicada a display acrílico, ideal para vitrines e apresentação de brincos com elegância."
+    },
+    {
+      "file": "10.png",
+      "title": "Logotipo Principal Sara",
+      "alt": "Assinatura visual com tipografia de letras finas e espaçadas, refletindo a essência minimalista da marca."
+    }
+  ]
+}

@@ -4,7 +4,10 @@
     { "id": "artesanal", "name": "Artesanal" },
     { "id": "branding", "name": "Branding" },
     { "id": "beleza", "name": "Beleza" },
+    { "id": "bem-estar", "name": "Bem-estar" },
+    { "id": "calçados", "name": "Calçados" },
     { "id": "confeitaria", "name": "Confeitaria" },
+    { "id": "cosmético", "name": "Cosmético" },
     { "id": "culinaria", "name": "Culinária" },
     { "id": "delicias", "name": "Delícias" },
     { "id": "design-de-interiores", "name": "Design de Interiores" },
@@ -16,6 +19,9 @@
     { "id": "joias", "name": "Joias" },
     { "id": "gastronomia", "name": "Gastronomia" },
     { "id": "luxo", "name": "Luxo" },
-    { "id": "moda", "name": "Moda" }
+    { "id": "moda", "name": "Moda" },
+    { "id": "nutricionistas", "name": "Nutricionistas" },
+    { "id": "saúde", "name": "Saúde" },
+    { "id": "skin-care", "name": "Skin care" }
   ]
 }

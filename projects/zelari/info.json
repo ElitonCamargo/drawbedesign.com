@@ -1,0 +1,62 @@
+{
+  "name": "ZELARI",
+  "slogan": "Interior Design",
+  "description": "Identidade visual pautada na serenidade arquitetônica e na curadoria refinada. Utilizando uma paleta de tons areia e off-white, a marca transmite equilíbrio através de tipografia serifada fina e monogramas orgânicos, comunicando um luxo essencial voltado para ambientes de perenidade e harmonia funcional.",
+  "tags": ["branding para interiores", "arquitetura de luxo essencial", "design de curadoria", "identidade visual minimalista", "branding para escritórios de design", "estética orgânica"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Design de Acessórios de Curadoria",
+      "alt": "Objeto decorativo oval minimalista com o logotipo Zelari gravado, representando a atenção aos detalhes em ambientes."
+    },
+    {
+      "file": "2.png",
+      "title": "Branding em Elementos Orgânicos",
+      "alt": "Caderno de projetos sobre superfície de pedra clara ao lado de um galho seco, evocando a conexão entre natureza e espaço."
+    },
+    {
+      "file": "3.png",
+      "title": "Organização e Planejamento de Projetos",
+      "alt": "Páginas internas de agenda com layout limpo e detalhado, simbolizando a precisão na gestão de obra."
+    },
+    {
+      "file": "4.png",
+      "title": "Identidade Visual e Embalagem",
+      "alt": "Dust bag de tecido natural com logotipo Zelari, reforçando o posicionamento de luxo e cuidado com o cliente."
+    },
+    {
+      "file": "5.png",
+      "title": "Atendimento e Consultoria",
+      "alt": "Profissional segurando caderno com logotipo Zelari, transmitindo elegância e seriedade no design de interiores."
+    },
+    {
+      "file": "6.png",
+      "title": "Material de Especificação e Texturas",
+      "alt": "Mesa de trabalho com amostras de tecidos, papéis e paleta de cores, mostrando o processo de curadoria do escritório."
+    },
+    {
+      "file": "7.png",
+      "title": "Packaging para Materiais nobres",
+      "alt": "Caixa de madeira clara com tag delicada, ideal para entrega de projetos ou amostras de revestimentos."
+    },
+    {
+      "file": "8.png",
+      "title": "Papelaria Corporativa Técnica",
+      "alt": "Envelope e papel timbrado com ferramentas de desenho, unindo a técnica arquitetônica à sofisticação visual."
+    },
+    {
+      "file": "9.png",
+      "title": "Monograma Minimalista",
+      "alt": "Monograma Z estilizado com traços orgânicos, refletindo a harmonia e o diálogo silencioso entre forma e espaço."
+    },
+    {
+      "file": "10.png",
+      "title": "Logotipo Principal Zelari",
+      "alt": "Assinatura visual principal em tipografia serifada de traços finos sobre fundo cinza quente."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "name": "SOLENNE",
+  "slogan": "Shoes",
+  "description": "Identidade visual que traduz a elegância feminina através de um luxo sóbrio e atemporal. Com paleta em tons de bege e off-white, a marca utiliza tipografia serifada fina e monogramas estilizados para comunicar prestígio, conforto e um design autoral que valoriza a atenção aos detalhes em calçados femininos.",
+  "tags": ["branding para calçados", "design de luxo feminino", "identidade visual premium", "branding para moda autoral", "embalagem de luxo", "direção de arte moda"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Design de Calçados e Ergonomia",
+      "alt": "Sandália minimalista sobre superfície neutra, destacando o design limpo e a qualidade dos materiais da Solenne."
+    },
+    {
+      "file": "2.png",
+      "title": "Experiência Sensorial (Dust Bag)",
+      "alt": "Dust bag de tecido acetinado com logotipo Solenne, reforçando o cuidado e o conforto na proteção do calçado."
+    },
+    {
+      "file": "3.png",
+      "title": "Exposição de Produto (Display)",
+      "alt": "Base de apresentação em tom neutro com iluminação focada, evidenciando formas e volumes do design."
+    },
+    {
+      "file": "4.png",
+      "title": "Packaging Institucional",
+      "alt": "Sacola de papel de alta gramatura com alças de fita acetinada, comunicando sofisticação na entrega."
+    },
+    {
+      "file": "5.png",
+      "title": "Fotografia de Campanha",
+      "alt": "Close em pernas femininas exibindo sapatos Solenne, sugerindo uma presença marcante e atemporal."
+    },
+    {
+      "file": "6.png",
+      "title": "Tag de Identificação de Produto",
+      "alt": "Tag de marca em papel de alta gramatura com acabamento fosco e amarração delicada."
+    },
+    {
+      "file": "7.png",
+      "title": "Caixa de Calçado Premium",
+      "alt": "Caixa de estrutura rígida com acabamento sofisticado, posicionando o sapato como um objeto de desejo."
+    },
+    {
+      "file": "8.png",
+      "title": "Papelaria e Mimos ao Cliente",
+      "alt": "Cartão institucional com papel texturizado ao lado de elementos naturais, simbolizando o refinamento do atendimento."
+    },
+    {
+      "file": "9.png",
+      "title": "Logotipo Principal Solenne",
+      "alt": "Assinatura visual da marca em tipografia serifada de traços finos sobre fundo off-white."
+    },
+    {
+      "file": "10.png",
+      "title": "Monograma Estilizado",
+      "alt": "Símbolo minimalista formado pelas iniciais da marca, representando a essência da elegância Solenne."
+    }
+  ]
+}

@@ -306,7 +306,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Botões de navegação minimalistas */
 .swiper-button-next, .swiper-button-prev {
-  color: var(--muted); width: 44px; height: 44px; border-radius: 50%;
+  color: var(--muted) !important; width: 44px; height: 44px; border-radius: 50%;
   background: rgba(255, 255, 255, 0.575); box-shadow: 0 2px 12px rgba(0,0,0,0.1);
   transition: all 0.2s ease; padding: 12px;
 }

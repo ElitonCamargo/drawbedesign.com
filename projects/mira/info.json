@@ -1,0 +1,57 @@
+{
+  "name": "MIRA",
+  "slogan": "Faces",
+  "description": "Identidade visual estratégica para Mira Faces, focada em pureza e alta performance no segmento clean beauty. O projeto utiliza uma paleta verde-oliva e neutros botânicos, unindo tipografia serifada minimalista a texturas sensoriais para comunicar uma beleza consciente, renovadora e de elegância natural.",
+  "tags": ["branding para cosméticos", "identidade visual clean beauty", "design de embalagem premium", "logotipo floral minimalista", "direção de arte beleza", "branding cosmética facial"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Design de Embalagem de Luxo",
+      "alt": "Pote de creme facial com acabamento fosco e espátula de madeira, posicionado sobre suporte geométrico minimalista."
+    },
+    {
+      "file": "2.png",
+      "title": "Branding Editorial de Skincare",
+      "alt": "Retrato de close-up facial com aplicação de máscara de argila e o logotipo Mira centralizado, transmitindo cuidado profundo."
+    },
+    {
+      "file": "3.png",
+      "title": "Fotografia de Produto Orgânica",
+      "alt": "Bisnaga de cosmético Mira Faces em pé sobre rocha natural ao lado de um figo, evocando ingredientes botânicos."
+    },
+    {
+      "file": "4.png",
+      "title": "Embalagem de Óleo Facial Premium",
+      "alt": "Frasco de óleo facial em vidro âmbar com conta-gotas, destacando a transparência e a sofisticação da marca."
+    },
+    {
+      "file": "5.png",
+      "title": "Necessaire e Textura Tátil",
+      "alt": "Pequena bolsa de cosméticos em tom oliva sobre tecido branco texturizado, reforçando o luxo sensorial."
+    },
+    {
+      "file": "6.png",
+      "title": "Sérum em Cenário de Bem-Estar",
+      "alt": "Frasco de sérum branco fosco sobre base de pedra porosa e madeira, simbolizando o equilíbrio entre ciência e natureza."
+    },
+    {
+      "file": "7.png",
+      "title": "Packaging de Luxo e Hidratação",
+      "alt": "Estojo de cosméticos com acabamento brilhante sobre superfície com textura de água, remetendo a frescor e hidratação."
+    },
+    {
+      "file": "8.png",
+      "title": "Logotipo Principal Mira Faces",
+      "alt": "Logotipo minimalista Mira Faces em branco sobre fundo sólido verde-oliva suave, base da identidade visual."
+    },
+    {
+      "file": "9.png",
+      "title": "Ícone Floral Minimalista",
+      "alt": "Símbolo gráfico floral em traços finos e delicados, representando a essência botânica da marca Mira."
+    }
+  ]
+}

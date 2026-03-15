@@ -1,0 +1,52 @@
+{
+  "name": "LIMA",
+  "slogan": "Arquitetura e Design de Interiores",
+  "description": "Identidade visual que projeta sobriedade e força estrutural através de uma paleta em tons de café e terrosos profundos. O branding equilibra a caligrafia gestual fluida com o minimalismo técnico, comunicando sofisticação orgânica e um luxo tátil que valoriza a conexão entre o espaço e o habitante.",
+  "tags": ["branding para arquitetos", "identidade visual design de interiores", "logotipo caligráfico", "design de luxo tátil", "papelaria artesanal arquitetura", "direção de arte corporativa"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Conceito Artístico e Gestual",
+      "alt": "Sobreposição do logotipo em caligrafia fluida sobre textura abstrata em tons de marrom, evocando a sensibilidade artística do design."
+    },
+    {
+      "file": "2.png",
+      "title": "Materiais Institucionais em Couro",
+      "alt": "Pastas de couro ou material texturizado em tons de marrom-acinzentado, comunicando estabilidade e maturidade profissional."
+    },
+    {
+      "file": "3.png",
+      "title": "Ecobag Minimalista em Tons Terrosos",
+      "alt": "Bolsa de tecido cru com o logotipo Lima Arquitetura pendurada em cadeira de design, representando a presença da marca no cotidiano."
+    },
+    {
+      "file": "4.png",
+      "title": "Papel Timbrado e Comunicação Técnica",
+      "alt": "Conjunto de papelaria técnica com envelope e papel timbrado sobre mesa de madeira escura, focando na precisão da arquitetura."
+    },
+    {
+      "file": "5.png",
+      "title": "Apresentação de Projeto e Portfólio",
+      "alt": "Pasta institucional aberta sobre mesa de centro de madeira, exibindo plantas ou desenhos técnicos com o branding da marca."
+    },
+    {
+      "file": "6.png",
+      "title": "Papelaria com Textura Artesanal",
+      "alt": "Cartões de marca sobre pedra bruta, destacando o papel artesanal de bordas irregulares e a paleta de cores sóbria."
+    },
+    {
+      "file": "7.png",
+      "title": "Acessórios de Escritório Premium",
+      "alt": "Caneca cerâmica em tom café fosco com logotipo gravado, inserida em um ambiente de escritório com iluminação suave."
+    },
+    {
+      "file": "8.png",
+      "title": "Assinatura Visual Lima",
+      "alt": "Logotipo principal em fundo sólido café, exibindo o contraste entre a escrita manual e a tipografia de apoio minimalista."
+    }
+  ]
+}

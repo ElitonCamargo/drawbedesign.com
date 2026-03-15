@@ -1,0 +1,62 @@
+{
+  "name": "LÍVIA",
+  "slogan": "Nutricionista",
+  "description": "Identidade visual desenvolvida para a nutricionista Lívia, focada em bem-estar integral e leveza. O projeto utiliza uma estética botânica com paleta em tons de sálvia e areia, fugindo do visual clínico tradicional. A marca combina tipografia delicada e ícones orgânicos para transmitir uma nutrição humanizada, sofisticada e profundamente harmoniosa.",
+  "tags": ["branding para nutricionistas", "identidade visual saúde e bem-estar", "logotipo botânico", "design para profissionais de saúde", "papelaria premium nutrição", "marketing para nutricionistas"],
+  "links": {
+    "website": "",
+    "instagram": ""
+  },
+  "images": [
+    {
+      "file": "1.png",
+      "title": "Papelaria Institucional e Gestão",
+      "alt": "Mãos segurando uma agenda de linho creme com o logotipo Lívia, representando a organização e o cuidado personalizado no atendimento."
+    },
+    {
+      "file": "2.png",
+      "title": "Packaging de Suplementos ou Brindes",
+      "alt": "Sacola de papel premium com alças de cetim e logotipo em relevo, simbolizando uma experiência de marca exclusiva."
+    },
+    {
+      "file": "3.png",
+      "title": "Materiais de Entrega de Planos",
+      "alt": "Pasta de couro sintético ou papel de alta gramatura verde sálvia, utilizada para a entrega profissional de planos alimentares."
+    },
+    {
+      "file": "4.png",
+      "title": "Branding em Utilitários de Bem-Estar",
+      "alt": "Garrafa de vidro jateado com logotipo minimalista sobre mesa de madeira, evocando hidratação e um estilo de vida consciente."
+    },
+    {
+      "file": "5.png",
+      "title": "Cartões de Visita com Estética Orgânica",
+      "alt": "Dois cartões de visita nas cores sálvia e creme ao lado de uma fatia de laranja, reforçando a conexão com a alimentação natural."
+    },
+    {
+      "file": "6.png",
+      "title": "Instrumentos de Análise Clínica",
+      "alt": "Prancheta dourada com papel timbrado personalizado da nutricionista, unindo funcionalidade técnica à elegância visual."
+    },
+    {
+      "file": "7.png",
+      "title": "Experiência de Cuidado e Acolhimento",
+      "alt": "Envelope areia com lacre de cera e cartão de agradecimento, demonstrando a atenção aos detalhes na jornada do paciente."
+    },
+    {
+      "file": "8.png",
+      "title": "Sinalização de Consultório Premium",
+      "alt": "Placa de vidro com espaçadores dourados exibindo o logotipo Lívia Nutricionista, elevando o padrão estético do ambiente clínico."
+    },
+    {
+      "file": "9.png",
+      "title": "Logotipo Principal e Tipografia",
+      "alt": "Logotipo Lívia Nutri em tipografia serifada delicada, transmitindo autoridade e suavidade simultaneamente."
+    },
+    {
+      "file": "10.png",
+      "title": "Símbolo Minimalista e Botânico",
+      "alt": "Ícone estilizado remetendo a fatias de frutas cítricas em linhas finas sobre fundo verde sálvia, núcleo da identidade visual."
+    }
+  ]
+}

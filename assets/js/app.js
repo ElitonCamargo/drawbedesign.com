@@ -43,13 +43,14 @@
 		main.append(hero);
 		main.append(carouselSection);
 
-		const basePath = `/projects/${slug}/images/`;
+		const basePath = `/projects/${slug}/`;
 		const items = (info.images || []).map(img => ({
 			src: basePath + img.file,
 			alt: (img.alt && img.alt.trim()) ? img.alt : title,
 			caption: img.title || ''
 		}));
 
+		console.log(items);
 		// Garante que o CSS/JS do Swiper estejam carregados (via CDN)
 		await ensureSwiperAssets();
 
