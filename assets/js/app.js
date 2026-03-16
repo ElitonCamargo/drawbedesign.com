@@ -59,7 +59,7 @@
 		const loader = UI.el('div', { class: 'project-loader', role: 'status', 'aria-live': 'polite' }, [
 			UI.el('span', { class: 'project-loader-text' }, [document.createTextNode('Carregando imagens...')])
 		]);
-		
+
 		mount.append(loader);
 
 		if (mount && items.length) {
@@ -93,7 +93,25 @@
 
 
 				requestAnimationFrame(() => {
-					const loadImageInSlide = (slideEl, swiper) => {
+					let firstBatchPending = 0;
+					let firstBatchDone = false;
+
+					const hideLoader = () => {
+						if (firstBatchDone) return;
+						firstBatchDone = true;
+						loader.classList.add('is-hidden');
+					};
+
+					const trackFirstBatchStart = () => {
+						firstBatchPending += 1;
+					};
+
+					const trackFirstBatchEnd = () => {
+						firstBatchPending = Math.max(0, firstBatchPending - 1);
+						if (firstBatchPending === 0) hideLoader();
+					};
+					
+					const loadImageInSlide = (slideEl, swiper, trackFirstBatch = false) => {
 						if (!slideEl) return;
 						const img = slideEl.querySelector('img[data-src]');
 						if (!img) return;
@@ -101,23 +119,26 @@
 						const realSrc = img.getAttribute('data-src');
 						if (!realSrc) return;
 
-						// Se já carregou, não repete
 						if (img.dataset.loaded === '1' && img.src === realSrc) return;
 
-						// Marca antes para evitar corridas
+						if (trackFirstBatch) trackFirstBatchStart();
+
 						img.dataset.loaded = '1';
 						img.src = realSrc;
 
-						// Recalcula quando terminar
-						const onDone = () => swiper.update();
-						img.addEventListener('load', onDone, { once: true });
+						const done = () => {
+							swiper.update();
+							if (trackFirstBatch) trackFirstBatchEnd();
+						};
+
+						img.addEventListener('load', done, { once: true });
 						img.addEventListener('error', () => {
-							// Permite tentar novamente depois em caso de erro temporário
 							img.dataset.loaded = '0';
+							if (trackFirstBatch) trackFirstBatchEnd();
 						}, { once: true });
 					};
 
-					const preloadAroundActive = (swiper) => {
+					const preloadAroundActive = (swiper, trackFirstBatch = false) => {
 						const slides = swiper.slides || [];
 						const total = slides.length;
 						if (!total) return;
@@ -126,9 +147,9 @@
 						const prev = (i - 1 + total) % total;
 						const next = (i + 1) % total;
 
-						loadImageInSlide(slides[prev], swiper);
-						loadImageInSlide(slides[i], swiper);
-						loadImageInSlide(slides[next], swiper);
+						loadImageInSlide(slides[prev], swiper, trackFirstBatch);
+						loadImageInSlide(slides[i], swiper, trackFirstBatch);
+						loadImageInSlide(slides[next], swiper, trackFirstBatch);
 					};
 
 					const swiper = new window.Swiper('#' + swiperId, {
@@ -155,7 +176,8 @@
 
 						on: {
 							init: function () {
-								preloadAroundActive(this);
+								preloadAroundActive(this, true);
+								if (firstBatchPending === 0) hideLoader();
 							},
 							slideChangeTransitionStart: function () {
 								preloadAroundActive(this);
@@ -164,7 +186,11 @@
 					});
 
 					// Fallback contra corrida de init/classe
-					preloadAroundActive(swiper);
+					preloadAroundActive(swiper, true);
+						setTimeout(() => {
+						preloadAroundActive(swiper, true);
+						if (firstBatchPending === 0) hideLoader();
+					}, 120);
 					setTimeout(() => preloadAroundActive(swiper), 120);
 				});
 
