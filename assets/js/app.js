@@ -17,7 +17,7 @@
 		let info;
 		try { info = await UI.fetchJSON(infoUrl); }
 		catch (e) {
-			main.append(UI.el('div', { class: 'container' }, [UI.el('p', {}, [document.createTextNode('Projeto não encontrado.')]) ]));
+			main.append(UI.el('div', { class: 'container' }, [UI.el('p', {}, [document.createTextNode('Projeto não encontrado.')])]));
 			return;
 		}
 
@@ -50,16 +50,30 @@
 			caption: img.title || ''
 		}));
 
-		console.log(items);
 		// Garante que o CSS/JS do Swiper estejam carregados (via CDN)
 		await ensureSwiperAssets();
 
 		// Monta o Swiper na seção de galeria
 		const mount = UI.qs('.swiper-mount', carouselSection);
+
+		const loader = UI.el('div', { class: 'project-loader', role: 'status', 'aria-live': 'polite' }, [
+			UI.el('span', { class: 'project-loader-text' }, [document.createTextNode('Carregando imagens...')])
+		]);
+		
+		mount.append(loader);
+
 		if (mount && items.length) {
 			const swiperId = 'projectSwiper';
 			const slides = items.map((item) => UI.el('div', { class: 'swiper-slide' }, [
-				UI.el('img', {onclick: () => openFullscreen(item.src), src: item.src, alt: item.alt || '', class: 'project-image' }),
+				UI.el('img', {
+					onclick: () => openFullscreen(item.src),
+					src: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==',
+					'data-src': item.src,
+					alt: item.alt || '',
+					class: 'project-image',
+					loading: 'lazy',
+					decoding: 'async'
+				}),
 				item.caption ? UI.el('div', { class: 'swiper-caption' }, [
 					UI.el('span', {}, [document.createTextNode(item.caption)])
 				]) : document.createTextNode('')
@@ -75,16 +89,55 @@
 			mount.append(swiperEl);
 
 			// Inicializa o Swiper
-			if (window.Swiper) {		
-				
-				
+			if (window.Swiper) {
+
+
 				requestAnimationFrame(() => {
+					const loadImageInSlide = (slideEl, swiper) => {
+						if (!slideEl) return;
+						const img = slideEl.querySelector('img[data-src]');
+						if (!img) return;
+
+						const realSrc = img.getAttribute('data-src');
+						if (!realSrc) return;
+
+						// Se já carregou, não repete
+						if (img.dataset.loaded === '1' && img.src === realSrc) return;
+
+						// Marca antes para evitar corridas
+						img.dataset.loaded = '1';
+						img.src = realSrc;
+
+						// Recalcula quando terminar
+						const onDone = () => swiper.update();
+						img.addEventListener('load', onDone, { once: true });
+						img.addEventListener('error', () => {
+							// Permite tentar novamente depois em caso de erro temporário
+							img.dataset.loaded = '0';
+						}, { once: true });
+					};
+
+					const preloadAroundActive = (swiper) => {
+						const slides = swiper.slides || [];
+						const total = slides.length;
+						if (!total) return;
+
+						const i = swiper.activeIndex || 0;
+						const prev = (i - 1 + total) % total;
+						const next = (i + 1) % total;
+
+						loadImageInSlide(slides[prev], swiper);
+						loadImageInSlide(slides[i], swiper);
+						loadImageInSlide(slides[next], swiper);
+					};
+
 					const swiper = new window.Swiper('#' + swiperId, {
 						loop: true,
 						centeredSlides: true,
 						slidesPerView: 'auto',
 						spaceBetween: 4,
 						grabCursor: true,
+						preloadImages: false,
 
 						navigation: {
 							nextEl: '.swiper-button-next',
@@ -97,32 +150,22 @@
 						},
 
 						keyboard: { enabled: true },
-
 						observer: true,
-						observeParents: true
-					});
-					// 🔥 AJUSTE DEFINITIVO
-					const images = swiperEl.querySelectorAll('img');
-					let loaded = 0;
+						observeParents: true,
 
-					images.forEach(img => {
-						if (img.complete) {
-						loaded++;
-						} else {
-						img.addEventListener('load', () => {
-							loaded++;
-							if (loaded === images.length) fixSwiper();
-						});
+						on: {
+							init: function () {
+								preloadAroundActive(this);
+							},
+							slideChangeTransitionStart: function () {
+								preloadAroundActive(this);
+							}
 						}
 					});
 
-					if (loaded === images.length) fixSwiper();
-
-					function fixSwiper() {
-						swiper.update();
-						swiper.slideNext(0); // força cálculo
-						swiper.slidePrev(0);
-					}
+					// Fallback contra corrida de init/classe
+					preloadAroundActive(swiper);
+					setTimeout(() => preloadAroundActive(swiper), 120);
 				});
 
 			}
@@ -137,7 +180,7 @@
 		main.innerHTML = '';
 		main.appendChild(aboutHtml);
 		UI.setTitleAndMeta('Sobre', 'Saiba mais sobre a drawbe e nosso trabalho de design.');
-		
+
 		// Reinicializa o sistema de motion para os novos elementos
 		if (window.Motion && window.Motion.initMotion) {
 			window.Motion.initMotion();
@@ -167,7 +210,7 @@
 		main.innerHTML = '';
 		main.appendChild(contactHtml);
 		UI.setTitleAndMeta('Contato', 'Entre em contato com a drawbe via WhatsApp, e-mail ou Instagram.');
-		
+
 		// Reinicializa o sistema de motion para os novos elementos
 		if (window.Motion && window.Motion.initMotion) {
 			window.Motion.initMotion();
@@ -194,37 +237,37 @@
 	}
 
 	// Controla visibilidade do header ao rolar a página
-    function setupHeaderScroll() {
-        let lastScrollY = 0;
-        const header = UI.qs('.site-header');
-        const logoContainer = UI.qs('.brand-area');
-        
-        if (!header || !logoContainer) return;
+	function setupHeaderScroll() {
+		let lastScrollY = 0;
+		const header = UI.qs('.site-header');
+		const logoContainer = UI.qs('.brand-area');
 
-        // Obtém a altura do brand-area (posição de referência)
-        const logoHeight = logoContainer.offsetHeight;
+		if (!header || !logoContainer) return;
 
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            
-            // Se voltou ao topo (antes da altura do logo)
-            if (currentScrollY < logoHeight) {
-                header.classList.remove('fixo');
-            }
-            // Se está descendo (scroll para baixo)
-            else if (currentScrollY > lastScrollY && currentScrollY > logoHeight) {
-                // Remove a classe fixo quando descendo
-                header.classList.remove('fixo');
-            }
-            // Se está voltando para cima (scroll para cima) E passou do logo
-            else if (currentScrollY < lastScrollY && currentScrollY > logoHeight) {
-                // Aplica a classe fixo quando voltando para cima
-                header.classList.add('fixo');
-            }
-            
-            lastScrollY = currentScrollY;
-        });
-    }
+		// Obtém a altura do brand-area (posição de referência)
+		const logoHeight = logoContainer.offsetHeight;
+
+		window.addEventListener('scroll', () => {
+			const currentScrollY = window.scrollY;
+
+			// Se voltou ao topo (antes da altura do logo)
+			if (currentScrollY < logoHeight) {
+				header.classList.remove('fixo');
+			}
+			// Se está descendo (scroll para baixo)
+			else if (currentScrollY > lastScrollY && currentScrollY > logoHeight) {
+				// Remove a classe fixo quando descendo
+				header.classList.remove('fixo');
+			}
+			// Se está voltando para cima (scroll para cima) E passou do logo
+			else if (currentScrollY < lastScrollY && currentScrollY > logoHeight) {
+				// Aplica a classe fixo quando voltando para cima
+				header.classList.add('fixo');
+			}
+
+			lastScrollY = currentScrollY;
+		});
+	}
 
 	// Carrega (se necessário) os assets do Swiper via CDN
 	async function ensureSwiperAssets() {
@@ -239,9 +282,9 @@
 			link.rel = 'stylesheet';
 			link.href = swiperCssHref;
 
-			// encontra o main.css
+			// encontra o main.min.css
 			const mainCssLink = Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
-				.find(l => l.href && l.href.includes('/assets/css/main.css'));
+				.find(l => l.href && l.href.includes('/assets/css/main.min.css'));
 
 			if (mainCssLink) {
 				document.head.insertBefore(link, mainCssLink);
@@ -272,7 +315,7 @@
 	async function boot() {
 		// Detecta a página pela URL, não pelo data-page (que é sempre 'home' no index.html)
 		const path = location.pathname.replace(/\/+$/, '') || '/';
-		
+
 		if (path === '/' || path === '') {
 			await Portfolio.initPortfolio();
 		} else if (path.startsWith('/project/')) {
@@ -282,9 +325,9 @@
 			await renderAbout();
 		}
 		else if (path === '/services' || path === '/services.html') {
-		// Chama renderServices para a página Serviços
+			// Chama renderServices para a página Serviços
 			await renderServices();
-		} 
+		}
 		else if (path === '/contact' || path === '/contact.html') {
 			// Chama renderContact para a página Contato
 			await renderContact();
@@ -304,7 +347,7 @@
 		// Marca o link ativo do menu principal conforme a rota atual
 		UI.qsa('.site-nav a').forEach(a => {
 			const href = new URL(a.getAttribute('href'), location.origin).pathname.replace(/\/+$/, '') || '/';
-			
+
 			a.classList.toggle('active', href === path);
 		});
 		// Marca o estado ativo também na marca (logo) quando aplicável
@@ -327,8 +370,8 @@
 
 		const phone = '5515996305201';
 
-		const formattedMessage = 
-	`*${subject}*
+		const formattedMessage =
+			`*${subject}*
 
 	${message}
 
@@ -347,7 +390,7 @@
 	document.head.appendChild(canonical);
 
 	window.App = { boot };
-	
+
 	// Inicializa automaticamente quando DOM estiver pronto
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', boot);
