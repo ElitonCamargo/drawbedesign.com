@@ -92,7 +92,7 @@
 			if (window.Swiper) {
 
 
-				requestAnimationFrame(() => {
+				setTimeout(() => {
 					let firstBatchPending = 0;
 					let firstBatchDone = false;
 
@@ -192,7 +192,7 @@
 						if (firstBatchPending === 0) hideLoader();
 					}, 120);
 					setTimeout(() => preloadAroundActive(swiper), 120);
-				});
+				}, 0);
 
 			}
 		}
