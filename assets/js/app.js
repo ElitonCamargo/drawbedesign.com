@@ -17,7 +17,7 @@
 		let info;
 		try { info = await UI.fetchJSON(infoUrl); }
 		catch (e) {
-			main.append(UI.el('div', { class: 'container' }, [UI.el('p', {}, [document.createTextNode('Projeto não encontrado.')])]));
+			main.append(UI.el('div', { class: 'container' }, [UI.el('p', {}, [document.createTextNode('Projeto não encontrado.')]) ]));
 			return;
 		}
 
@@ -55,25 +55,10 @@
 
 		// Monta o Swiper na seção de galeria
 		const mount = UI.qs('.swiper-mount', carouselSection);
-
-		const loader = UI.el('div', { class: 'project-loader', role: 'status', 'aria-live': 'polite' }, [
-			UI.el('span', { class: 'project-loader-text' }, [document.createTextNode('Carregando imagens...')])
-		]);
-
-		mount.append(loader);
-
 		if (mount && items.length) {
 			const swiperId = 'projectSwiper';
 			const slides = items.map((item) => UI.el('div', { class: 'swiper-slide' }, [
-				UI.el('img', {
-					onclick: () => openFullscreen(item.src),
-					src: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==',
-					'data-src': item.src,
-					alt: item.alt || '',
-					class: 'project-image',
-					loading: 'lazy',
-					decoding: 'async'
-				}),
+				UI.el('img', {onclick: () => openFullscreen(item.src), src: item.src, alt: item.alt || '', class: 'project-image' }),
 				item.caption ? UI.el('div', { class: 'swiper-caption' }, [
 					UI.el('span', {}, [document.createTextNode(item.caption)])
 				]) : document.createTextNode('')
@@ -89,76 +74,16 @@
 			mount.append(swiperEl);
 
 			// Inicializa o Swiper
-			if (window.Swiper) {
-
-
-				setTimeout(() => {
-					let firstBatchPending = 0;
-					let firstBatchDone = false;
-
-					const hideLoader = () => {
-						if (firstBatchDone) return;
-						firstBatchDone = true;
-						loader.classList.add('is-hidden');
-					};
-
-					const trackFirstBatchStart = () => {
-						firstBatchPending += 1;
-					};
-
-					const trackFirstBatchEnd = () => {
-						firstBatchPending = Math.max(0, firstBatchPending - 1);
-						if (firstBatchPending === 0) hideLoader();
-					};
-					
-					const loadImageInSlide = (slideEl, swiper, trackFirstBatch = false) => {
-						if (!slideEl) return;
-						const img = slideEl.querySelector('img[data-src]');
-						if (!img) return;
-
-						const realSrc = img.getAttribute('data-src');
-						if (!realSrc) return;
-
-						if (img.dataset.loaded === '1' && img.src === realSrc) return;
-
-						if (trackFirstBatch) trackFirstBatchStart();
-
-						img.dataset.loaded = '1';
-						img.src = realSrc;
-
-						const done = () => {
-							swiper.update();
-							if (trackFirstBatch) trackFirstBatchEnd();
-						};
-
-						img.addEventListener('load', done, { once: true });
-						img.addEventListener('error', () => {
-							img.dataset.loaded = '0';
-							if (trackFirstBatch) trackFirstBatchEnd();
-						}, { once: true });
-					};
-
-					const preloadAroundActive = (swiper, trackFirstBatch = false) => {
-						const slides = swiper.slides || [];
-						const total = slides.length;
-						if (!total) return;
-
-						const i = swiper.activeIndex || 0;
-						const prev = (i - 1 + total) % total;
-						const next = (i + 1) % total;
-
-						loadImageInSlide(slides[prev], swiper, trackFirstBatch);
-						loadImageInSlide(slides[i], swiper, trackFirstBatch);
-						loadImageInSlide(slides[next], swiper, trackFirstBatch);
-					};
-
+			if (window.Swiper) {		
+				
+				
+				requestAnimationFrame(() => {
 					const swiper = new window.Swiper('#' + swiperId, {
-						loop: true,
+						loop: false,
 						centeredSlides: true,
 						slidesPerView: 'auto',
 						spaceBetween: 4,
 						grabCursor: true,
-						preloadImages: false,
 
 						navigation: {
 							nextEl: '.swiper-button-next',
@@ -171,28 +96,36 @@
 						},
 
 						keyboard: { enabled: true },
+
 						observer: true,
 						observeParents: true,
 
-						on: {
-							init: function () {
-								preloadAroundActive(this, true);
-								if (firstBatchPending === 0) hideLoader();
-							},
-							slideChangeTransitionStart: function () {
-								preloadAroundActive(this);
-							}
+						initialSlide: 0
+					});
+					// 🔥 AJUSTE DEFINITIVO
+					const images = swiperEl.querySelectorAll('img');
+					let loaded = 0;
+
+					images.forEach(img => {
+						if (img.complete) {
+						loaded++;
+						} else {
+						img.addEventListener('load', () => {
+							loaded++;
+							if (loaded === images.length) fixSwiper();
+						});
 						}
 					});
 
-					// Fallback contra corrida de init/classe
-					preloadAroundActive(swiper, true);
-						setTimeout(() => {
-						preloadAroundActive(swiper, true);
-						if (firstBatchPending === 0) hideLoader();
-					}, 120);
-					setTimeout(() => preloadAroundActive(swiper), 120);
-				}, 0);
+					if (loaded === images.length) fixSwiper();
+
+					function fixSwiper() {
+						swiper.update();
+						swiper.slideTo(0, 0);
+						// swiper.slideNext(0);
+						// swiper.slidePrev(0);
+					}
+				});
 
 			}
 		}
